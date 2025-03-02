@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edukasi</title>
+    <link href="../src/output.css" rel="stylesheet" />
+    <!-- Icon -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Plugin Alphine -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Alphine -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Sinkron Darkmode -->
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="font-inter"
+    style="opacity: 0"
+    onload="document.body.style.opacity='1'"
+  ></body>
+  <!-- Navbar -->
+  <nav
+    x-data="{ mobileMenuIsOpen: false }"
+    x-on:click.away="mobileMenuIsOpen = false"
+    class="flex items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
+    aria-label="penguin ui menu"
+  >
+    <div class="flex items-center">
+      <!-- Brand Logo -->
+      <a
+        href="#"
+        class="text-2xl font-bold text-neutral-900 dark:text-white mr-2 md:mr-5"
+        x-data="{ darkMode: false }"
+        x-init="darkMode = localStorage.getItem('theme') === 'dark'"
+        @theme-change.window="darkMode = $event.detail"
+      >
+        <img
+          x-bind:src="darkMode ? '../src/logo2.png' : '../src/logo1.png'"
+          alt="brand logo"
+          class="w-36 sm:w-40 lg:w-52"
+        />
+      </a>
+
+      <div class="w-full">
+        <!-- Search -->
+        <div
+          class="relative flex mr-auto w-full gap-1 text-neutral-600 dark:text-neutral-300 md:mb-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true"
+            class="absolute left-2.5 top-1/2 size-5 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+          <input
+            type="search"
+            name="search"
+            placeholder="Apa yang ingin Anda cari?"
+            aria-label="search"
+            class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-800 dark:focus-visible:outline-white"
+          />
+        </div>
+        <div>
+          <ul
+            class="hidden lg:flex items-center justify-around text-center gap-3 text-xs dark:text-neutral-300"
+          >
+            <li class="hover:text-primary">
+              <a href="">Baju</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Jeans</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Topi</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Kemeja</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Celana Pendek</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Celana Panjang</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Jas</a>
+            </li>
+            <li class="hover:text-primary">
+              <a href="">Kebaya</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Desktop Menu -->
+    <ul class="hidden items-center md:gap-2 xl:gap-3 shrink-0 sm:flex">
+      <li
+        x-data="{ isOpen: false, openedWithKeyboard: false }"
+        class="relative w-fit"
+        x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
+      >
+        <!-- Toggle Button -->
+        <button
+          type="button"
+          x-on:click="isOpen = ! isOpen"
+          class="inline-flex items-center px-3 py-1.5 md:text-xs lg:text-base font-medium text-medium text-primary tracking-wide transition"
+          aria-haspopup="true"
+          x-on:keydown.space.prevent="openedWithKeyboard = true"
+          x-on:keydown.enter.prevent="openedWithKeyboard = true"
+          x-on:keydown.down.prevent="openedWithKeyboard = true"
+          x-bind:class="isOpen || openedWithKeyboard ? 'text-neutral-900 dark:text-white' : 'text-neutral-600 dark:text-neutral-300'"
+          x-bind:aria-expanded="isOpen || openedWithKeyboard"
+        >
+          Program
+        </button>
+        <!-- Dropdown Menu -->
+        <div
+          x-cloak
+          x-show="isOpen || openedWithKeyboard"
+          x-transition
+          x-trap="openedWithKeyboard"
+          x-on:click.outside="isOpen = false, openedWithKeyboard = false"
+          x-on:keydown.down.prevent="$focus.wrap().next()"
+          x-on:keydown.up.prevent="$focus.wrap().previous()"
+          class="absolute top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+          role="menu"
+        >
+          <a
+            href="edukasi.html"
+            class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+            role="menuitem"
+            >Edukasi</a
+          >
+          <a
+            href="#"
+            class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+            role="menuitem"
+            >Koin</a
+          >
+        </div>
+      </li>
+      <li>
+        <a
+          href="donasi.html"
+          class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary dark:text-neutral-300 font-medium"
+        >
+          Donasi
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-primary dark:text-neutral-300">
+          <span
+            class="material-symbols-outlined text-primary dark:text-neutral-300"
+          >
+            shopping_cart
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-primary dark:text-neutral-300">
+          <span
+            class="material-symbols-outlined text-primary dark:text-neutral-300"
+          >
+            notifications
+          </span>
+        </a>
+      </li>
+      <!-- User Pic -->
+      <li
+        x-data="{ userDropDownIsOpen: false, openWithKeyboard: false }"
+        x-on:keydown.esc.window="userDropDownIsOpen = false, openWithKeyboard = false"
+        class="relative flex items-center"
+      >
+        <button
+          x-on:click="userDropDownIsOpen = ! userDropDownIsOpen"
+          x-bind:aria-expanded="userDropDownIsOpen"
+          x-on:keydown.space.prevent="openWithKeyboard = true"
+          x-on:keydown.enter.prevent="openWithKeyboard = true"
+          x-on:keydown.down.prevent="openWithKeyboard = true"
+          class="rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white"
+          aria-controls="userMenu"
+        >
+          <img
+            src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
+            alt="User Profile"
+            class="size-10 rounded-full object-cover"
+          />
+        </button>
+        <!-- User Dropdown -->
+        <ul
+          x-cloak
+          x-show="userDropDownIsOpen || openWithKeyboard"
+          x-transition.opacity
+          x-trap="openWithKeyboard"
+          x-on:click.outside="userDropDownIsOpen = false, openWithKeyboard = false"
+          x-on:keydown.down.prevent="$focus.wrap().next()"
+          x-on:keydown.up.prevent="$focus.wrap().previous()"
+          id="userMenu"
+          class="absolute -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+        >
+          <li class="border-b border-neutral-300 dark:border-neutral-700">
+            <div class="flex flex-col px-4 py-2">
+              <span class="text-sm font-medium text-neutral-900 dark:text-white"
+                >Dian Saskarani
+              </span>
+              <p class="text-xs text-neutral-600 dark:text-neutral-300">
+                6.000 Koin
+              </p>
+            </div>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+              ><span
+                class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+              >
+                settings </span
+              >Pengaturan</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-red-500 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+              ><span class="material-symbols-outlined text-red-500 mr-1.5">
+                logout </span
+              >Log out</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="text-primary dark:text-neutral-300">
+          <span
+            class="material-symbols-outlined text-primary dark:text-neutral-300"
+          >
+            live_help
+          </span>
+        </a>
+      </li>
+
+      <li
+        x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }"
+        @theme-change.window="darkMode = $event.detail"
+      >
+        <a
+          href="#"
+          class="text-primary dark:text-neutral-300"
+          @click.prevent="
+darkMode = !darkMode; 
+document.documentElement.classList.toggle('dark', darkMode); 
+localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
+$dispatch('theme-change', darkMode);"
+        >
+          <!-- Ikon untuk mode terang -->
+          <span class="material-symbols-outlined" x-show="!darkMode">
+            light_mode
+          </span>
+
+          <!-- Ikon untuk mode gelap -->
+          <span class="material-symbols-outlined" x-show="darkMode">
+            dark_mode
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="text-primary dark:text-neutral-300">
+          <span
+            class="material-symbols-outlined text-primary dark:text-neutral-300"
+          >
+            language
+          </span>
+        </a>
+      </li>
+    </ul>
+    <!-- Mobile Menu Button -->
+    <button
+      x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen"
+      x-bind:aria-expanded="mobileMenuIsOpen"
+      x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-20' : null"
+      type="button"
+      class="flex text-neutral-600 dark:text-neutral-300 sm:hidden"
+      aria-label="mobile menu"
+      aria-controls="mobileMenu"
+    >
+      <svg
+        x-cloak
+        x-show="!mobileMenuIsOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="size-6 text-primary dark:text-neutral-300"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+      <svg
+        x-cloak
+        x-show="mobileMenuIsOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <!-- Mobile Menu -->
+    <ul
+      x-cloak
+      x-show="mobileMenuIsOpen"
+      x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
+      x-transition:enter-start="-translate-y-full"
+      x-transition:enter-end="translate-y-0"
+      x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
+      x-transition:leave-start="translate-y-0"
+      x-transition:leave-end="-translate-y-full"
+      class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-10 flex flex-col rounded-b-sm border-b border-neutral-300 bg-neutral-50 py-5 dark:border-neutral-700 dark:bg-neutral-900 sm:hidden"
+    >
+      <li class="mb-4 border-none px-5">
+        <div class="flex items-center gap-2 py-2">
+          <img
+            src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
+            alt="User Profile"
+            class="size-12 rounded-full object-cover"
+          />
+          <div>
+            <span class="font-medium text-neutral-900 dark:text-white"
+              >Dian Saskarani</span
+            >
+            <p class="text-sm text-neutral-600 dark:text-neutral-300">
+              6.000 koin
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+      >
+        <a
+          href="#"
+          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+          ><span
+            class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+          >
+            shopping_cart
+          </span>
+          Cart</a
+        >
+      </li>
+      <li
+        class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+      >
+        <a
+          href="#"
+          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+          ><span
+            class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+          >
+            notifications
+          </span>
+          Notifikasi</a
+        >
+      </li>
+      <div x-data="{ openAccordion: '' }">
+        <div>
+          <button
+            type="button"
+            class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
+            @click="openAccordion = openAccordion === 'program' ? '' : 'program'"
+            aria-expanded="openAccordion === 'program'"
+          >
+            Program
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              class="size-5 transition"
+              :class="openAccordion === 'program' ? 'rotate-180' : ''"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+          <div x-show="openAccordion === 'program'" x-collapse>
+            <ul>
+              <li
+                class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
+              >
+                <a href="">Edukasi</a>
+              </li>
+              <li
+                class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
+              >
+                <a href="">Koin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
+          <a
+            href="#"
+            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+            >Donasi</a
+          >
+        </li>
+        <div>
+          <button
+            type="button"
+            class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
+            @click="openAccordion = openAccordion === 'language' ? '' : 'language'"
+            aria-expanded="openAccordion === 'language'"
+          >
+            <div class="flex items-center">
+              <span
+                class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+              >
+                language
+              </span>
+              Ganti Bahasa
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              class="size-5 transition"
+              :class="openAccordion === 'language' ? 'rotate-180' : ''"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+          <div x-show="openAccordion === 'language'" x-collapse>
+            <ul>
+              <li
+                class="py-2 border-b border-neutral-300 pl-8 dark:hover:bg-neutral-700 hover:bg-neutral-200 dark:text-neutral-300"
+              >
+                <a href="">Indonesia</a>
+              </li>
+              <li
+                class="py-2 border-b border-neutral-300 pl-8 dark:hover:bg-neutral-700 hover:bg-neutral-200 dark:text-neutral-300"
+              >
+                <a href="">Inggris</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          x-data="{ 
+       openAccordion: '', 
+       darkMode: localStorage.getItem('theme') === 'dark' 
+     }"
+          @theme-change.window="darkMode = $event.detail"
+        >
+          <button
+            type="button"
+            class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
+            @click="openAccordion = openAccordion === 'theme' ? '' : 'theme'"
+            aria-expanded="openAccordion === 'theme'"
+          >
+            <div class="flex items-center">
+              <span
+                class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                x-text="darkMode ? 'dark_mode' : 'light_mode'"
+              >
+              </span>
+              Ganti Mode
+            </div>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              class="size-5 transition"
+              :class="openAccordion === 'theme' ? 'rotate-180' : ''"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown Pilihan Tema -->
+          <div x-show="openAccordion === 'theme'" x-collapse>
+            <ul>
+              <li
+                class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                @click="
+             darkMode = true;
+             document.documentElement.classList.add('dark'); 
+             localStorage.setItem('theme', 'dark'); 
+             $dispatch('theme-change', true);"
+              >
+                Gelap
+              </li>
+
+              <li
+                class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                @click="
+             darkMode = false;
+             document.documentElement.classList.remove('dark'); 
+             localStorage.setItem('theme', 'light'); 
+             $dispatch('theme-change', false);"
+              >
+                Terang
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <li
+        class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+      >
+        <a
+          href="#"
+          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+          ><span
+            class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+          >
+            live_help
+          </span>
+          Bantuan</a
+        >
+      </li>
+      <li class="py-2 hover:bg-neutral-200 px-5 dark:hover:bg-neutral-700">
+        <a
+          href="#"
+          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+          ><span
+            class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+          >
+            settings
+          </span>
+          Pengaturan</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <!-- Navbar End -->
+  <main class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full">
+    <div class="flex flex-col items-center text-center mb-4 lg:mb-8">
+      <div
+        class="text-primary text-md md:text-lg lg:text-2xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+          />
+        </svg>
+
+        Edukasi
+      </div>
+      <div
+        class="text-neutral-600 text-[11px] lg:text-xs md:max-w-lg text-center dark:text-neutral-400"
+      >
+        Tingkatkan pengetahuan dan keterampilanmu dengan belajar hal baru setiap
+        harinya.
+      </div>
+    </div>
+    <div
+      class="w-full divide-y shadow-md divide-neutral-300 overflow-hidden rounded-lg border border-neutral-300 bg-neutral-50/40 text-neutral-600 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300"
+    >
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemOne"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemOne"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          Slow Fashion vs. Fast Fashion?
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemOne"
+          role="region"
+          aria-labelledby="controlsAccordionItemOne"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              Slow Fashion adalah konsep mode yang berfokus pada keberlanjutan,
+              etika, dan kualitas dibandingkan produksi massal dan tren yang
+              cepat berubah. Gerakan ini mendorong penggunaan bahan ramah
+              lingkungan, produksi yang adil bagi pekerja, serta desain pakaian
+              yang tahan lama dan tidak lekas usang. Dengan memilih Slow
+              Fashion, konsumen dapat mengurangi limbah tekstil, mendukung
+              industri yang lebih bertanggung jawab, dan membantu menjaga
+              keseimbangan lingkungan.
+            </p>
+            <p class="mb-5">
+              Fast fashion adalah model bisnis dalam industri pakaian yang
+              memproduksi pakaian secara cepat, murah, dan dalam jumlah besar
+              untuk mengikuti tren terbaru. Merek fast fashion merilis koleksi
+              baru dalam waktu singkat, sering kali menggunakan bahan
+              berkualitas rendah dan metode produksi yang tidak ramah
+              lingkungan. Dampaknya mencakup limbah tekstil yang tinggi,
+              eksploitasi tenaga kerja, serta pencemaran lingkungan akibat
+              penggunaan bahan sintetis dan pewarnaan kain
+            </p>
+            <p class="mb-5">
+              Slow Fashion dan Fast Fashion memiliki perbedaan mendasar dalam
+              dampak lingkungan, etika, dan pola konsumsi. Fast Fashion
+              menawarkan pakaian murah dengan produksi cepat, tetapi menyebabkan
+              limbah tekstil tinggi, eksploitasi tenaga kerja, dan polusi.
+              Sebaliknya, Slow Fashion berfokus pada keberlanjutan dengan bahan
+              berkualitas, proses produksi etis, dan desain yang tahan lama,
+              meskipun harganya lebih mahal. Dengan beralih ke Slow Fashion,
+              kita dapat membantu mengurangi dampak negatif industri fashion
+              terhadap lingkungan serta mendukung praktik yang lebih adil dan
+              berkelanjutan.
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemTwo"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemTwo"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          Daur Ulang dan Upcycling Pakaian
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemTwo"
+          role="region"
+          aria-labelledby="controlsAccordionItemTwo"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              Daur ulang dan upcycling pakaian adalah dua pendekatan dalam mode
+              berkelanjutan yang bertujuan untuk mengurangi limbah tekstil dan
+              dampak negatif industri fashion terhadap lingkungan. Daur ulang
+              pakaian adalah proses mengubah pakaian bekas menjadi bahan mentah
+              baru yang dapat digunakan kembali untuk membuat kain atau produk
+              lainnya. Proses ini biasanya melibatkan pemisahan serat tekstil,
+              pencucian, dan pemrosesan ulang untuk menghasilkan bahan yang siap
+              digunakan dalam produksi pakaian baru atau barang lain seperti
+              isolasi, karpet, atau kain pel. Daur ulang membantu mengurangi
+              sampah yang berakhir di tempat pembuangan akhir serta menekan
+              penggunaan sumber daya alam seperti kapas dan air.
+            </p>
+            <p class="mb-5">
+              Sementara itu, upcycling adalah proses mengubah pakaian lama atau
+              bahan bekas menjadi produk baru dengan nilai yang lebih tinggi,
+              tanpa melalui proses penghancuran serat. Dalam upcycling, pakaian
+              bekas tidak diubah menjadi bahan mentah baru, melainkan didesain
+              ulang menjadi sesuatu yang lebih menarik dan fungsional. Misalnya,
+              sebuah kemeja lama dapat diubah menjadi tote bag atau celana jeans
+              yang tidak terpakai dapat dijadikan jaket denim yang lebih trendi.
+              Teknik ini tidak hanya mengurangi limbah tekstil tetapi juga
+              memberikan sentuhan kreativitas dan keunikan pada setiap produk
+              yang dihasilkan.
+            </p>
+            <p class="mb-5">
+              Baik daur ulang maupun upcycling memiliki manfaat besar dalam
+              mendukung mode berkelanjutan. Dengan menerapkan kedua konsep ini,
+              kita dapat memperpanjang umur pakaian, mengurangi ketergantungan
+              pada produksi tekstil baru yang berkontribusi pada polusi
+              lingkungan, serta mendorong pola konsumsi yang lebih bertanggung
+              jawab. Upcycling juga membuka peluang bagi desainer dan pengrajin
+              untuk menciptakan karya-karya unik yang memiliki nilai seni dan
+              eksklusivitas tinggi. Oleh karena itu, mengadopsi daur ulang dan
+              upcycling dalam kehidupan sehari-hari adalah langkah nyata dalam
+              mendukung industri fashion yang lebih ramah lingkungan
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemThree"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemThree"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          Dampak Limbah Tekstil terhadap Lingkungan
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemThree"
+          role="region"
+          aria-labelledby="controlsAccordionItemThree"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              Limbah tekstil memiliki dampak serius terhadap lingkungan,
+              terutama karena volume sampah pakaian yang terus meningkat setiap
+              tahunnya. Banyak pakaian yang dibuang berakhir di tempat
+              pembuangan akhir (TPA), di mana bahan sintetis seperti poliester
+              membutuhkan ratusan tahun untuk terurai. Selain itu, proses
+              produksi tekstil sendiri sangat boros sumber daya, seperti air dan
+              energi. Misalnya, industri fashion adalah salah satu penyebab
+              utama pencemaran air akibat pewarnaan dan pencucian kain yang
+              menghasilkan limbah beracun. Bahan kimia berbahaya yang digunakan
+              dalam produksi tekstil dapat mencemari tanah dan sumber air,
+              mengancam ekosistem serta kesehatan manusia.
+            </p>
+            <p class="mb-5">
+              Selain polusi dan penumpukan sampah, limbah tekstil juga
+              berkontribusi pada emisi gas rumah kaca. Saat pakaian berbahan
+              sintetis terurai di TPA, mereka melepaskan metana, gas rumah kaca
+              yang lebih berbahaya daripada karbon dioksida. Pembakaran limbah
+              tekstil juga menghasilkan polutan udara yang berdampak buruk pada
+              kualitas udara dan kesehatan masyarakat. Oleh karena itu, penting
+              untuk menerapkan praktik berkelanjutan seperti mendaur ulang
+              pakaian, mengadopsi konsep upcycling, serta mendukung merek
+              fashion yang menggunakan bahan ramah lingkungan. Dengan mengurangi
+              limbah tekstil, kita dapat membantu melindungi lingkungan dan
+              menciptakan industri fashion yang lebih bertanggung jawab.
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemThree"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemThree"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          Pentingnya Circular Fashion
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemThree"
+          role="region"
+          aria-labelledby="controlsAccordionItemThree"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              Circular fashion adalah konsep dalam industri mode yang berfokus
+              pada keberlanjutan dengan memastikan bahwa pakaian dan bahan
+              tekstil dapat digunakan kembali, didaur ulang, atau diubah menjadi
+              produk baru tanpa menciptakan limbah berlebihan. Berbeda dengan
+              model fashion konvensional yang bersifat linear—di mana pakaian
+              diproduksi, digunakan, lalu dibuang—circular fashion berusaha
+              meminimalkan limbah dengan memperpanjang siklus hidup produk.
+              Pendekatan ini tidak hanya mengurangi dampak negatif terhadap
+              lingkungan, tetapi juga menciptakan peluang bagi industri untuk
+              lebih efisien dalam penggunaan sumber daya.
+            </p>
+            <p class="mb-5">
+              Selain manfaat lingkungan, circular fashion juga mendorong
+              perubahan dalam perilaku konsumsi. Dengan mendukung produk yang
+              lebih tahan lama, berbahan ramah lingkungan, dan dapat diperbaiki
+              atau didaur ulang, konsumen diajak untuk lebih bijak dalam membeli
+              pakaian. Konsep seperti thrifting (membeli pakaian bekas), rental
+              fashion, serta program take-back dari brand fashion memungkinkan
+              masyarakat untuk mengurangi limbah tekstil secara signifikan.
+              Selain itu, banyak desainer dan perusahaan kini mulai menerapkan
+              prinsip circular fashion dengan menggunakan bahan yang dapat
+              terurai alami atau didaur ulang tanpa mengorbankan kualitas dan
+              estetika.
+            </p>
+            <p class="mb-5">
+              Circular fashion juga memiliki potensi ekonomi yang besar. Dengan
+              meningkatnya kesadaran konsumen terhadap keberlanjutan, permintaan
+              akan produk ramah lingkungan semakin tinggi. Hal ini membuka
+              peluang bisnis baru, mulai dari daur ulang tekstil hingga inovasi
+              material berbasis limbah. Selain itu, dengan menerapkan model
+              bisnis berbasis sirkular, perusahaan dapat menghemat biaya
+              produksi dalam jangka panjang dan mengurangi ketergantungan pada
+              bahan baku baru yang semakin langka. Dengan begitu, circular
+              fashion bukan hanya solusi terhadap permasalahan limbah tekstil,
+              tetapi juga strategi untuk menciptakan industri mode yang lebih
+              berkelanjutan dan bertanggung jawab
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemThree"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemThree"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          Cara Merawat Pakaian agar Lebih Awet
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemThree"
+          role="region"
+          aria-labelledby="controlsAccordionItemThree"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              Merawat pakaian dengan baik tidak hanya membuatnya lebih tahan
+              lama, tetapi juga membantu mengurangi limbah tekstil dan konsumsi
+              berlebihan. Salah satu cara utama adalah dengan mencuci pakaian
+              secara bijak. Gunakan air dingin saat mencuci untuk menghindari
+              penyusutan dan menjaga warna tetap cerah. Selain itu, pilih
+              deterjen yang lembut dan hindari penggunaan pemutih yang dapat
+              merusak serat kain. Jika memungkinkan, cuci pakaian dengan tangan
+              atau gunakan siklus pencucian lembut pada mesin cuci untuk
+              mengurangi gesekan yang dapat mempercepat keausan.
+            </p>
+            <p class="mb-5">
+              Menjemur pakaian dengan benar juga penting untuk memperpanjang
+              masa pakainya. Hindari menjemur pakaian langsung di bawah sinar
+              matahari yang terlalu terik karena dapat menyebabkan warna cepat
+              pudar. Sebaiknya jemur pakaian di tempat teduh dengan sirkulasi
+              udara yang baik. Untuk pakaian berbahan elastis atau rajut,
+              gantung dengan hati-hati atau letakkan secara mendatar agar
+              bentuknya tetap terjaga. Jika menggunakan pengering mesin, gunakan
+              suhu rendah agar tidak merusak serat kain.
+            </p>
+            <p class="mb-5">
+              Selain pencucian dan penjemuran, cara menyimpan pakaian juga
+              berpengaruh pada daya tahannya. Lipat pakaian berbahan lembut atau
+              berbobot berat seperti sweater untuk menghindari perubahan bentuk
+              akibat digantung. Gunakan gantungan berkualitas baik untuk pakaian
+              yang harus digantung agar tidak meninggalkan bekas pada bahu.
+              Jangan lupa untuk menyimpan pakaian di tempat yang kering dan
+              bebas dari kelembapan untuk mencegah tumbuhnya jamur atau
+              munculnya bau tak sedap. Dengan perawatan yang tepat, pakaian bisa
+              tetap awet, terlihat baru lebih lama, dan membantu mengurangi
+              konsumsi berlebihan dalam dunia fashion
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/OWiK6DadNuk?si=6d677hDIfQ2W9t8O"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div x-data="{ isExpanded: false }">
+        <button
+          id="controlsAccordionItemThree"
+          type="button"
+          class="flex w-full items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+          aria-controls="accordionItemThree"
+          x-on:click="isExpanded = ! isExpanded"
+          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        >
+          DIY (Do It Yourself) Fashion
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-5 shrink-0 transition"
+            aria-hidden="true"
+            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <div
+          x-cloak
+          x-show="isExpanded"
+          id="accordionItemThree"
+          role="region"
+          aria-labelledby="controlsAccordionItemThree"
+          x-collapse
+        >
+          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
+            <p class="mb-5">
+              DIY fashion adalah cara kreatif untuk menyesuaikan, mendaur ulang,
+              atau membuat pakaian sendiri sesuai dengan gaya pribadi. Dengan
+              pendekatan ini, kamu bisa memberikan sentuhan unik pada pakaian
+              lama, mengurangi limbah tekstil, dan bahkan menghemat biaya
+              dibandingkan membeli barang baru. DIY fashion bisa mencakup
+              berbagai teknik, seperti mengecat kaos dengan tie-dye, menambahkan
+              bordir pada jaket denim, atau mengubah celana jeans lama menjadi
+              celana pendek yang stylish.
+            </p>
+            <p class="mb-5">
+              Selain memberikan kebebasan berkreasi, DIY fashion juga
+              berkontribusi pada keberlanjutan lingkungan. Dengan memanfaatkan
+              kembali pakaian yang sudah ada, kamu membantu mengurangi konsumsi
+              fast fashion yang sering kali berdampak buruk pada lingkungan.
+              Misalnya, dengan teknik upcycling, kamu bisa mengubah kemeja lama
+              menjadi tote bag atau mendekorasi sepatu dengan kain perca agar
+              terlihat lebih menarik.
+            </p>
+            <p class="mb-5">
+              DIY fashion tidak hanya tentang mendaur ulang pakaian, tetapi juga
+              tentang membangun kesadaran akan nilai pakaian itu sendiri. Setiap
+              potongan yang dibuat memiliki cerita dan usaha di baliknya, yang
+              menjadikannya lebih berarti dibandingkan pakaian massal yang
+              diproduksi secara cepat. Selain itu, ini bisa menjadi aktivitas
+              yang menyenangkan untuk dilakukan sendiri atau bersama teman,
+              serta membuka peluang bisnis kreatif jika hasil DIY-mu menarik
+              perhatian banyak orang
+            </p>
+            <div class="relative w-full overflow-hidden pb-[56.25%]">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/arEv2Cn06Qo?si=50wyo1tu6UEnrO5m"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</html>
