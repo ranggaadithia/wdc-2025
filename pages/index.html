@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Home</title>
     <link href="../src/output.css" rel="stylesheet" />
     <!-- Icon -->
     <link
@@ -39,8 +39,18 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <!-- Sinkron Darkmode -->
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
-  <body class="font-inter">
+  <body
+    class="font-inter"
+    style="opacity: 0"
+    onload="document.body.style.opacity='1'"
+  >
     <!-- Navbar -->
     <nav
       x-data="{ mobileMenuIsOpen: false }"
@@ -89,7 +99,7 @@
               name="search"
               placeholder="Apa yang ingin Anda cari?"
               aria-label="search"
-              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-700 dark:focus-visible:outline-white"
+              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-800 dark:bg-neutral-700 dark:focus-visible:outline-white"
             />
           </div>
           <div>
@@ -173,7 +183,7 @@
         </li>
         <li>
           <a
-            href="#"
+            href="donasi.html"
             class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary dark:text-neutral-300 font-medium"
           >
             Donasi
