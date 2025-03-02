@@ -53,13 +53,17 @@
         <a
           href="#"
           class="text-2xl font-bold text-neutral-900 dark:text-white mr-2 md:mr-5"
+          x-data="{ darkMode: false }"
+          x-init="darkMode = localStorage.getItem('theme') === 'dark'"
+          @theme-change.window="darkMode = $event.detail"
         >
           <img
-            src="../src/logo1.png"
+            x-bind:src="darkMode ? '../src/logo2.png' : '../src/logo1.png'"
             alt="brand logo"
             class="w-36 sm:w-40 lg:w-52"
           />
         </a>
+
         <div class="w-full">
           <!-- Search -->
           <div
@@ -85,35 +89,35 @@
               name="search"
               placeholder="Apa yang ingin Anda cari?"
               aria-label="search"
-              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-700 dark:focus-visible:outline-white"
             />
           </div>
           <div>
             <ul
-              class="hidden lg:flex items-center justify-around text-center gap-3 text-xs"
+              class="hidden lg:flex items-center justify-around text-center gap-3 text-xs dark:text-neutral-300"
             >
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Baju</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Jeans</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Topi</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Kemeja</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Celana Pendek</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Celana Panjang</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Jas</a>
               </li>
-              <li>
+              <li class="hover:text-primary">
                 <a href="">Kebaya</a>
               </li>
             </ul>
@@ -131,7 +135,7 @@
           <button
             type="button"
             x-on:click="isOpen = ! isOpen"
-            class="inline-flex items-center px-3 py-1.5 md:text-xs lg:text-base text-medium text-primary tracking-wide transition border-b-4 border-neutral-50 hover:border-b-4 hover:border-primary"
+            class="inline-flex items-center px-3 py-1.5 md:text-xs lg:text-base font-medium text-medium text-primary tracking-wide transition"
             aria-haspopup="true"
             x-on:keydown.space.prevent="openedWithKeyboard = true"
             x-on:keydown.enter.prevent="openedWithKeyboard = true"
@@ -170,21 +174,25 @@
         <li>
           <a
             href="#"
-            class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary border-b-4 border-neutral-50 hover:border-b-4 hover:border-primary dark:text-neutral-300"
+            class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary dark:text-neutral-300 font-medium"
           >
             Donasi
           </a>
         </li>
         <li>
           <a href="#" class="text-primary dark:text-neutral-300">
-            <span class="material-symbols-outlined text-primary">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
               shopping_cart
             </span>
           </a>
         </li>
         <li>
           <a href="#" class="text-primary dark:text-neutral-300">
-            <span class="material-symbols-outlined text-primary">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
               notifications
             </span>
           </a>
@@ -237,7 +245,9 @@
               <a
                 href="#"
                 class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-                ><span class="material-symbols-outlined text-primary mr-1.5">
+                ><span
+                  class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                >
                   settings </span
                 >Pengaturan</a
               >
@@ -255,21 +265,44 @@
         </li>
         <li>
           <a href="#" class="text-primary dark:text-neutral-300">
-            <span class="material-symbols-outlined text-primary">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
               live_help
             </span>
           </a>
         </li>
-        <li>
-          <a href="#" class="text-primary dark:text-neutral-300">
-            <span class="material-symbols-outlined text-primary">
+
+        <li
+          x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }"
+          @theme-change.window="darkMode = $event.detail"
+        >
+          <a
+            href="#"
+            class="text-primary dark:text-neutral-300"
+            @click.prevent="
+   darkMode = !darkMode; 
+   document.documentElement.classList.toggle('dark', darkMode); 
+   localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
+   $dispatch('theme-change', darkMode);"
+          >
+            <!-- Ikon untuk mode terang -->
+            <span class="material-symbols-outlined" x-show="!darkMode">
               light_mode
+            </span>
+
+            <!-- Ikon untuk mode gelap -->
+            <span class="material-symbols-outlined" x-show="darkMode">
+              dark_mode
             </span>
           </a>
         </li>
+
         <li>
           <a href="#" class="text-primary dark:text-neutral-300">
-            <span class="material-symbols-outlined text-primary">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
               language
             </span>
           </a>
@@ -294,7 +327,7 @@
           viewBox="0 0 24 24"
           stroke-width="2"
           stroke="currentColor"
-          class="size-6 text-primary"
+          class="size-6 text-primary dark:text-neutral-300"
         >
           <path
             stroke-linecap="round"
@@ -349,21 +382,29 @@
             </div>
           </div>
         </li>
-        <li class="py-2 border-b border-neutral-300 hover:bg-neutral-200 px-5">
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
           <a
             href="#"
             class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            ><span class="material-symbols-outlined text-primary mr-1">
+            ><span
+              class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+            >
               shopping_cart
             </span>
             Cart</a
           >
         </li>
-        <li class="py-2 border-b border-neutral-300 hover:bg-neutral-200 px-5">
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
           <a
             href="#"
             class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            ><span class="material-symbols-outlined text-primary mr-1">
+            ><span
+              class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+            >
               notifications
             </span>
             Notifikasi</a
@@ -373,7 +414,7 @@
           <div>
             <button
               type="button"
-              class="flex w-full items-center py-2 border-b hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900"
+              class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
               @click="openAccordion = openAccordion === 'program' ? '' : 'program'"
               aria-expanded="openAccordion === 'program'"
             >
@@ -396,12 +437,12 @@
             <div x-show="openAccordion === 'program'" x-collapse>
               <ul>
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
                 >
                   <a href="">Edukasi</a>
                 </li>
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
                 >
                   <a href="">Koin</a>
                 </li>
@@ -409,7 +450,7 @@
             </div>
           </div>
           <li
-            class="py-2 border-b border-neutral-300 hover:bg-neutral-200 px-5"
+            class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
           >
             <a
               href="#"
@@ -420,12 +461,14 @@
           <div>
             <button
               type="button"
-              class="flex w-full items-center py-2 border-b hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900"
+              class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
               @click="openAccordion = openAccordion === 'language' ? '' : 'language'"
               aria-expanded="openAccordion === 'language'"
             >
               <div class="flex items-center">
-                <span class="material-symbols-outlined text-primary mr-1.5">
+                <span
+                  class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                >
                   language
                 </span>
                 Ganti Bahasa
@@ -448,12 +491,12 @@
             <div x-show="openAccordion === 'language'" x-collapse>
               <ul>
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 pl-8 dark:hover:bg-neutral-700 hover:bg-neutral-200 dark:text-neutral-300"
                 >
                   <a href="">Indonesia</a>
                 </li>
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 pl-8 dark:hover:bg-neutral-700 hover:bg-neutral-200 dark:text-neutral-300"
                 >
                   <a href="">Inggris</a>
                 </li>
@@ -461,19 +504,28 @@
             </div>
           </div>
 
-          <div>
+          <div
+            x-data="{ 
+            openAccordion: '', 
+            darkMode: localStorage.getItem('theme') === 'dark' 
+          }"
+            @theme-change.window="darkMode = $event.detail"
+          >
             <button
               type="button"
-              class="flex w-full items-center py-2 border-b hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900"
+              class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
               @click="openAccordion = openAccordion === 'theme' ? '' : 'theme'"
               aria-expanded="openAccordion === 'theme'"
             >
               <div class="flex items-center">
-                <span class="material-symbols-outlined text-primary mr-1.5">
-                  light_mode
+                <span
+                  class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                  x-text="darkMode ? 'dark_mode' : 'light_mode'"
+                >
                 </span>
                 Ganti Mode
               </div>
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -489,38 +541,57 @@
                 />
               </svg>
             </button>
+
+            <!-- Dropdown Pilihan Tema -->
             <div x-show="openAccordion === 'theme'" x-collapse>
               <ul>
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                  @click="
+                  darkMode = true;
+                  document.documentElement.classList.add('dark'); 
+                  localStorage.setItem('theme', 'dark'); 
+                  $dispatch('theme-change', true);"
                 >
-                  <a href="">Gelap</a>
+                  Gelap
                 </li>
+
                 <li
-                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200"
+                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                  @click="
+                  darkMode = false;
+                  document.documentElement.classList.remove('dark'); 
+                  localStorage.setItem('theme', 'light'); 
+                  $dispatch('theme-change', false);"
                 >
-                  <a href="">Terang</a>
+                  Terang
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <li class="py-2 border-b border-neutral-300 hover:bg-neutral-200 px-5">
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
           <a
             href="#"
             class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            ><span class="material-symbols-outlined text-primary mr-1.5">
+            ><span
+              class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+            >
               live_help
             </span>
             Bantuan</a
           >
         </li>
-        <li class="py-2 hover:bg-neutral-200 px-5">
+        <li class="py-2 hover:bg-neutral-200 px-5 dark:hover:bg-neutral-700">
           <a
             href="#"
             class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            ><span class="material-symbols-outlined text-primary mr-1.5">
+            ><span
+              class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+            >
               settings
             </span>
             Pengaturan</a
