@@ -11,6 +11,13 @@
       rel="stylesheet"
     />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
@@ -47,7 +54,7 @@
     </script>
   </head>
   <body
-    class="font-inter"
+    class="font-inter flex flex-col min-h-screen dark:bg-neutral-800"
     style="opacity: 0"
     onload="document.body.style.opacity='1'"
   >
@@ -610,10 +617,10 @@
       </ul>
     </nav>
     <!-- Navbar End -->
-    <main class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full">
+    <main class="p-4 md:p-10">
       <div class="flex flex-col items-center text-center mb-4 lg:mb-8">
         <div
-          class="text-primary text-md md:text-lg lg:text-2xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
+          class="text-primary text-md md:text-xl lg:text-3xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -621,7 +628,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6"
+            class="size-5 md:size-6 lg:size-8"
           >
             <path
               stroke-linecap="round"
@@ -638,522 +645,572 @@
           Setiap pakaian yang kamu donasikan akan sangat berarti bagi mereka.
         </div>
       </div>
-
-      <div
-        class="bg-white rounded-lg shadow-md p-3 md:p-8 xl:p-12 border dark:bg-neutral-900"
-      >
-        <div class="mb-3">
-          <p
-            class="text-sm font-medium text-primary dark:text-neutral-300 mb-2"
-          >
-            Kategori
-          </p>
-          <label
-            for="checkboxDefault"
-            class="flex flex-wrap items-center gap-3 text-sm text-neutral-600 dark:text-neutral-300 has-checked:text-neutral-900 dark:has-checked:text-white has-disabled:cursor-not-allowed has-disabled:opacity-75"
-          >
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Baju</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Jeans</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Celana Panjang</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Celana Pendek</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Kemeja</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Topi</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Jas</span>
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Kebaya</span>
-          </label>
-        </div>
-
+      <div class="flex justify-center items-center">
         <div
-          class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300 mb-3"
+          class="bg-white rounded-lg shadow-md p-3 md:p-8 xl:p-12 border dark:bg-neutral-900"
         >
-          <label
-            for="textInputDefault"
-            class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
-            >Jumlah</label
-          >
-          <input
-            id="textInputDefault"
-            type="text"
-            class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
-            name="name"
-            placeholder="Masukan jumlah item setiap kategori yang didonasikan"
-            autocomplete="name"
-          />
-        </div>
-        <div
-          class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
-        >
-          <label
-            for="textInputDefault"
-            class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
-            >Ukuran</label
-          >
-          <input
-            id="textInputDefault"
-            type="text"
-            class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
-            name="name"
-            placeholder="Masukan jumlah item setiap kategori yang didonasikan"
-            autocomplete="name"
-          />
-        </div>
-        <div
-          class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
-        >
-          <label
-            for="textInputDefault"
-            class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
-            >Catatan</label
-          >
-          <input
-            id="textInputDefault"
-            type="text"
-            class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
-            name="name"
-            placeholder="Masukan jumlah item setiap kategori yang didonasikan"
-            autocomplete="name"
-          />
-        </div>
-        <div class="flex w-full text-center flex-col gap-1 mb-3">
-          <span
-            class="w-fit pl-0.5 text-sm dark:text-neutral-300 font-medium text-primary"
-            >Foto/Video Pakaian</span
-          >
-          <div
-            class="flex w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-neutral-300 p-8 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              fill="currentColor"
-              class="w-12 h-12 opacity-75 text-primary dark:text-neutral-300"
+          <div class="mb-3">
+            <p
+              class="text-sm font-medium text-primary dark:text-neutral-300 mb-2"
             >
-              <path
-                fill-rule="evenodd"
-                d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <div class="group">
-              <label
-                for="fileInputDragDrop"
-                class="font-medium text-black group-focus-within:underline dark:text-white"
-              >
+              Kategori
+            </p>
+            <label
+              for="checkboxDefault"
+              class="flex flex-wrap items-center gap-3 text-sm text-neutral-600 dark:text-neutral-300 has-checked:text-neutral-900 dark:has-checked:text-white has-disabled:cursor-not-allowed has-disabled:opacity-75"
+            >
+              <div class="relative flex items-center">
                 <input
-                  id="fileInputDragDrop"
-                  type="file"
-                  class="sr-only"
-                  aria-describedby="validFileFormats"
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
                 />
-                Browse
-              </label>
-              or drag and drop here
-            </div>
-            <small id="validFileFormats">PNG, JPG, WebP - Max 5MB</small>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Baju</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Jeans</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Celana Panjang</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Celana Pendek</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Kemeja</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Topi</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Jas</span>
+              <div class="relative flex items-center">
+                <input
+                  id="checkboxDefault"
+                  type="checkbox"
+                  class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="4"
+                  class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <span>Kebaya</span>
+            </label>
           </div>
-        </div>
-        <div
-          class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
-        >
-          <label
-            for="textInputDefault"
-            class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
-            >Alamat Pengirim
-          </label>
-          <input
-            id="textInputDefault"
-            type="text"
-            class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
-            name="name"
-            placeholder="Masukan jumlah item setiap kategori yang didonasikan"
-            autocomplete="name"
-          />
-        </div>
-        <div
-          x-data="{
-            options: [
-                {
-                    value: 'J&T',
-                    label: 'J&T',
-                },
-                {
-                    value: 'JNE',
-                    label: 'JNE',
-                },
-                {
-                    value: 'SPX Standard',
-                    label: 'SPX Standard',
-                },
-                {
-                    value: 'Anteraja',
-                    label: 'Anteraja',
-                },
-                {
-                    value: 'Gojek',
-                    label: 'Gojek',
-                },
-                {
-                    value: 'Grab',
-                    label: 'Grab',
-                },
-            ],
-            isOpen: false,
-            openedWithKeyboard: false,
-            selectedOption: null,
-            setSelectedOption(option) {
-                this.selectedOption = option
-                this.isOpen = false
-                this.openedWithKeyboard = false
-                this.$refs.hiddenTextField.value = option.value
-            },
-            highlightFirstMatchingOption(pressedKey) {
-                const option = this.options.find((item) =>
-                    item.label.toLowerCase().startsWith(pressedKey.toLowerCase()),
-                )
-                if (option) {
-                    const index = this.options.indexOf(option)
-                    const allOptions = document.querySelectorAll('.combobox-option')
-                    if (allOptions[index]) {
-                        allOptions[index].focus()
-                    }
-                }
-            },
-        }"
-          class="w-full flex flex-col gap-1 mb-3"
-          x-on:keydown="highlightFirstMatchingOption($event.key)"
-          x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
-        >
-          <label
-            for="industry"
-            class="w-fit pl-0.5 text-sm text-primary font-medium dark:text-neutral-300"
-            >Jasa Pengiriman</label
+
+          <div
+            class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300 mb-3"
           >
-          <div class="relative">
-            <!-- trigger button  -->
-            <button
-              type="button"
-              role="combobox"
-              class="inline-flex w-full items-center justify-between gap-2 whitespace-nowrap border-neutral-300 bg-neutral-50 px-4 py-2 text-sm font-medium capitalize tracking-wide text-neutral-600 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300 dark:focus-visible:outline-white rounded-sm border"
-              aria-haspopup="listbox"
-              aria-controls="industriesList"
-              x-on:click="isOpen = ! isOpen"
-              x-on:keydown.down.prevent="openedWithKeyboard = true"
-              x-on:keydown.enter.prevent="openedWithKeyboard = true"
-              x-on:keydown.space.prevent="openedWithKeyboard = true"
-              x-bind:aria-label="selectedOption ? selectedOption.value : 'Pilih Jasa Pengiriman'"
-              x-bind:aria-expanded="isOpen || openedWithKeyboard"
+            <label
+              for="textInputDefault"
+              class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
+              >Jumlah</label
             >
-              <span
-                class="text-xs font-normal"
-                x-text="selectedOption ? selectedOption.value : 'Pilih Jasa Pengiriman'"
-              ></span>
-              <!-- Chevron  -->
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="Masukan jumlah item setiap kategori yang didonasikan"
+              autocomplete="name"
+            />
+          </div>
+          <div
+            class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
+          >
+            <label
+              for="textInputDefault"
+              class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
+              >Ukuran</label
+            >
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="Masukan jumlah item setiap kategori yang didonasikan"
+              autocomplete="name"
+            />
+          </div>
+          <div
+            class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
+          >
+            <label
+              for="textInputDefault"
+              class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
+              >Catatan</label
+            >
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="Masukan jumlah item setiap kategori yang didonasikan"
+              autocomplete="name"
+            />
+          </div>
+          <div class="flex w-full text-center flex-col gap-1 mb-3">
+            <span
+              class="w-fit pl-0.5 text-sm dark:text-neutral-300 font-medium text-primary"
+              >Foto/Video Pakaian</span
+            >
+            <div
+              class="flex w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-neutral-300 p-8 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
                 fill="currentColor"
-                class="size-5"
+                class="w-12 h-12 opacity-75 text-primary dark:text-neutral-300"
               >
                 <path
                   fill-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
                   clip-rule="evenodd"
                 />
               </svg>
-            </button>
-
-            <!-- hidden input to grab the selected value  -->
-            <input
-              id="industry"
-              name="industry"
-              type="text"
-              x-ref="hiddenTextField"
-              hidden
-            />
-            <ul
-              x-cloak
-              x-show="isOpen || openedWithKeyboard"
-              id="industriesList"
-              class="absolute z-10 left-0 top-11 flex max-h-44 w-full flex-col overflow-hidden overflow-y-auto border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900 rounded-sm border"
-              role="listbox"
-              aria-label="industries list"
-              x-on:click.outside="isOpen = false, openedWithKeyboard = false"
-              x-on:keydown.down.prevent="$focus.wrap().next()"
-              x-on:keydown.up.prevent="$focus.wrap().previous()"
-              x-transition
-              x-trap="openedWithKeyboard"
-            >
-              <template
-                x-for="(item, index) in options"
-                x-bind:key="item.value"
-              >
-                <li
-                  class="combobox-option inline-flex justify-between gap-6 bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/5 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-                  role="option"
-                  x-on:click="setSelectedOption(item)"
-                  x-on:keydown.enter="setSelectedOption(item)"
-                  x-bind:id="'option-' + index"
-                  tabindex="0"
+              <div class="group">
+                <label
+                  for="fileInputDragDrop"
+                  class="font-medium text-black group-focus-within:underline dark:text-white"
                 >
-                  <!-- Label  -->
-                  <span
-                    x-bind:class="selectedOption == item ? 'font-bold' : null"
-                    x-text="item.label"
-                  ></span>
-                  <!-- Screen reader 'selected' indicator  -->
-                  <span
+                  <input
+                    id="fileInputDragDrop"
+                    type="file"
                     class="sr-only"
-                    x-text="selectedOption == item ? 'selected' : null"
-                  ></span>
-                  <!-- Checkmark  -->
-                  <svg
-                    x-cloak
-                    x-show="selectedOption == item"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-width="2"
-                    class="size-4"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </li>
-              </template>
-            </ul>
-          </div>
-        </div>
-        <div class="flex w-full text-center flex-col gap-1 mb-3">
-          <span
-            class="w-fit pl-0.5 text-sm dark:text-neutral-300 font-medium text-primary"
-            >Bukti Resi Pengiriman</span
-          >
-          <div
-            class="flex w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-neutral-300 p-8 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              fill="currentColor"
-              class="w-12 h-12 opacity-75 text-primary dark:text-neutral-300"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <div class="group">
-              <label
-                for="fileInputDragDrop"
-                class="font-medium text-black group-focus-within:underline dark:text-white"
-              >
-                <input
-                  id="fileInputDragDrop"
-                  type="file"
-                  class="sr-only"
-                  aria-describedby="validFileFormats"
-                />
-                Browse
-              </label>
-              or drag and drop here
+                    aria-describedby="validFileFormats"
+                  />
+                  Browse
+                </label>
+                or drag and drop here
+              </div>
+              <small id="validFileFormats">PNG, JPG, WebP - Max 5MB</small>
             </div>
-            <small id="validFileFormats">PNG, JPG, WebP - Max 5MB</small>
           </div>
-        </div>
-
-        <div class="flex justify-end">
-          <button
-            type="button"
-            class="whitespace-nowrap rounded-sm bg-primary border border-primary px-4 py-2 text-xs font-medium tracking-wide text-neutral-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-white dark:border-white dark:text-black dark:focus-visible:outline-white"
+          <div
+            class="flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark mb-3"
           >
-            Simpan
-          </button>
+            <label
+              for="textInputDefault"
+              class="w-fit pl-0.5 text-sm font-medium text-primary dark:text-neutral-300"
+              >Alamat Pengirim
+            </label>
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2.5 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="Masukan jumlah item setiap kategori yang didonasikan"
+              autocomplete="name"
+            />
+          </div>
+          <div
+            x-data="{
+        options: [
+            {
+                value: 'J&T',
+                label: 'J&T',
+            },
+            {
+                value: 'JNE',
+                label: 'JNE',
+            },
+            {
+                value: 'SPX Standard',
+                label: 'SPX Standard',
+            },
+            {
+                value: 'Anteraja',
+                label: 'Anteraja',
+            },
+            {
+                value: 'Gojek',
+                label: 'Gojek',
+            },
+            {
+                value: 'Grab',
+                label: 'Grab',
+            },
+        ],
+        isOpen: false,
+        openedWithKeyboard: false,
+        selectedOption: null,
+        setSelectedOption(option) {
+            this.selectedOption = option
+            this.isOpen = false
+            this.openedWithKeyboard = false
+            this.$refs.hiddenTextField.value = option.value
+        },
+        highlightFirstMatchingOption(pressedKey) {
+            const option = this.options.find((item) =>
+                item.label.toLowerCase().startsWith(pressedKey.toLowerCase()),
+            )
+            if (option) {
+                const index = this.options.indexOf(option)
+                const allOptions = document.querySelectorAll('.combobox-option')
+                if (allOptions[index]) {
+                    allOptions[index].focus()
+                }
+            }
+        },
+    }"
+            class="w-full flex flex-col gap-1 mb-3"
+            x-on:keydown="highlightFirstMatchingOption($event.key)"
+            x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
+          >
+            <label
+              for="industry"
+              class="w-fit pl-0.5 text-sm text-primary font-medium dark:text-neutral-300"
+              >Jasa Pengiriman</label
+            >
+            <div class="relative">
+              <!-- trigger button  -->
+              <button
+                type="button"
+                role="combobox"
+                class="inline-flex w-full items-center justify-between gap-2 whitespace-nowrap border-neutral-300 bg-neutral-50 px-4 py-2 text-sm font-medium capitalize tracking-wide text-neutral-600 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300 dark:focus-visible:outline-white rounded-sm border"
+                aria-haspopup="listbox"
+                aria-controls="industriesList"
+                x-on:click="isOpen = ! isOpen"
+                x-on:keydown.down.prevent="openedWithKeyboard = true"
+                x-on:keydown.enter.prevent="openedWithKeyboard = true"
+                x-on:keydown.space.prevent="openedWithKeyboard = true"
+                x-bind:aria-label="selectedOption ? selectedOption.value : 'Pilih Jasa Pengiriman'"
+                x-bind:aria-expanded="isOpen || openedWithKeyboard"
+              >
+                <span
+                  class="text-xs font-normal"
+                  x-text="selectedOption ? selectedOption.value : 'Pilih Jasa Pengiriman'"
+                ></span>
+                <!-- Chevron  -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="size-5"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <!-- hidden input to grab the selected value  -->
+              <input
+                id="industry"
+                name="industry"
+                type="text"
+                x-ref="hiddenTextField"
+                hidden
+              />
+              <ul
+                x-cloak
+                x-show="isOpen || openedWithKeyboard"
+                id="industriesList"
+                class="absolute z-10 left-0 top-11 flex max-h-44 w-full flex-col overflow-hidden overflow-y-auto border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900 rounded-sm border"
+                role="listbox"
+                aria-label="industries list"
+                x-on:click.outside="isOpen = false, openedWithKeyboard = false"
+                x-on:keydown.down.prevent="$focus.wrap().next()"
+                x-on:keydown.up.prevent="$focus.wrap().previous()"
+                x-transition
+                x-trap="openedWithKeyboard"
+              >
+                <template
+                  x-for="(item, index) in options"
+                  x-bind:key="item.value"
+                >
+                  <li
+                    class="combobox-option inline-flex justify-between gap-6 bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/5 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+                    role="option"
+                    x-on:click="setSelectedOption(item)"
+                    x-on:keydown.enter="setSelectedOption(item)"
+                    x-bind:id="'option-' + index"
+                    tabindex="0"
+                  >
+                    <!-- Label  -->
+                    <span
+                      x-bind:class="selectedOption == item ? 'font-bold' : null"
+                      x-text="item.label"
+                    ></span>
+                    <!-- Screen reader 'selected' indicator  -->
+                    <span
+                      class="sr-only"
+                      x-text="selectedOption == item ? 'selected' : null"
+                    ></span>
+                    <!-- Checkmark  -->
+                    <svg
+                      x-cloak
+                      x-show="selectedOption == item"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      class="size-4"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 12.75 6 6 9-13.5"
+                      />
+                    </svg>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </div>
+          <div class="flex w-full text-center flex-col gap-1 mb-3">
+            <span
+              class="w-fit pl-0.5 text-sm dark:text-neutral-300 font-medium text-primary"
+              >Bukti Resi Pengiriman</span
+            >
+            <div
+              class="flex w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-neutral-300 p-8 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+                class="w-12 h-12 opacity-75 text-primary dark:text-neutral-300"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div class="group">
+                <label
+                  for="fileInputDragDrop"
+                  class="font-medium text-black group-focus-within:underline dark:text-white"
+                >
+                  <input
+                    id="fileInputDragDrop"
+                    type="file"
+                    class="sr-only"
+                    aria-describedby="validFileFormats"
+                  />
+                  Browse
+                </label>
+                or drag and drop here
+              </div>
+              <small id="validFileFormats">PNG, JPG, WebP - Max 5MB</small>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <button
+              type="button"
+              class="whitespace-nowrap rounded-sm bg-primary border border-primary px-4 py-2 text-xs font-medium tracking-wide text-neutral-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-white dark:border-white dark:text-black dark:focus-visible:outline-white"
+            >
+              Simpan
+            </button>
+          </div>
         </div>
       </div>
     </main>
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 mt-auto lg:px-14">
+      <div class="md:flex flex-row gap-5">
+        <div class="basis-1/2 text-neutral-200 text-sm mb-4">
+          <div class="flex justify-center md:justify-start">
+            <img src="../src/logo2.png" alt="" class="w-48" />
+          </div>
+          <div class="text-center md:text-start max-w-80">
+            Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng,
+            Prov. Bali 81116
+          </div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
+        >
+          <div class="font-semibold">PERUSAHAAN</div>
+          <div>Tentang Kami</div>
+          <div>Hubungi Kami</div>
+          <div>Blog</div>
+          <div>Program</div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold">BANTUAN</div>
+          <div>Dukungan</div>
+          <div>FAQ</div>
+        </div>
+        <div
+          class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold mb-2">SOSIAL MEDIA</div>
+          <div class="flex justify-center md:justify-start items-center gap-3">
+            <i class="fa-brands fa-facebook text-lg"></i
+            ><i class="fa-brands fa-instagram text-xl"></i
+            ><i class="fa-brands fa-youtube text-xl"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
+        >
+          <i class="fa-regular fa-copyright mr-1"></i>2024 PakaiKembali.com |
+          Hidupkan Kembali Fashionmu
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
   </body>
 </html>
