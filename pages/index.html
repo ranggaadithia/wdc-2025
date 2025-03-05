@@ -11,6 +11,13 @@
       rel="stylesheet"
     />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
@@ -619,10 +626,11 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Carousel -->
-    <div class="container px-4 md:px-14 mx-auto my-4">
-      <div
-        x-data="{            
+    <main class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full">
+      <!-- Carousel -->
+      <div class="my-4">
+        <div
+          x-data="{            
       slides: [                
           {
               imgSrc: 'https://penguinui.s3.amazonaws.com/component-assets/carousel/aspect-slide-1.webp',
@@ -655,103 +663,105 @@
           }            
       },        
   }"
-        class="relative w-full overflow-hidden"
-      >
-        <!-- previous button -->
-        <button
-          type="button"
-          class="absolute left-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
-          aria-label="previous slide"
-          x-on:click="previous()"
+          class="relative w-full overflow-hidden"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            stroke-width="3"
-            class="size-5 md:size-6 pr-0.5"
-            aria-hidden="true"
+          <!-- previous button -->
+          <button
+            type="button"
+            class="absolute left-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
+            aria-label="previous slide"
+            x-on:click="previous()"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
-
-        <!-- next button -->
-        <button
-          type="button"
-          class="absolute right-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
-          aria-label="next slide"
-          x-on:click="next()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            stroke-width="3"
-            class="size-5 md:size-6 pl-0.5"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-
-        <!-- slides -->
-        <!-- Change min-h-[50svh] to your preferred height size -->
-        <div
-          class="relative md:min-h-[35svh] min-h-[20svh] w-full rounded-xl overflow-hidden"
-        >
-          <template x-for="(slide, index) in slides">
-            <div
-              x-show="currentSlideIndex == index + 1"
-              class="absolute inset-0"
-              x-transition.opacity.duration.1000ms
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="3"
+              class="size-5 md:size-6 pr-0.5"
+              aria-hidden="true"
             >
-              <img
-                class="absolute w-full h-full inset-0 object-cover text-on-surface dark:text-on-surface-dark"
-                x-bind:src="slide.imgSrc"
-                x-bind:alt="slide.imgAlt"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
               />
-            </div>
-          </template>
-        </div>
+            </svg>
+          </button>
 
-        <!-- indicators -->
-        <div
-          class="absolute rounded-radius bottom-3 md:bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-4 md:gap-3 bg-surface/75 px-1.5 py-1 md:px-2 dark:bg-surface-dark/75"
-          role="group"
-          aria-label="slides"
-        >
-          <template x-for="(slide, index) in slides">
-            <button
-              class="size-2 rounded-full transition bg-on-surface dark:bg-on-surface-dark"
-              x-on:click="currentSlideIndex = index + 1"
-              x-bind:class="[currentSlideIndex === index + 1 ? 'bg-on-surface dark:bg-on-surface-dark' : 'bg-on-surface/50 dark:bg-on-surface-dark/50']"
-              x-bind:aria-label="'slide ' + (index + 1)"
-            ></button>
-          </template>
+          <!-- next button -->
+          <button
+            type="button"
+            class="absolute right-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
+            aria-label="next slide"
+            x-on:click="next()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="3"
+              class="size-5 md:size-6 pl-0.5"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+
+          <!-- slides -->
+          <!-- Change min-h-[50svh] to your preferred height size -->
+          <div
+            class="relative md:min-h-[35svh] min-h-[20svh] w-full rounded-xl overflow-hidden"
+          >
+            <template x-for="(slide, index) in slides">
+              <div
+                x-show="currentSlideIndex == index + 1"
+                class="absolute inset-0"
+                x-transition.opacity.duration.1000ms
+              >
+                <img
+                  class="absolute w-full h-full inset-0 object-cover text-on-surface dark:text-on-surface-dark"
+                  x-bind:src="slide.imgSrc"
+                  x-bind:alt="slide.imgAlt"
+                />
+              </div>
+            </template>
+          </div>
+
+          <!-- indicators -->
+          <div
+            class="absolute rounded-radius bottom-3 md:bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-4 md:gap-3 bg-surface/75 px-1.5 py-1 md:px-2 dark:bg-surface-dark/75"
+            role="group"
+            aria-label="slides"
+          >
+            <template x-for="(slide, index) in slides">
+              <button
+                class="size-2 rounded-full transition bg-on-surface dark:bg-on-surface-dark"
+                x-on:click="currentSlideIndex = index + 1"
+                x-bind:class="[currentSlideIndex === index + 1 ? 'bg-on-surface dark:bg-on-surface-dark' : 'bg-on-surface/50 dark:bg-on-surface-dark/50']"
+                x-bind:aria-label="'slide ' + (index + 1)"
+              ></button>
+            </template>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- End Carousel -->
+      <!-- End Carousel -->
 
-    <!-- Card -->
-    <div class="container px-4 md:px-14 mx-auto mt-10">
-      <h1 class="text-2xl font-semibold">Rekomendasi untuk Kamu</h1>
+      <!-- Rekomendasi -->
+      <div class="mt-10">
+        <h1 class="text-2xl font-semibold dark:text-white">
+          Rekomendasi untuk Kamu
+        </h1>
 
-      <div #swiperRef="" class="swiper mySwiper mt-5">
-        <div
-          class="swiper-wrapper"
-          x-data="{ 
+        <div #swiperRef="" class="swiper mySwiper mt-5">
+          <div
+            class="swiper-wrapper"
+            x-data="{ 
           products: [
               {
                   id: 1,
@@ -809,13 +819,172 @@
               },
           ]
       }"
+          >
+            <template x-for="product in products" :key="product.id">
+              <div
+                class="swiper-slide group flex rounded-xl max-w-sm min-h-max flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+              >
+                <a href="#">
+                  <div class="h-48 md:h-max overflow-hidden relative">
+                    <img
+                      :src="product.productPhoto"
+                      class="w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105 rounded-2xl"
+                      alt=""
+                    />
+                    <span
+                      class="absolute bottom-7 px-2 p-1 bg-gray-200 dark:bg-gray-800 right-5 flex items-center rounded font-semibold text-base text-gray-900 dark:text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
+                    >
+                      <span class="material-symbols-outlined mr-1"
+                        >shopping_cart</span
+                      >
+                      <span x-text="product.cartCount"></span>
+                    </span>
+                  </div>
+                  <div class="flex flex-col gap-y-3 px-6">
+                    <h3
+                      class="text-balance text-gray-800 dark:text-gray-300 pt-3"
+                      aria-describedby="featureDescription"
+                      x-text="product.name"
+                    ></h3>
+                    <p
+                      class="font-semibold text-lg pb-3 md:pb-0 text-gray-900 dark:text-gray-100"
+                      x-text="product.price"
+                    ></p>
+                  </div>
+                </a>
+                <div class="py-3 items-center hidden md:flex px-6">
+                  <img
+                    :src="product.sellerPhoto"
+                    alt=""
+                    class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
+                  />
+                  <a
+                    href="#"
+                    class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline duration-300 transition-all ease-in-out"
+                    x-text="product.seller"
+                  ></a>
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <div
+            class="swiper-button-next hover:bg-white bg-white/50 rounded-full px-5 transition-colors duration-300 ease-in-out"
+          ></div>
+          <div
+            class="swiper-button-prev hover:bg-white bg-white/50 rounded-full px-5 transition-colors duration-300 ease-in-out"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Akhir Rekomendasi -->
+
+      <!-- Terbaru -->
+      <div class="mt-10">
+        <h1 class="text-2xl font-semibold dark:text-white">Terbaru</h1>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+          x-data="{ 
+          products: [
+            {
+              id: 1,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 2,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 3,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 4,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 5,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 6,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 7,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 8,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 9,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+            {
+              id: 10,
+              name: 'Kemeja Soft Twill | XL',
+              price: 'Rp350.000',
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              cartCount: 1
+            },
+          ]
+        }"
         >
           <template x-for="product in products" :key="product.id">
-            <div class="swiper-slide">
-              <a
-                href="#"
-                class="group flex rounded-2xl max-w-56 flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface"
-              >
+            <div
+              class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+            >
+              <a href="#">
                 <div class="h-48 md:h-max overflow-hidden relative">
                   <img
                     :src="product.productPhoto"
@@ -823,281 +992,111 @@
                     alt=""
                   />
                   <span
-                    class="absolute bottom-7 px-2 p-1 bg-white right-5 flex items-center rounded font-semibold text-base text-primary hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
+                    class="absolute bottom-7 px-2 p-1 bg-gray-200 dark:bg-gray-800 right-5 flex items-center rounded font-semibold text-base text-gray-900 dark:text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
                   >
-                    <span class="material-symbols-outlined mr-1">
-                      shopping_cart
-                    </span>
+                    <span class="material-symbols-outlined mr-1"
+                      >shopping_cart</span
+                    >
                     <span x-text="product.cartCount"></span>
                   </span>
                 </div>
                 <div class="flex flex-col gap-y-3 px-6">
                   <h3
-                    class="text-balance text-on-surface-strong pt-3 text-gray-600"
+                    class="text-balance text-gray-800 dark:text-gray-300 pt-3"
                     aria-describedby="featureDescription"
                     x-text="product.name"
                   ></h3>
                   <p
-                    class="font-semibold text-lg pb-3"
+                    class="font-semibold text-lg pb-3 md:pb-0 text-gray-900 dark:text-gray-100"
                     x-text="product.price"
                   ></p>
-                  <div class="pb-3 items-center hidden md:flex">
-                    <img
-                      :src="product.sellerPhoto"
-                      alt=""
-                      class="w-6 h-6 rounded-full border-white border-2 -ml-1"
-                    />
-                    <p
-                      class="ml-1 text-sm text-gray-600"
-                      x-text="product.seller"
-                    ></p>
-                  </div>
                 </div>
               </a>
-            </div>
-          </template>
-        </div>
-
-        <div
-          class="swiper-button-next hover:bg-white bg-white/50 rounded-full px-5 transition-colors duration-300 ease-in-out"
-        ></div>
-        <div
-          class="swiper-button-prev hover:bg-white bg-white/50 rounded-full px-5 transition-colors duration-300 ease-in-out"
-        ></div>
-      </div>
-    </div>
-
-    <div class="container px-4 md:px-14 mx-auto mt-10">
-      <h1 class="text-2xl font-semibold">Terbaru</h1>
-
-      <div #swiperRef="" class="swiper mySwiper mt-5">
-        <div
-          class="grid grid-cols-5 gap-5"
-          x-data="{ 
-          products: [
-              {
-                  id: 1,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 2,
-                  name: 'Kemeja JSON | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 3,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 4,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 5,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 6,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 7,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 8,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 9,
-                  name: 'Kemeja Soft Twill | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-              {
-                  id: 10,
-                  name: 'Kemeja Soft Twill Ketupan Sayap | XL',
-                  price: 'Rp350.000',
-                  seller: 'nurlela',
-                  sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-                  productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-                  cartCount: 1
-              },
-          ]
-      }"
-        >
-          <template x-for="product in products" :key="product.id">
-            <a
-              href="#"
-              class="group flex rounded-2xl max-w-56 flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface"
-            >
-              <div class="h-48 md:h-max overflow-hidden relative">
+              <div class="py-3 items-center hidden md:flex px-6">
                 <img
-                  :src="product.productPhoto"
-                  class="w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105 rounded-2xl"
+                  :src="product.sellerPhoto"
                   alt=""
+                  class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
                 />
-                <span
-                  class="absolute bottom-7 px-2 p-1 bg-white right-5 flex items-center rounded font-semibold text-base text-primary hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
-                >
-                  <span class="material-symbols-outlined mr-1">
-                    shopping_cart
-                  </span>
-                  <span x-text="product.cartCount"></span>
-                </span>
+                <a
+                  href="#"
+                  class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline duration-300 transition-all ease-in-out"
+                  x-text="product.seller"
+                ></a>
               </div>
-              <div class="flex flex-col gap-y-3 px-6">
-                <h3
-                  class="text-balance text-on-surface-strong pt-3 text-gray-600"
-                  aria-describedby="featureDescription"
-                  x-text="product.name"
-                ></h3>
-                <p
-                  class="font-semibold text-lg pb-3 md:pb-0"
-                  x-text="product.price"
-                ></p>
-                <div class="pb-3 items-center hidden md:flex">
-                  <img
-                    :src="product.sellerPhoto"
-                    alt=""
-                    class="w-6 h-6 rounded-full border-white border-2 -ml-1"
-                  />
-                  <p
-                    class="ml-1 text-sm text-gray-600"
-                    x-text="product.seller"
-                  ></p>
-                </div>
-              </div>
-            </a>
+            </div>
           </template>
         </div>
       </div>
-    </div>
 
-    <!-- footer -->
-    <footer
-      class="text-center mt-20 lg:text-left bg-primary text-gray-100 font-body text-sm"
-    >
-      <div class="mx-10 lg:px-15 py-10 text-center md:text-left">
-        <div
-          class="flex flex-col md:flex-col lg:flex-row mx-auto md:justify-between lg:items-center"
+      <div class="mt-10 flex w-full justify-center">
+        <a
+          href="#"
+          class="text-primary border border-primary dark:text-white dark:border-white px-5 py-2 rounded-lg bg-white transition-colors duration-300 ease-in-out hover:bg-primary hover:text-white dark:bg-neutral-800 dark:hover:bg-white dark:hover:text-primary font-semibold"
         >
-          <div class="basis-1/3 flex flex-col md:px-32 lg:px-0">
-            <img src="/src/logo2.png" alt="" class="w-1/2" />
-            <div class="line-pattern mx-auto lg:ml-7 mb-10"></div>
-            <p
-              class="-mt-5 text-sm md:text-base md:text-center lg:text-left font-body"
-            >
-              Connect you to the best authentic experiences in Bali. Finding
-              Hidden Gems, Local Culture, and Adventure.
-            </p>
+          Lihat Lebih Banyak
+        </a>
+      </div>
+
+      <!-- Akhir Terbaru -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 pt-10 lg:px-14">
+      <div class="md:flex flex-row gap-5">
+        <div class="basis-1/2 text-neutral-200 text-sm mb-4">
+          <div class="flex justify-center md:justify-start">
+            <img src="../src/logo2.png" alt="" class="w-48" />
           </div>
-
-          <div
-            class="flex flex-col md:flex-row basis-1/2 lg:justify-between md:justify-around md:mt-10"
-          >
-            <div class="flex flex-col">
-              <div class="mt-5">
-                <h6
-                  class="font-semibold font-subtitle mb-4 flex justify-center md:justify-start text-2xl"
-                >
-                  PERUSAHAAN
-                </h6>
-
-                <p class="mb-4">
-                  <a href="/#services" class="text-emerald-50">Tentang Kami</a>
-                </p>
-                <p class="mb-4">
-                  <a href="/#destinations" class="text-emerald-50"
-                    >Hubungi Kami</a
-                  >
-                </p>
-                <p class="mb-4">
-                  <a href="/#tour-packages" class="text-emerald-50">Blog</a>
-                </p>
-                <p class="mb-4">
-                  <a href="/#tour-packages" class="text-emerald-50">Reward</a>
-                </p>
-              </div>
-            </div>
-            <div class="flex flex-col md:flex-col">
-              <div class="mt-5 text-emerald-50">
-                <h6
-                  class="font-semibold mb-4 flex justify-center md:justify-start text-2xl text-white"
-                >
-                  BANTUAN
-                </h6>
-                <p class="mb-4">
-                  <a href="mailto:darma_eka89@yahoo.co.id" class="">
-                    <i class="icofont-email"></i> Dukungan</a
-                  >
-                </p>
-                <p class="mb-4">
-                  <a href="" class=""> FAQs </a>
-                </p>
-              </div>
-            </div>
+          <div class="text-center md:text-start md:max-w-80">
+            Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng,
+            Prov. Bali 81116
+          </div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
+        >
+          <div class="font-semibold text-lg">PERUSAHAAN</div>
+          <div>Tentang Kami</div>
+          <div>Hubungi Kami</div>
+          <div>Blog</div>
+          <div>Program</div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold text-lg">BANTUAN</div>
+          <div>Dukungan</div>
+          <div>FAQ</div>
+        </div>
+        <div
+          class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold mb-2 text-lg">SOSIAL MEDIA</div>
+          <div class="flex justify-center md:justify-start items-center gap-3">
+            <i class="fa-brands fa-facebook text-lg"></i
+            ><i class="fa-brands fa-instagram text-xl"></i
+            ><i class="fa-brands fa-youtube text-xl"></i>
           </div>
         </div>
       </div>
-      <div
-        class="text-center p-6 bg-primary line border-t-2 border-emerald-100 text-base"
-      >
-        <span>© 2024 Copyright:</span>
-        <a class="text-emerald-600 font-semibold" href="/">Loka Bali</a>
+      <div>
+        <div
+          class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
+        >
+          <i class="fa-regular fa-copyright mr-1"></i>2024 PakaiKembali.com |
+          Hidupkan Kembali Fashionmu
+        </div>
       </div>
     </footer>
-    <!-- end footer -->
-    <!-- End Card -->
+    <!-- End Footer -->
     <!-- Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
       var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
+        slidesPerView: 2.1,
         centeredSlides: false,
         spaceBetween: 10,
         freeMode: true,
@@ -1112,15 +1111,15 @@
         },
         breakpoints: {
           640: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             spaceBetween: 10,
           },
           768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
+            slidesPerView: 3.5,
+            spaceBetween: 10,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4.5,
             spaceBetween: 10,
           },
         },
