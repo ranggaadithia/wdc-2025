@@ -62,7 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body
-    class="font-inter"
+    class="font-inte flex flex-col min-h-screen"
     style="opacity: 0"
     onload="document.body.style.opacity='1'"
   >
@@ -70,7 +70,7 @@
     <nav
       x-data="{ mobileMenuIsOpen: false }"
       x-on:click.away="mobileMenuIsOpen = false"
-      class="flex items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
+      class="flex sticky top-0 z-50 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
       aria-label="penguin ui menu"
     >
       <div class="flex items-center">
@@ -179,7 +179,7 @@
             x-on:click.outside="isOpen = false, openedWithKeyboard = false"
             x-on:keydown.down.prevent="$focus.wrap().next()"
             x-on:keydown.up.prevent="$focus.wrap().previous()"
-            class="absolute top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+            class="absolute z-50 top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
             role="menu"
           >
             <a
@@ -253,7 +253,7 @@
             x-on:keydown.down.prevent="$focus.wrap().next()"
             x-on:keydown.up.prevent="$focus.wrap().previous()"
             id="userMenu"
-            class="absolute -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+            class="absolute z-50 -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
           >
             <li class="border-b border-neutral-300 dark:border-neutral-700">
               <div class="flex flex-col px-4 py-2">

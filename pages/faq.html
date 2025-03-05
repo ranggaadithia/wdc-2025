@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koin</title>
+    <title>Home</title>
     <link href="../src/output.css" rel="stylesheet" />
     <!-- Icon -->
     <link
@@ -54,7 +54,7 @@
     </script>
   </head>
   <body
-    class="font-inter flex flex-col min-h-screen dark:bg-neutral-800"
+    class="font-inte flex flex-col min-h-screen dark:bg-neutral-800"
     style="opacity: 0"
     onload="document.body.style.opacity='1'"
   >
@@ -62,7 +62,7 @@
     <nav
       x-data="{ mobileMenuIsOpen: false }"
       x-on:click.away="mobileMenuIsOpen = false"
-      class="flex items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
+      class="flex sticky top-0 z-50 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
       aria-label="penguin ui menu"
     >
       <div class="flex items-center">
@@ -106,7 +106,7 @@
               name="search"
               placeholder="Apa yang ingin Anda cari?"
               aria-label="search"
-              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-800 dark:focus-visible:outline-white"
+              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-800 dark:bg-neutral-700 dark:focus-visible:outline-white"
             />
           </div>
           <div>
@@ -171,11 +171,11 @@
             x-on:click.outside="isOpen = false, openedWithKeyboard = false"
             x-on:keydown.down.prevent="$focus.wrap().next()"
             x-on:keydown.up.prevent="$focus.wrap().previous()"
-            class="absolute top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+            class="absolute z-50 top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
             role="menu"
           >
             <a
-              href="edukasi.html"
+              href="#"
               class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
               role="menuitem"
               >Edukasi</a
@@ -245,7 +245,7 @@
             x-on:keydown.down.prevent="$focus.wrap().next()"
             x-on:keydown.up.prevent="$focus.wrap().previous()"
             id="userMenu"
-            class="absolute -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+            class="absolute z-50 -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
           >
             <li class="border-b border-neutral-300 dark:border-neutral-700">
               <div class="flex flex-col px-4 py-2">
@@ -298,10 +298,10 @@
             href="#"
             class="text-primary dark:text-neutral-300"
             @click.prevent="
-  darkMode = !darkMode; 
-  document.documentElement.classList.toggle('dark', darkMode); 
-  localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
-  $dispatch('theme-change', darkMode);"
+   darkMode = !darkMode; 
+   document.documentElement.classList.toggle('dark', darkMode); 
+   localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
+   $dispatch('theme-change', darkMode);"
           >
             <!-- Ikon untuk mode terang -->
             <span class="material-symbols-outlined" x-show="!darkMode">
@@ -329,7 +329,7 @@
       <button
         x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen"
         x-bind:aria-expanded="mobileMenuIsOpen"
-        x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-20' : null"
+        x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-30' : null"
         type="button"
         class="flex text-neutral-600 dark:text-neutral-300 sm:hidden"
         aria-label="mobile menu"
@@ -380,7 +380,7 @@
         x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="-translate-y-full"
-        class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-10 flex flex-col rounded-b-sm border-b border-neutral-300 bg-neutral-50 py-5 dark:border-neutral-700 dark:bg-neutral-900 sm:hidden"
+        class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-20 flex flex-col rounded-b-sm border-b border-neutral-300 bg-neutral-50 py-5 dark:border-neutral-700 dark:bg-neutral-900 sm:hidden"
       >
         <li class="mb-4 border-none px-5">
           <div class="flex items-center gap-2 py-2">
@@ -523,9 +523,9 @@
 
           <div
             x-data="{ 
-           openAccordion: '', 
-           darkMode: localStorage.getItem('theme') === 'dark' 
-         }"
+            openAccordion: '', 
+            darkMode: localStorage.getItem('theme') === 'dark' 
+          }"
             @theme-change.window="darkMode = $event.detail"
           >
             <button
@@ -565,10 +565,10 @@
                 <li
                   class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
                   @click="
-                 darkMode = true;
-                 document.documentElement.classList.add('dark'); 
-                 localStorage.setItem('theme', 'dark'); 
-                 $dispatch('theme-change', true);"
+                  darkMode = true;
+                  document.documentElement.classList.add('dark'); 
+                  localStorage.setItem('theme', 'dark'); 
+                  $dispatch('theme-change', true);"
                 >
                   Gelap
                 </li>
@@ -576,10 +576,10 @@
                 <li
                   class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
                   @click="
-                 darkMode = false;
-                 document.documentElement.classList.remove('dark'); 
-                 localStorage.setItem('theme', 'light'); 
-                 $dispatch('theme-change', false);"
+                  darkMode = false;
+                  document.documentElement.classList.remove('dark'); 
+                  localStorage.setItem('theme', 'light'); 
+                  $dispatch('theme-change', false);"
                 >
                   Terang
                 </li>
@@ -617,245 +617,513 @@
       </ul>
     </nav>
     <!-- Navbar End -->
-    <main class="w-full">
-      <div>
-        <div class="md:flex justify-center md:gap-4 lg:gap-6 p-4 lg:p-10">
-          <div
-            class="basis-1/2 bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
-          >
+    <div class="p-4 lg:p-10">
+      <div
+        class="text-primary text-md md:text-xl mb-4 lg:mb-8 lg:text-3xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-5 md:size-6 lg:size-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+          />
+        </svg>
+        Frequently Asked Questions
+      </div>
+      <div class="md:flex flex-row gap-5 justify-center items-start">
+        <div
+          class="basis-1/2 bg-white shadow-md rounded-lg px-4 py-8 mb-8 lg:py-10 lg:px-6 dark:bg-neutral-900"
+        >
+          <div class="max-h-80 overflow-auto">
             <div
-              class="flex items-center text-sm font-semibold gap-1 mb-10 dark:text-neutral-300"
-            >
-              <span class="material-symbols-outlined text-yellow-500">
-                paid </span
-              >Koin PakaiKembali Anda saat ini:
-            </div>
-            <p class="text-5xl text-center dark:text-neutral-300">6.000 Koin</p>
-            <p class="text-lg text-center mb-10 dark:text-neutral-300">
-              Rp.6.000
-            </p>
-            <p
-              class="text-center text-sm font-semibold mb-3 dark:text-neutral-300"
-            >
-              Riwayat Koin
-            </p>
-            <div
-              class="max-h-64 overflow-auto border rounded-lg flex flex-col dark:text-neutral-300 dark:border-neutral-700"
+              class="flex w-full flex-col gap-4 text-neutral-600 dark:text-neutral-300"
             >
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemOne"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemOne"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Metode pembayaran apa saja yang tersedia?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi baju</p>
-                    <p class="font-light">15 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemOne"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemOne"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Kami menerima pembayaran melalui transfer bank, e-wallet
+                    (OVO, GoPay, Dana), kartu kredit/debit, dan COD (Cash on
+                    Delivery) di beberapa area tertentu
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemTwo"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemTwo"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah saya bisa mengubah atau membatalkan pesanan setelah
+                  checkout?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">15 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemTwo"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemTwo"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Jika pesanan belum diproses, Anda bisa menghubungi tim kami
+                    dalam waktu 12 jam setelah pemesanan untuk perubahan atau
+                    pembatalan.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Berapa lama waktu pengiriman?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Celana</p>
-                    <p class="font-light">10 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Pengiriman biasanya memakan waktu 2-5 hari kerja untuk
+                    wilayah domestik dan 7-14 hari kerja untuk internasional.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Bagaimana jika saya menerima barang yang salah atau cacat?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">8 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Hubungi customer service kami dalam 7 hari setelah menerima
+                    barang, sertakan foto produk, dan kami akan mengatur
+                    penggantian atau pengembalian dana.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah warna pakaian di foto sama dengan produk aslinya?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Jaket</p>
-                    <p class="font-light">1 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Kami berusaha menampilkan warna yang paling akurat, tetapi
+                    bisa ada sedikit perbedaan karena pencahayaan dan resolusi
+                    layar.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah produk yang sold out akan restock?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">30 Januari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Beberapa produk akan restock, tetapi sebagian adalah koleksi
+                    terbatas. Anda bisa mendaftar untuk notifikasi restock di
+                    halaman produk.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
               </div>
               <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
               >
-                <div class="flex items-center">
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah semua produk yang ditampilkan di website tersedia?
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    fill="none"
+                    stroke-width="2"
                     stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">29 Februari 2025</p>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Kami selalu berusaha memperbarui stok di website. Namun,
+                    jika terjadi kehabisan stok mendadak, kami akan segera
+                    menghubungi Anda untuk menawarkan penggantian atau
+                    pengembalian dana.
                   </div>
                 </div>
-                <div class="text-sm">1000 Koin</div>
+              </div>
+              <div
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
+              >
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah produk dikemas dengan aman?
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Ya, semua produk dikemas dengan rapi dan aman menggunakan
+                    plastik ziplock atau box eksklusif untuk mencegah kerusakan
+                    selama pengiriman.
+                  </div>
+                </div>
+              </div>
+              <div
+                x-data="{ isExpanded: false }"
+                class="overflow-hidden rounded-sm border border-neutral-300 bg-neutral-50/40 dark:border-neutral-700 dark:bg-neutral-900/50"
+              >
+                <button
+                  id="controlsAccordionItemThree"
+                  type="button"
+                  class="flex w-full items-center text-sm justify-between gap-2 bg-neutral-50 p-4 text-left underline-offset-2 hover:bg-neutral-50/75 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
+                  aria-controls="accordionItemThree"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  Apakah bisa memilih jasa ekspedisi sendiri?
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemThree"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemThree"
+                  x-collapse
+                >
+                  <div class="p-4 text-sm text-pretty">
+                    Ya, Anda bisa memilih jasa ekspedisi yang tersedia di
+                    halaman checkout, seperti JNE, J&T, SiCepat, dan lainnya.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="basis-1/3 bg-white shadow-md rounded-lg p-4 lg:p-6 dark:bg-neutral-900"
+        >
           <div
-            class="basis-1/3 bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
+            class="font-medium text-primary dark:text-neutral-300 text-center mb-4"
           >
-            <div
-              class="flex items-center text-sm font-semibold gap-1 mb-5 dark:text-neutral-300"
+            Ajukan Pertanyaan
+          </div>
+          <div
+            class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300 mb-4"
+          >
+            <label for="textInputDefault" class="w-fit pl-0.5 text-sm"
+              >Nama</label
             >
-              <span class="material-symbols-outlined text-yellow-500">
-                paid </span
-              >Koin PakaiKembali
-            </div>
-            <div class="overflow-hidden mb-3">
-              <img
-                src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp"
-                class="w-full h-auto object-cover aspect-[4/3] transition duration-700 ease-out group-hover:scale-105"
-                alt="Gambar"
-              />
-            </div>
-
-            <p class="text-sm font-semibol mb-3 dark:text-neutral-300">
-              Apa itu Koin PakaiKembali?
-            </p>
-            <p
-              class="text-xs font-light text-justify dark:text-neutral-300 leading-5"
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-sm border border-neutral-300 bg-neutral-50 px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="Wahyu Ambara"
+              autocomplete="name"
+            />
+          </div>
+          <div
+            class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300 mb-4"
+          >
+            <label for="textInputDefault" class="w-fit pl-0.5 text-sm"
+              >Email</label
             >
-              Koin Pakaikembali adalah bentuk apresiasi bagi mereka yang
-              mendonasikan pakaian bekas layak pakai, sebagai bagian dari upaya
-              mendukung fashion berkelanjutan. Setiap kali seseorang
-              menyumbangkan pakaian, mereka akan mendapatkan koin yang dapat
-              digunakan sebagai alat tukar untuk membeli pakaian bekas
-              berkualitas. Sistem ini tidak hanya mendorong siklus penggunaan
-              ulang pakaian, tetapi juga membantu mengurangi limbah tekstil dan
-              mendukung gaya hidup yang lebih ramah lingkungan serta ekonomis.
-            </p>
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-sm border border-neutral-300 bg-neutral-50 px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder="wahyu123@gmail.com"
+              autocomplete="name"
+            />
+          </div>
+          <div
+            class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300 mb-4"
+          >
+            <label for="textArea" class="w-fit pl-0.5 text-sm"
+              >Pertanyaan</label
+            >
+            <textarea
+              id="textArea"
+              class="w-full rounded-sm border border-neutral-300 bg-neutral-50 px-2.5 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              rows="3"
+              placeholder="Ketik disini"
+            ></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              class="whitespace-nowrap rounded-sm bg-primary border border-primabg-primary px-4 py-2 text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-white dark:border-white dark:text-black dark:focus-visible:outline-white"
+            >
+              Simpan
+            </button>
           </div>
         </div>
       </div>
-    </main>
+    </div>
     <!-- Footer -->
     <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 mt-auto lg:px-14">
       <div class="md:flex flex-row gap-5">

@@ -3,20 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koin</title>
+    <title>Home</title>
     <link href="../src/output.css" rel="stylesheet" />
     <!-- Icon -->
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -106,7 +100,7 @@
               name="search"
               placeholder="Apa yang ingin Anda cari?"
               aria-label="search"
-              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-800 dark:focus-visible:outline-white"
+              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-800 dark:bg-neutral-700 dark:focus-visible:outline-white"
             />
           </div>
           <div>
@@ -175,7 +169,7 @@
             role="menu"
           >
             <a
-              href="edukasi.html"
+              href="#"
               class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
               role="menuitem"
               >Edukasi</a
@@ -298,10 +292,10 @@
             href="#"
             class="text-primary dark:text-neutral-300"
             @click.prevent="
-  darkMode = !darkMode; 
-  document.documentElement.classList.toggle('dark', darkMode); 
-  localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
-  $dispatch('theme-change', darkMode);"
+darkMode = !darkMode; 
+document.documentElement.classList.toggle('dark', darkMode); 
+localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
+$dispatch('theme-change', darkMode);"
           >
             <!-- Ikon untuk mode terang -->
             <span class="material-symbols-outlined" x-show="!darkMode">
@@ -523,9 +517,9 @@
 
           <div
             x-data="{ 
-           openAccordion: '', 
-           darkMode: localStorage.getItem('theme') === 'dark' 
-         }"
+        openAccordion: '', 
+        darkMode: localStorage.getItem('theme') === 'dark' 
+      }"
             @theme-change.window="darkMode = $event.detail"
           >
             <button
@@ -565,10 +559,10 @@
                 <li
                   class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
                   @click="
-                 darkMode = true;
-                 document.documentElement.classList.add('dark'); 
-                 localStorage.setItem('theme', 'dark'); 
-                 $dispatch('theme-change', true);"
+              darkMode = true;
+              document.documentElement.classList.add('dark'); 
+              localStorage.setItem('theme', 'dark'); 
+              $dispatch('theme-change', true);"
                 >
                   Gelap
                 </li>
@@ -576,10 +570,10 @@
                 <li
                   class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
                   @click="
-                 darkMode = false;
-                 document.documentElement.classList.remove('dark'); 
-                 localStorage.setItem('theme', 'light'); 
-                 $dispatch('theme-change', false);"
+              darkMode = false;
+              document.documentElement.classList.remove('dark'); 
+              localStorage.setItem('theme', 'light'); 
+              $dispatch('theme-change', false);"
                 >
                   Terang
                 </li>
@@ -617,244 +611,371 @@
       </ul>
     </nav>
     <!-- Navbar End -->
-    <main class="w-full">
-      <div>
-        <div class="md:flex justify-center md:gap-4 lg:gap-6 p-4 lg:p-10">
+    <main class=" w-full">
+      <div class="md:flex justify-center md:gap-4 lg:gap-6 p-4 lg:p-10">
+        <div class="basis-1/2">
           <div
-            class="basis-1/2 bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
+            class="md:flex justify-between items-center bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
           >
-            <div
-              class="flex items-center text-sm font-semibold gap-1 mb-10 dark:text-neutral-300"
-            >
-              <span class="material-symbols-outlined text-yellow-500">
-                paid </span
-              >Koin PakaiKembali Anda saat ini:
+            <div class="">
+              <div
+                class="flex items-center text-base lg:text-lg font-semibold gap-1 dark:text-neutral-300 mb-1"
+              >
+                <span class="material-symbols-outlined"> location_on </span>
+                Alamat Pengiriman
+              </div>
+              <p class="text-sm lg:text-base dark:text-neutral-300">Rumah - Dian Saskarani (087866345766)</p>
+              <p class="text-xs font-light mb-4 lg:text-sm dark:text-neutral-300 max-w-96">
+                Banjar Dinas Petung, Desa Batur Tengah, Kec. Kintamani, Kab.
+                Bangli, Prov. Bali 80652
+              </p>
             </div>
-            <p class="text-5xl text-center dark:text-neutral-300">6.000 Koin</p>
-            <p class="text-lg text-center mb-10 dark:text-neutral-300">
-              Rp.6.000
-            </p>
-            <p
-              class="text-center text-sm font-semibold mb-3 dark:text-neutral-300"
-            >
-              Riwayat Koin
-            </p>
-            <div
-              class="max-h-64 overflow-auto border rounded-lg flex flex-col dark:text-neutral-300 dark:border-neutral-700"
-            >
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
+            <div class="flex justify-end">
+              <button
+                type="button"
+                class="whitespace-nowrap bg-transparent rounded-sm border border-primary px-3 py-1 text-xs font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-white"
               >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi baju</p>
-                    <p class="font-light">15 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">15 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Celana</p>
-                    <p class="font-light">10 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">8 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Jaket</p>
-                    <p class="font-light">1 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">30 Januari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
-              <div
-                class="flex items-center justify-between mx-3 py-3 border-b dark:border-neutral-700"
-              >
-                <div class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-7 text-primary mr-2 dark:text-neutral-300"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                    />
-                  </svg>
-                  <div class="text-sm">
-                    <p class="font-semibold">Donasi Baju</p>
-                    <p class="font-light">29 Februari 2025</p>
-                  </div>
-                </div>
-                <div class="text-sm">1000 Koin</div>
-              </div>
+                Edit
+              </button>
             </div>
           </div>
           <div
-            class="basis-1/3 bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
+            class="bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
           >
-            <div
-              class="flex items-center text-sm font-semibold gap-1 mb-5 dark:text-neutral-300"
-            >
-              <span class="material-symbols-outlined text-yellow-500">
-                paid </span
-              >Koin PakaiKembali
+            <div class="text-base lg:text-lg font-semibold dark:text-neutral-300 mb-2">
+              Produk Yang Dipesan
             </div>
-            <div class="overflow-hidden mb-3">
-              <img
-                src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp"
-                class="w-full h-auto object-cover aspect-[4/3] transition duration-700 ease-out group-hover:scale-105"
-                alt="Gambar"
+            <div class="flex items-center justify-between text-xs mb-3 lg:text-sm dark:text-neutral-300">
+              <div class="font-semibold">Kevin Sanjaya</div>
+              <div class="flex items-center text-primary gap-1 dark:text-neutral-300">
+                <span class="material-symbols-outlined text-primary dark:text-neutral-300">
+                  chat </span
+                >Chat Penjual
+              </div>
+            </div>
+            <div class="flex justify-between items-center gap-2">
+              <div class="flex items-center gap-2">
+                <img
+                  src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp"
+                  class="object-cover aspect-[2/3] transition duration-700 ease-out group-hover:scale-105 w-28"
+                  alt="Gambar"
+                />
+                <div class="text-xs lg:text-sm dark:text-neutral-300">Kemeja Warna Biru Ukuran L Kondisi Bagus</div>
+              </div>
+              <div class="flex justify-between text-xs lg:text-sm dark:text-neutral-300">
+                
+                <div >1 x Rp.130.000</div>
+              </div>
+            </div>
+            <div
+              x-data="{
+                options: [
+                {
+                    value: 'Reguler (Rp.34.000)',
+                    label: 'Reguler (Rp.34.000)',
+                },
+                {
+                    value: 'Hemat (Rp.25.000)',
+                    label: 'Hemat (Rp.25.000)',
+                },
+                ],
+                isOpen: false,
+                openedWithKeyboard: false,
+                selectedOption: null,
+                setSelectedOption(option) {
+                    this.selectedOption = option
+                    this.isOpen = false
+                    this.openedWithKeyboard = false
+                    this.$refs.hiddenTextField.value = option.value
+                },
+                highlightFirstMatchingOption(pressedKey) {
+                    const option = this.options.find((item) =>
+                        item.label.toLowerCase().startsWith(pressedKey.toLowerCase()),
+                    )
+                    if (option) {
+                        const index = this.options.indexOf(option)
+                        const allOptions = document.querySelectorAll('.combobox-option')
+                        if (allOptions[index]) {
+                            allOptions[index].focus()
+                        }
+                    }
+                },
+            }"
+              class="w-full items-center flex flex-col md:flex-row  gap-1 md:gap-2 my-4"
+              x-on:keydown="highlightFirstMatchingOption($event.key)"
+              x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
+            >
+              <label
+                for="industry"
+                class="w-fit pl-0.5 text-xs lg:text-sm text-neutral-600 dark:text-neutral-300"
+                >Opsi Pengiriman</label
+              >
+              <div class="relative">
+                <!-- trigger button  -->
+                <button
+                  type="button"
+                  role="combobox"
+                  class="inline-flex w-full items-center justify-between gap-2 whitespace-nowrap border-neutral-300 bg-neutral-50 px-4 py-2 text-xs font-medium capitalize tracking-wide text-neutral-600 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300 dark:focus-visible:outline-white rounded-sm border"
+                  aria-haspopup="listbox"
+                  aria-controls="industriesList"
+                  x-on:click="isOpen = ! isOpen"
+                  x-on:keydown.down.prevent="openedWithKeyboard = true"
+                  x-on:keydown.enter.prevent="openedWithKeyboard = true"
+                  x-on:keydown.space.prevent="openedWithKeyboard = true"
+                  x-bind:aria-label="selectedOption ? selectedOption.value : 'Pilih Opsi Pengiriman"
+                  x-bind:aria-expanded="isOpen || openedWithKeyboard"
+                >
+                  <span
+                    class="text-xs font-normal"
+                    x-text="selectedOption ? selectedOption.value : 'Pilih Opsi Pengiriman'"
+                  ></span>
+                  <!-- Chevron  -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <!-- hidden input to grab the selected value  -->
+                <input
+                  id="industry"
+                  name="industry"
+                  type="text"
+                  x-ref="hiddenTextField"
+                  hidden
+                />
+                <ul
+                  x-cloak
+                  x-show="isOpen || openedWithKeyboard"
+                  id="industriesList"
+                  class="absolute z-10 left-0 top-11 flex max-h-44 w-full flex-col overflow-hidden overflow-y-auto border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900 rounded-sm border"
+                  role="listbox"
+                  aria-label="industries list"
+                  x-on:click.outside="isOpen = false, openedWithKeyboard = false"
+                  x-on:keydown.down.prevent="$focus.wrap().next()"
+                  x-on:keydown.up.prevent="$focus.wrap().previous()"
+                  x-transition
+                  x-trap="openedWithKeyboard"
+                >
+                  <template
+                    x-for="(item, index) in options"
+                    x-bind:key="item.value"
+                  >
+                    <li
+                      class="combobox-option inline-flex justify-between gap-6 bg-neutral-50 px-4 py-2 text-xs text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/5 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+                      role="option"
+                      x-on:click="setSelectedOption(item)"
+                      x-on:keydown.enter="setSelectedOption(item)"
+                      x-bind:id="'option-' + index"
+                      tabindex="0"
+                    >
+                      <!-- Label  -->
+                      <span
+                        x-bind:class="selectedOption == item ? 'font-bold' : null"
+                        x-text="item.label"
+                      ></span>
+                      <!-- Screen reader 'selected' indicator  -->
+                      <span
+                        class="sr-only"
+                        x-text="selectedOption == item ? 'selected' : null"
+                      ></span>
+                      <!-- Checkmark  -->
+                      <svg
+                        x-cloak
+                        x-show="selectedOption == item"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="2"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="flex items-center w-full flex-col md:flex-row  gap-1 md:gap-2 lg:text-sm text-neutral-600 dark:text-neutral-300"
+            >
+              <label for="textInputDefault" class="w-fit pl-0.5 text-xs lg:text-sm"
+                >Catatan</label
+              >
+              <input
+                id="textInputDefault"
+                type="text"
+                class="w-full rounded-sm border border-neutral-300 bg-neutral-50 px-2 py-2 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+                name="name"
+                placeholder="Masukan catatan ke penjual jika ada"
+                autocomplete="name"
               />
             </div>
-
-            <p class="text-sm font-semibol mb-3 dark:text-neutral-300">
-              Apa itu Koin PakaiKembali?
-            </p>
-            <p
-              class="text-xs font-light text-justify dark:text-neutral-300 leading-5"
-            >
-              Koin Pakaikembali adalah bentuk apresiasi bagi mereka yang
-              mendonasikan pakaian bekas layak pakai, sebagai bagian dari upaya
-              mendukung fashion berkelanjutan. Setiap kali seseorang
-              menyumbangkan pakaian, mereka akan mendapatkan koin yang dapat
-              digunakan sebagai alat tukar untuk membeli pakaian bekas
-              berkualitas. Sistem ini tidak hanya mendorong siklus penggunaan
-              ulang pakaian, tetapi juga membantu mengurangi limbah tekstil dan
-              mendukung gaya hidup yang lebih ramah lingkungan serta ekonomis.
-            </p>
           </div>
         </div>
+
+        <div
+          x-data="{ selectedPayment: '' }"
+          class="basis-1/3 bg-white shadow-md rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-base lg:text-lg font-semibold dark:text-neutral-300 ">
+              Metode Pembayaran
+            </div>
+            <div x-data="{modalIsOpen: false}">
+              <button
+                x-on:click="modalIsOpen = true"
+                type="button"
+                class="text-xs text-primary font-light dark:text-neutral-300"
+              >
+                Lihat Semua
+              </button>
+              <div
+                x-cloak
+                x-show="modalIsOpen"
+                x-transition.opacity.duration.200ms
+                x-trap.inert.noscroll="modalIsOpen"
+                x-on:keydown.esc.window="modalIsOpen = false"
+                x-on:click.self="modalIsOpen = false"
+                class="fixed inset-0 z-30 flex items-end justify-center  bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="defaultModalTitle"
+              >
+                <!-- Modal Dialog -->
+                <div
+                  x-show="modalIsOpen"
+                  x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
+                  x-transition:enter-start="opacity-0 scale-50"
+                  x-transition:enter-end="opacity-100 scale-100"
+                  class="flex max-w-lg flex-col overflow-hidden rounded-sm border border-neutral-300 bg-white text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+                >
+                  <!-- Dialog Header -->
+                  <div
+                    class="flex items-center justify-between border-b border-neutral-300 bg-neutral-50/60 p-4 dark:border-neutral-700 dark:bg-neutral-950/20"
+                  >
+                    <h3
+                      id="defaultModalTitle"
+                      class="font-semibold tracking-wide text-primary dark:text-neutral-300"
+                    >
+                      Pilih Metode Pembayaran
+                    </h3>
+                    <button
+                      x-on:click="modalIsOpen = false"
+                      aria-label="close modal"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="1.4"
+                        class="w-5 h-5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <!-- Dialog Body -->
+                  <div>
+                    <template
+                      x-for="payment in ['BRI', 'Mandiri', 'BCA', 'BNI', 'Dana','OVO','GoPay','COD']"
+                      :key="payment"
+                    >
+                      <label
+                        class="inline-flex w-full items-center justify-between rounded-sm gap-3 border border-neutral-300 bg-neutral-50 px-4 py-2 text-sm font-medium text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+                      >
+                        <span x-text="payment"></span>
+                        <div class="relative flex items-center">
+                          <input
+                            type="radio"
+                            x-model="selectedPayment"
+                            :value="payment"
+                            class="peer size-4 appearance-none border border-neutral-300 rounded-full bg-white checked:bg-primary dark:border-neutral-700 dark:bg-neutral-950 dark:checked:border-white dark:checked:bg-white"
+                          />
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Area untuk menampilkan metode pembayaran yang dipilih -->
+          <div class="text-sm border-b py-3 dark:text-neutral-300">
+            <span
+              x-text="selectedPayment ? selectedPayment : 'Tidak ada metode pembayaran yang dipilih'"
+            ></span>
+          </div>
+          <label for="checkboxDefault" class="py-3 inline-flex w-full border-b items-center justify-between  gap-3 text-sm font-medium text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 has-checked:text-neutral-900 dark:has-checked:text-white has-disabled:opacity-75 has-disabled:cursor-not-allowed">
+           
+                <div
+                class="flex items-center text-sm font-semibold gap-1 dark:text-neutral-300"
+              >
+                <span class="material-symbols-outlined text-yellow-500"> paid </span
+                >Koin PakaiKembali
+              </div>
+              <div class="flex items-center gap-1">
+
+                  <div>Rp.6000</div>
+                <div class="relative flex items-center">
+                    <input id="checkboxDefault" type="checkbox" class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded-sm border border-neutral-300 bg-white before:absolute before:inset-0 checked:border-black checked:before:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-950 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white" checked/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="4" class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                </div>
+              </div>
+        </label>
+            <div class="py-3">
+                <h2 class="font-semibold">Rincian Pembayaran</h2>
+                <div class="py-3">
+                    <div class="flex justify-between text-sm text-neutral-700 dark:text-neutral-300">
+                        <span>Harga Produk:</span>
+                        <span>Rp.130.000</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-neutral-700 dark:text-neutral-300">
+                        <span>Ongkos Kirim:</span>
+                        <span>Rp.35.000</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-neutral-700 dark:text-neutral-300">
+                        <span>Koin PakaiKembali:</span>
+                        <span>- Rp.6.000</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-neutral-700 dark:text-neutral-300">
+                        <span>Biaya Layanan:</span>
+                        <span>Rp.1.000</span>
+                    </div>
+                </div>
+                <div class="flex justify-between font-bold text-sm border-t py-3 dark:text-neutral-300">
+                    <span>Total Pembayaran:</span>
+                    <span>Rp.160.000</span>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" class="whitespace-nowrap rounded-sm bg-primary border border-prbg-primary px-4 py-2 text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-white dark:border-white dark:text-black dark:focus-visible:outline-white">Bayar</button>
+                </div>
+            </div>
+          
       </div>
+      
     </main>
     <!-- Footer -->
     <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 mt-auto lg:px-14">
