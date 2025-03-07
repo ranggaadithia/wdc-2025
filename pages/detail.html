@@ -1251,107 +1251,10 @@
           </div>
         </div>
       </div>
-      <!-- Terbaru -->
-      <div class="mt-10">
+      <div class="mt-10" x-data="productList" x-init="initScroll">
         <h1 class="text-2xl font-semibold dark:text-white">Terbaru</h1>
 
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
-          x-data="{ 
-        products: [
-          {
-            id: 1,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 2,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 3,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 4,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 5,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 6,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 7,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 8,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 9,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-          {
-            id: 10,
-            name: 'Kemeja Soft Twill | XL',
-            price: 'Rp350.000',
-            seller: 'nurlela',
-            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
-            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
-            cartCount: 1
-          },
-        ]
-      }"
-        >
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           <template x-for="product in products" :key="product.id">
             <div
               class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
@@ -1374,8 +1277,7 @@
                 </div>
                 <div class="flex flex-col gap-y-3 px-6">
                   <h3
-                    class="text-balance text-gray-800 dark:text-gray-300 pt-3"
-                    aria-describedby="featureDescription"
+                    class="text-gray-800 dark:text-gray-300 pt-3"
                     x-text="product.name"
                   ></h3>
                   <p
@@ -1392,13 +1294,16 @@
                 />
                 <a
                   href="#"
-                  class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline duration-300 transition-all ease-in-out"
+                  class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline"
                   x-text="product.seller"
                 ></a>
               </div>
             </div>
           </template>
         </div>
+
+        <!-- Elemen Observer untuk mendeteksi scroll ke bawah -->
+        <div x-ref="scrollTrigger" class="h-10 w-full"></div>
       </div>
     </main>
 
@@ -1548,54 +1453,7 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
-    <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 pt-10 lg:px-14">
-      <div class="md:flex flex-row gap-5">
-        <div class="basis-1/2 text-neutral-200 text-sm mb-4">
-          <div class="flex justify-center md:justify-start">
-            <img src="../src/logo2.png" alt="" class="w-48" />
-          </div>
-          <div class="text-center md:text-start md:max-w-80">
-            Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng,
-            Prov. Bali 81116
-          </div>
-        </div>
-        <div
-          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
-        >
-          <div class="font-semibold text-lg">PERUSAHAAN</div>
-          <div>Tentang Kami</div>
-          <div>Hubungi Kami</div>
-          <div>Blog</div>
-          <div>Program</div>
-        </div>
-        <div
-          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
-        >
-          <div class="font-semibold text-lg">BANTUAN</div>
-          <div>Dukungan</div>
-          <div>FAQ</div>
-        </div>
-        <div
-          class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
-        >
-          <div class="font-semibold mb-2 text-lg">SOSIAL MEDIA</div>
-          <div class="flex justify-center md:justify-start items-center gap-3">
-            <i class="fa-brands fa-facebook text-lg"></i
-            ><i class="fa-brands fa-instagram text-xl"></i
-            ><i class="fa-brands fa-youtube text-xl"></i>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
-        >
-          <i class="fa-regular fa-copyright mr-1"></i>2024 PakaiKembali.com |
-          Hidupkan Kembali Fashionmu
-        </div>
-      </div>
-    </footer>
+
     <!-- End Footer -->
     <!-- Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1622,6 +1480,150 @@
         thumbs: {
           swiper: swiper,
         },
+      });
+    </script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("productList", () => ({
+          products: [],
+          baseProducts: [
+            {
+              id: 1,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 2,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 3,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 4,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 5,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 6,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 7,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 8,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 9,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 10,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+          ],
+          page: 1,
+
+          initScroll() {
+            this.loadMoreProducts();
+
+            let observer = new IntersectionObserver(
+              (entries) => {
+                if (entries[0].isIntersecting) {
+                  this.loadMoreProducts();
+                }
+              },
+              { threshold: 1.0 }
+            );
+
+            observer.observe(this.$refs.scrollTrigger);
+          },
+
+          loadMoreProducts() {
+            let newProducts = this.baseProducts.map((p, index) => ({
+              ...p,
+              id: this.products.length + index + 1, // Membuat ID unik
+            }));
+            this.products = [...this.products, ...newProducts];
+          },
+        }));
       });
     </script>
   </body>
