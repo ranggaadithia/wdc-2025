@@ -786,8 +786,8 @@
               jarang dipakai.
             </p>
             <div class="border w-full border-slate-200 my-3"></div>
-            <div class="flex w-full">
-              <div class="w-20 aspect-square">
+            <div class="flex w-full items-center">
+              <div class="w-16 aspect-square">
                 <img
                   src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
@@ -835,18 +835,19 @@
                       </label>
                     </template>
                   </div>
-                  <span class="ml-1 font-semibold text-neutral-600">(3)</span>
+                  <span
+                    class="ml-1 font-semibold text-neutral-600 dark:text-neutral-300"
+                    >(3)</span
+                  >
                 </div>
-                <!-- <div class="flex items-center">
-                  <span class="material-symbols-outlined"> location_on </span>
-                  <span>Kab. Bangli</span>
-                </div> -->
-                <div class="flex items-center text-sm">
-                  <span class="material-symbols-outlined text-sm">
-                    schedule
-                  </span>
-                  <span class="ml-1">5 Jam lalu</span>
-                </div>
+              </div>
+              <div class="ml-auto">
+                <button
+                  type="button"
+                  class="whitespace-nowrap rounded-lg bg-transparent rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-white"
+                >
+                  Ikuti
+                </button>
               </div>
             </div>
           </div>
@@ -949,11 +950,11 @@
           <div class="flex justify-around">
             <a
               href=""
-              class="flex items-start gap-x-1 font-bold hover:text-primary text-neutral-600"
+              class="flex items-start gap-x-1 font-bold hover:text-primary text-neutral-600 dark:text-neutral-300 dark:hover:text-neutral-400"
             >
               <span class="material-symbols-outlined"> chat </span> Chat Penjual
             </a>
-            <div class="">|</div>
+            <div class="dark:text-neutral-300">|</div>
             <div
               x-data="{                                      
               fallbackModalIsOpen: false,                    
@@ -1248,6 +1249,155 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <!-- Terbaru -->
+      <div class="mt-10">
+        <h1 class="text-2xl font-semibold dark:text-white">Terbaru</h1>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+          x-data="{ 
+        products: [
+          {
+            id: 1,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 2,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 3,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 4,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 5,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 6,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 7,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 8,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 9,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+          {
+            id: 10,
+            name: 'Kemeja Soft Twill | XL',
+            price: 'Rp350.000',
+            seller: 'nurlela',
+            sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp',
+            productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+            cartCount: 1
+          },
+        ]
+      }"
+        >
+          <template x-for="product in products" :key="product.id">
+            <div
+              class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+            >
+              <a href="#">
+                <div class="h-48 md:h-max overflow-hidden relative">
+                  <img
+                    :src="product.productPhoto"
+                    class="w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105 rounded-2xl"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-7 px-2 p-1 bg-gray-200 dark:bg-gray-800 right-5 flex items-center rounded font-semibold text-base text-gray-900 dark:text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
+                  >
+                    <span class="material-symbols-outlined mr-1"
+                      >shopping_cart</span
+                    >
+                    <span x-text="product.cartCount"></span>
+                  </span>
+                </div>
+                <div class="flex flex-col gap-y-3 px-6">
+                  <h3
+                    class="text-balance text-gray-800 dark:text-gray-300 pt-3"
+                    aria-describedby="featureDescription"
+                    x-text="product.name"
+                  ></h3>
+                  <p
+                    class="font-semibold text-lg pb-3 md:pb-0 text-gray-900 dark:text-gray-100"
+                    x-text="product.price"
+                  ></p>
+                </div>
+              </a>
+              <div class="py-3 items-center hidden md:flex px-6">
+                <img
+                  :src="product.sellerPhoto"
+                  alt=""
+                  class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
+                />
+                <a
+                  href="#"
+                  class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline duration-300 transition-all ease-in-out"
+                  x-text="product.seller"
+                ></a>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </main>
