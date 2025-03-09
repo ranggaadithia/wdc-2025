@@ -630,7 +630,7 @@
       class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full relative"
     >
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-2 sticky top-32">
+        <div class="col-span-2 sticky top-32 hidden lg:block">
           <h1 class="text-xl font-bold text-neutral-800 dark:text-neutral-300">
             Filter
           </h1>
@@ -963,9 +963,13 @@
             </div>
           </div>
         </div>
-        <div class="col-span-10" x-data="productList" x-init="initScroll">
+        <div
+          class="col-span-12 lg:col-span-10"
+          x-data="productList"
+          x-init="initScroll"
+        >
           <div class="w-full flex justify-between items-end">
-            <h5 class="text-neutral-600 dark:text-neutral-300">
+            <h5 class="text-neutral-600 dark:text-neutral-300 hidden lg:block">
               Menampilkan hasil pencarian
               <span class="text-primary">"Kemeja"</span>
             </h5>
