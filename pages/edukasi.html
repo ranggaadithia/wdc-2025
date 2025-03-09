@@ -77,393 +77,108 @@
     class="font-inter flex flex-col min-h-screen dark:bg-neutral-800"
     style="opacity: 0"
     onload="document.body.style.opacity='1'"
-  ></body>
-  <!-- Navbar -->
-  <nav
-    x-data="{ mobileMenuIsOpen: false }"
-    x-on:click.away="mobileMenuIsOpen = false"
-    class="flex sticky top-0 z-50 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
-    aria-label="penguin ui menu"
   >
-    <div class="flex items-center">
-      <!-- Brand Logo -->
-      <a
-        href="index.html"
-        class="text-2xl font-bold text-neutral-900 dark:text-white mr-2 md:mr-5"
-        x-data="{ darkMode: false }"
-        x-init="darkMode = localStorage.getItem('theme') === 'dark'"
-        @theme-change.window="darkMode = $event.detail"
-      >
-        <img
-          x-bind:src="darkMode ? '../src/logo2.png' : '../src/logo1.png'"
-          alt="brand logo"
-          class="w-36 sm:w-40 lg:w-52"
-        />
-      </a>
-
-      <div class="w-full">
-        <!-- Search -->
-        <div
-          class="relative flex mr-auto w-full gap-1 text-neutral-600 dark:text-neutral-300 md:mb-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            class="absolute left-2.5 top-1/2 size-5 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            />
-          </svg>
-          <input
-            type="search"
-            name="search"
-            placeholder="Apa yang ingin Anda cari?"
-            aria-label="search"
-            class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-800 dark:bg-neutral-700 dark:focus-visible:outline-white"
-          />
-        </div>
-        <div>
-          <ul
-            class="hidden lg:flex items-center justify-around text-center gap-3 text-xs dark:text-neutral-300"
-          >
-            <li class="hover:text-primary">
-              <a href="shopping.html">Baju</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Jeans</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Topi</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Kemeja</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Celana Pendek</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Celana Panjang</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Jas</a>
-            </li>
-            <li class="hover:text-primary">
-              <a href="shopping.html">Kebaya</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- Desktop Menu -->
-    <ul class="hidden items-center md:gap-2 xl:gap-3 shrink-0 sm:flex">
-      <li
-        x-data="{ isOpen: false, openedWithKeyboard: false }"
-        class="relative w-fit"
-        x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
-      >
-        <!-- Toggle Button -->
-        <button
-          type="button"
-          x-on:click="isOpen = ! isOpen"
-          class="inline-flex items-center py-1.5 md:text-xs lg:text-base font-medium text-medium text-primary tracking-wide transition gap-1.5 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:focus-visible:outline-white"
-          aria-haspopup="true"
-          x-on:keydown.space.prevent="openedWithKeyboard = true"
-          x-on:keydown.enter.prevent="openedWithKeyboard = true"
-          x-on:keydown.down.prevent="openedWithKeyboard = true"
-          x-bind:class="isOpen || openedWithKeyboard ? 'text-neutral-900 dark:text-white' : 'text-neutral-600 dark:text-neutral-300'"
-          x-bind:aria-expanded="isOpen || openedWithKeyboard"
-        >
-          Program
-          <svg
-            aria-hidden="true"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-4 rotate-0"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <!-- Dropdown Menu -->
-        <div
-          x-cloak
-          x-show="isOpen || openedWithKeyboard"
-          x-transition
-          x-trap="openedWithKeyboard"
-          x-on:click.outside="isOpen = false, openedWithKeyboard = false"
-          x-on:keydown.down.prevent="$focus.wrap().next()"
-          x-on:keydown.up.prevent="$focus.wrap().previous()"
-          class="absolute z-50 top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
-          role="menu"
-        >
-          <a
-            href="edukasi.html"
-            class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-            role="menuitem"
-            >Edukasi</a
-          >
-          <a
-            href="koin.html"
-            class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-            role="menuitem"
-            >Koin</a
-          >
-        </div>
-      </li>
-      <li>
+    <!-- Navbar -->
+    <nav
+      x-data="{ mobileMenuIsOpen: false }"
+      x-on:click.away="mobileMenuIsOpen = false"
+      class="flex sticky top-0 z-50 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
+      aria-label="penguin ui menu"
+    >
+      <div class="flex items-center">
+        <!-- Brand Logo -->
         <a
-          href="donasi.html"
-          class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary dark:text-neutral-300 font-medium"
-        >
-          Donasi
-        </a>
-      </li>
-      <li>
-        <a href="keranjang.html" class="text-primary dark:text-neutral-300">
-          <span
-            class="material-symbols-outlined text-primary dark:text-neutral-300"
-          >
-            shopping_cart
-          </span>
-        </a>
-      </li>
-      <!-- <li>
-          <a href="#" class="text-primary dark:text-neutral-300">
-            <span
-              class="material-symbols-outlined text-primary dark:text-neutral-300"
-            >
-              notifications
-            </span>
-          </a>
-        </li> -->
-
-      <li>
-        <a href="faq.html" class="text-primary dark:text-neutral-300">
-          <span
-            class="material-symbols-outlined text-primary dark:text-neutral-300"
-          >
-            live_help
-          </span>
-        </a>
-      </li>
-
-      <li
-        x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }"
-        @theme-change.window="darkMode = $event.detail"
-      >
-        <a
-          href="#"
-          class="text-primary dark:text-neutral-300"
-          @click.prevent="
-   darkMode = !darkMode; 
-   document.documentElement.classList.toggle('dark', darkMode); 
-   localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
-   $dispatch('theme-change', darkMode);"
-        >
-          <!-- Ikon untuk mode terang -->
-          <span class="material-symbols-outlined" x-show="!darkMode">
-            light_mode
-          </span>
-
-          <!-- Ikon untuk mode gelap -->
-          <span class="material-symbols-outlined" x-show="darkMode">
-            dark_mode
-          </span>
-        </a>
-      </li>
-      <!-- User Pic -->
-      <li
-        x-data="{ userDropDownIsOpen: false, openWithKeyboard: false }"
-        x-on:keydown.esc.window="userDropDownIsOpen = false, openWithKeyboard = false"
-        class="relative flex items-center"
-      >
-        <button
-          x-on:click="userDropDownIsOpen = ! userDropDownIsOpen"
-          x-bind:aria-expanded="userDropDownIsOpen"
-          x-on:keydown.space.prevent="openWithKeyboard = true"
-          x-on:keydown.enter.prevent="openWithKeyboard = true"
-          x-on:keydown.down.prevent="openWithKeyboard = true"
-          class="rounded-full flex items-center gap-x-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white"
-          aria-controls="userMenu"
+          href="index.html"
+          class="text-2xl font-bold text-neutral-900 dark:text-white mr-2 md:mr-5"
+          x-data="{ darkMode: false }"
+          x-init="darkMode = localStorage.getItem('theme') === 'dark'"
+          @theme-change.window="darkMode = $event.detail"
         >
           <img
-            src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
-            alt="User Profile"
-            class="size-10 rounded-full object-cover"
+            x-bind:src="darkMode ? '../src/logo2.png' : '../src/logo1.png'"
+            alt="brand logo"
+            class="w-36 sm:w-40 lg:w-52"
           />
-          <h5>
-            <span class="text-neutral-900 dark:text-white font-semibold"
-              >Hi, Dian</span
+        </a>
+
+        <div class="w-full">
+          <!-- Search -->
+          <div
+            class="relative flex mr-auto w-full gap-1 text-neutral-600 dark:text-neutral-300 md:mb-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="absolute left-2.5 top-1/2 size-5 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50"
             >
-          </h5>
-        </button>
-        <!-- User Dropdown -->
-        <ul
-          x-cloak
-          x-show="userDropDownIsOpen || openWithKeyboard"
-          x-transition.opacity
-          x-trap="openWithKeyboard"
-          x-on:click.outside="userDropDownIsOpen = false, openWithKeyboard = false"
-          x-on:keydown.down.prevent="$focus.wrap().next()"
-          x-on:keydown.up.prevent="$focus.wrap().previous()"
-          id="userMenu"
-          class="absolute z-50 -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
-        >
-          <li class="border-b border-neutral-300 dark:border-neutral-700">
-            <div class="flex flex-col px-4 py-2">
-              <span class="text-sm font-medium text-neutral-900 dark:text-white"
-                >Dian Saskarani
-              </span>
-              <p class="text-xs text-neutral-600 dark:text-neutral-300">
-                6.000 Koin
-              </p>
-            </div>
-          </li>
-          <li>
-            <a
-              href="profil.html"
-              class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-              ><span
-                class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
-              >
-                settings </span
-              >Pengaturan</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html"
-              class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-red-500 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
-              ><span class="material-symbols-outlined text-red-500 mr-1.5">
-                logout </span
-              >Log out</a
-            >
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- Mobile Menu Button -->
-    <button
-      x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen"
-      x-bind:aria-expanded="mobileMenuIsOpen"
-      x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-30' : null"
-      type="button"
-      class="flex text-neutral-600 dark:text-neutral-300 sm:hidden"
-      aria-label="mobile menu"
-      aria-controls="mobileMenu"
-    >
-      <svg
-        x-cloak
-        x-show="!mobileMenuIsOpen"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        class="size-6 text-primary dark:text-neutral-300"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
-      </svg>
-      <svg
-        x-cloak
-        x-show="mobileMenuIsOpen"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        class="size-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 18 18 6M6 6l12 12"
-        />
-      </svg>
-    </button>
-    <!-- Mobile Menu -->
-    <ul
-      x-cloak
-      x-show="mobileMenuIsOpen"
-      x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
-      x-transition:enter-start="-translate-y-full"
-      x-transition:enter-end="translate-y-0"
-      x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
-      x-transition:leave-start="translate-y-0"
-      x-transition:leave-end="-translate-y-full"
-      class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-20 flex flex-col rounded-b-sm border-b border-neutral-300 bg-neutral-50 py-5 dark:border-neutral-700 dark:bg-neutral-900 sm:hidden"
-    >
-      <li class="mb-4 border-none px-5">
-        <div class="flex items-center gap-2 py-2">
-          <img
-            src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
-            alt="User Profile"
-            class="size-12 rounded-full object-cover"
-          />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+            <input
+              type="search"
+              name="search"
+              placeholder="Apa yang ingin Anda cari?"
+              aria-label="search"
+              class="w-full rounded-sm bg-[#EFEFEF] py-2 pl-10 pr-2 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-800 dark:bg-neutral-700 dark:focus-visible:outline-white"
+            />
+          </div>
           <div>
-            <span class="font-medium text-neutral-900 dark:text-white"
-              >Dian Saskarani</span
+            <ul
+              class="hidden lg:flex items-center justify-around text-center gap-3 text-xs dark:text-neutral-300"
             >
-            <p class="text-sm text-neutral-600 dark:text-neutral-300">
-              6.000 koin
-            </p>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Baju</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Jeans</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Topi</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Kemeja</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Celana Pendek</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Celana Panjang</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Jas</a>
+              </li>
+              <li class="hover:text-primary">
+                <a href="shopping.html">Kebaya</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </li>
-      <li
-        class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
-      >
-        <a
-          href="keranjang.html'"
-          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-          ><span
-            class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
-          >
-            shopping_cart
-          </span>
-          Keranjang</a
+      </div>
+      <!-- Desktop Menu -->
+      <ul class="hidden items-center md:gap-2 xl:gap-3 shrink-0 sm:flex">
+        <li
+          x-data="{ isOpen: false, openedWithKeyboard: false }"
+          class="relative w-fit"
+          x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
         >
-      </li>
-      <!-- <li
-          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
-        >
-          <a
-            href="#"
-            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            ><span
-              class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
-            >
-              notifications
-            </span>
-            Notifikasi</a
-          >
-        </li> -->
-      <div x-data="{ openAccordion: '' }">
-        <div>
+          <!-- Toggle Button -->
           <button
             type="button"
-            class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
-            @click="openAccordion = openAccordion === 'program' ? '' : 'program'"
-            aria-expanded="openAccordion === 'program'"
+            x-on:click="isOpen = ! isOpen"
+            class="inline-flex items-center py-1.5 md:text-xs lg:text-base font-medium text-medium text-primary tracking-wide transition gap-1.5 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:focus-visible:outline-white"
+            aria-haspopup="true"
+            x-on:keydown.space.prevent="openedWithKeyboard = true"
+            x-on:keydown.enter.prevent="openedWithKeyboard = true"
+            x-on:keydown.down.prevent="openedWithKeyboard = true"
+            x-bind:class="isOpen || openedWithKeyboard ? 'text-neutral-900 dark:text-white' : 'text-neutral-600 dark:text-neutral-300'"
+            x-bind:aria-expanded="isOpen || openedWithKeyboard"
           >
             Program
             <svg
@@ -482,439 +197,727 @@
               />
             </svg>
           </button>
-          <div x-show="openAccordion === 'program'" x-collapse>
-            <ul>
-              <li
-                class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
-              >
-                <a href="edukasi.html">Edukasi</a>
-              </li>
-              <li
-                class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
-              >
-                <a href="koin.html">Koin</a>
-              </li>
-            </ul>
+          <!-- Dropdown Menu -->
+          <div
+            x-cloak
+            x-show="isOpen || openedWithKeyboard"
+            x-transition
+            x-trap="openedWithKeyboard"
+            x-on:click.outside="isOpen = false, openedWithKeyboard = false"
+            x-on:keydown.down.prevent="$focus.wrap().next()"
+            x-on:keydown.up.prevent="$focus.wrap().previous()"
+            class="absolute z-50 top-11 left-0 flex w-fit min-w-48 flex-col overflow-hidden rounded border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
+            role="menu"
+          >
+            <a
+              href="edukasi.html"
+              class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+              role="menuitem"
+              >Edukasi</a
+            >
+            <a
+              href="koin.html"
+              class="bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+              role="menuitem"
+              >Koin</a
+            >
           </div>
-        </div>
-        <li
-          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
-        >
+        </li>
+        <li>
           <a
             href="donasi.html"
-            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-            >Donasikan Pakaianmu</a
+            class="inline-flex items-center md:text-xs lg:text-base px-3 py-1.5 text-primary dark:text-neutral-300 font-medium"
           >
+            Donasi
+          </a>
+        </li>
+        <li>
+          <a href="keranjang.html" class="text-primary dark:text-neutral-300">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
+              shopping_cart
+            </span>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="#" class="text-primary dark:text-neutral-300">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
+              notifications
+            </span>
+          </a>
+        </li> -->
+
+        <li>
+          <a href="faq.html" class="text-primary dark:text-neutral-300">
+            <span
+              class="material-symbols-outlined text-primary dark:text-neutral-300"
+            >
+              live_help
+            </span>
+          </a>
         </li>
 
-        <div
-          x-data="{ 
-            openAccordion: '', 
-            darkMode: localStorage.getItem('theme') === 'dark' 
-          }"
+        <li
+          x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }"
           @theme-change.window="darkMode = $event.detail"
         >
+          <a
+            href="#"
+            class="text-primary dark:text-neutral-300"
+            @click.prevent="
+   darkMode = !darkMode; 
+   document.documentElement.classList.toggle('dark', darkMode); 
+   localStorage.setItem('theme', darkMode ? 'dark' : 'light'); 
+   $dispatch('theme-change', darkMode);"
+          >
+            <!-- Ikon untuk mode terang -->
+            <span class="material-symbols-outlined" x-show="!darkMode">
+              light_mode
+            </span>
+
+            <!-- Ikon untuk mode gelap -->
+            <span class="material-symbols-outlined" x-show="darkMode">
+              dark_mode
+            </span>
+          </a>
+        </li>
+        <!-- User Pic -->
+        <li
+          x-data="{ userDropDownIsOpen: false, openWithKeyboard: false }"
+          x-on:keydown.esc.window="userDropDownIsOpen = false, openWithKeyboard = false"
+          class="relative flex items-center"
+        >
           <button
-            type="button"
-            class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
-            @click="openAccordion = openAccordion === 'theme' ? '' : 'theme'"
-            aria-expanded="openAccordion === 'theme'"
+            x-on:click="userDropDownIsOpen = ! userDropDownIsOpen"
+            x-bind:aria-expanded="userDropDownIsOpen"
+            x-on:keydown.space.prevent="openWithKeyboard = true"
+            x-on:keydown.enter.prevent="openWithKeyboard = true"
+            x-on:keydown.down.prevent="openWithKeyboard = true"
+            class="rounded-full flex items-center gap-x-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white"
+            aria-controls="userMenu"
           >
-            <div class="flex items-center">
-              <span
-                class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
-                x-text="darkMode ? 'dark_mode' : 'light_mode'"
+            <img
+              src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
+              alt="User Profile"
+              class="size-10 rounded-full object-cover"
+            />
+            <h5>
+              <span class="text-neutral-900 dark:text-white font-semibold"
+                >Hi, Dian</span
               >
-              </span>
-              Ganti Mode
-            </div>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              class="size-5 transition"
-              :class="openAccordion === 'theme' ? 'rotate-180' : ''"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
+            </h5>
           </button>
-
-          <!-- Dropdown Pilihan Tema -->
-          <div x-show="openAccordion === 'theme'" x-collapse>
-            <ul>
-              <li
-                class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
-                @click="
-                  darkMode = true;
-                  document.documentElement.classList.add('dark'); 
-                  localStorage.setItem('theme', 'dark'); 
-                  $dispatch('theme-change', true);"
-              >
-                Gelap
-              </li>
-
-              <li
-                class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
-                @click="
-                  darkMode = false;
-                  document.documentElement.classList.remove('dark'); 
-                  localStorage.setItem('theme', 'light'); 
-                  $dispatch('theme-change', false);"
-              >
-                Terang
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <li
-        class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
-      >
-        <a
-          href="faq.html"
-          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-          ><span
-            class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+          <!-- User Dropdown -->
+          <ul
+            x-cloak
+            x-show="userDropDownIsOpen || openWithKeyboard"
+            x-transition.opacity
+            x-trap="openWithKeyboard"
+            x-on:click.outside="userDropDownIsOpen = false, openWithKeyboard = false"
+            x-on:keydown.down.prevent="$focus.wrap().next()"
+            x-on:keydown.up.prevent="$focus.wrap().previous()"
+            id="userMenu"
+            class="absolute z-50 -left-full top-12 flex w-fit min-w-48 flex-col overflow-hidden rounded border border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900"
           >
-            live_help
-          </span>
-          Bantuan</a
-        >
-      </li>
-      <li class="py-2 hover:bg-neutral-200 px-5 dark:hover:bg-neutral-700">
-        <a
-          href="profil.html"
-          class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
-          ><span
-            class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
-          >
-            settings
-          </span>
-          Pengaturan</a
-        >
-      </li>
-    </ul>
-  </nav>
-  <!-- Navbar End -->
-  <main class="p-4 md:py-10 md:px-20 lg:px-36 w-full">
-    <div class="flex flex-col items-center text-center mb-4 lg:mb-8">
-      <div
-        class="text-primary text-md md:text-xl lg:text-3xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
+            <li class="border-b border-neutral-300 dark:border-neutral-700">
+              <div class="flex flex-col px-4 py-2">
+                <span
+                  class="text-sm font-medium text-neutral-900 dark:text-white"
+                  >Dian Saskarani
+                </span>
+                <p class="text-xs text-neutral-600 dark:text-neutral-300">
+                  6.000 Koin
+                </p>
+              </div>
+            </li>
+            <li>
+              <a
+                href="profil.html"
+                class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+                ><span
+                  class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                >
+                  settings </span
+                >Pengaturan</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html"
+                class="flex items-center bg-neutral-50 px-4 py-2 text-sm text-red-500 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+                ><span class="material-symbols-outlined text-red-500 mr-1.5">
+                  logout </span
+                >Log out</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Mobile Menu Button -->
+      <button
+        x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen"
+        x-bind:aria-expanded="mobileMenuIsOpen"
+        x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-30' : null"
+        type="button"
+        class="flex text-neutral-600 dark:text-neutral-300 sm:hidden"
+        aria-label="mobile menu"
+        aria-controls="mobileMenu"
       >
         <svg
+          x-cloak
+          x-show="!mobileMenuIsOpen"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
+          aria-hidden="true"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke="currentColor"
-          class="size-5 md:size-6 lg:size-8"
+          class="size-6 text-primary dark:text-neutral-300"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
-
-        Edukasi
-      </div>
-      <div
-        class="text-neutral-600 text-[11px] lg:text-xs md:max-w-lg text-center dark:text-neutral-400"
+        <svg
+          x-cloak
+          x-show="mobileMenuIsOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <!-- Mobile Menu -->
+      <ul
+        x-cloak
+        x-show="mobileMenuIsOpen"
+        x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
+        x-transition:enter-start="-translate-y-full"
+        x-transition:enter-end="translate-y-0"
+        x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
+        x-transition:leave-start="translate-y-0"
+        x-transition:leave-end="-translate-y-full"
+        class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-20 flex flex-col rounded-b-sm border-b border-neutral-300 bg-neutral-50 py-5 dark:border-neutral-700 dark:bg-neutral-900 sm:hidden"
       >
-        Tingkatkan pengetahuan dan keterampilanmu dengan belajar hal baru setiap
-        harinya.
-      </div>
-    </div>
-    <div class="flex flex-col justify-center">
-      <ol class="flex flex-col gap-6" aria-label="registration progress">
-        <!-- Step 1 - Completed -->
-        <li
-          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
-        >
-          <!-- YouTube Video -->
-          <div class="flex-shrink-0 hidden md:block">
-            <iframe
-              class="w-full"
-              src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <!-- Step Description -->
-          <div class="flex items-center gap-3">
-            <div class="relative">
-              <span
-                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
-                >1</span
+        <li class="mb-4 border-none px-5">
+          <div class="flex items-center gap-2 py-2">
+            <img
+              src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp"
+              alt="User Profile"
+              class="size-12 rounded-full object-cover"
+            />
+            <div>
+              <span class="font-medium text-neutral-900 dark:text-white"
+                >Dian Saskarani</span
               >
-            </div>
-            <div class="text-black dark:text-white">
-              <div class="flex-shrink-0">
-                <iframe
-                  class="w-full md:hidden"
-                  src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <strong>Slow Fashion vs. Fast Fashion?</strong>
-              <p
-                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
-              >
-                Slow fashion berfokus pada produksi pakaian yang berkelanjutan,
-                berkualitas tinggi, dan ramah lingkungan, dengan menekankan
-                etika kerja, bahan ramah lingkungan, serta desain yang tahan
-                lama. Sebaliknya, fast fashion menghasilkan pakaian dalam jumlah
-                besar dengan harga murah dan siklus produksi cepat, sering kali
-                mengorbankan kualitas, kondisi kerja, dan dampak lingkungan.
-                Slow fashion mendorong konsumsi yang sadar dan bertanggung
-                jawab, sementara fast fashion lebih menonjolkan tren sementara
-                dan konsumsi berlebihan.
+              <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                6.000 koin
               </p>
             </div>
           </div>
         </li>
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
+          <a
+            href="keranjang.html'"
+            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+            ><span
+              class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+            >
+              shopping_cart
+            </span>
+            Keranjang</a
+          >
+        </li>
+        <!-- <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
+          <a
+            href="#"
+            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+            ><span
+              class="material-symbols-outlined text-primary mr-1 dark:text-neutral-300"
+            >
+              notifications
+            </span>
+            Notifikasi</a
+          >
+        </li> -->
+        <div x-data="{ openAccordion: '' }">
+          <div>
+            <button
+              type="button"
+              class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
+              @click="openAccordion = openAccordion === 'program' ? '' : 'program'"
+              aria-expanded="openAccordion === 'program'"
+            >
+              Program
+              <svg
+                aria-hidden="true"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-4 rotate-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </button>
+            <div x-show="openAccordion === 'program'" x-collapse>
+              <ul>
+                <li
+                  class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
+                >
+                  <a href="edukasi.html">Edukasi</a>
+                </li>
+                <li
+                  class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 pl-8 hover:bg-neutral-200 dark:text-neutral-300"
+                >
+                  <a href="koin.html">Koin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <li
+            class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+          >
+            <a
+              href="donasi.html"
+              class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+              >Donasikan Pakaianmu</a
+            >
+          </li>
 
-        <li
-          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
-        >
-          <!-- YouTube Video -->
-          <div class="flex-shrink-0 hidden md:block">
-            <iframe
-              class="w-full"
-              src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <!-- Step Description -->
-          <div class="flex items-center gap-3">
-            <div class="relative">
-              <div
-                class="absolute bottom-8 left-3 h-[345px] md:h-[250px] lg:h-[180px] xl:h-[135px] w-0.5 bg-black dark:bg-white"
-              ></div>
-              <span
-                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
-                >2</span
-              >
-            </div>
+          <div
+            x-data="{ 
+            openAccordion: '', 
+            darkMode: localStorage.getItem('theme') === 'dark' 
+          }"
+            @theme-change.window="darkMode = $event.detail"
+          >
+            <button
+              type="button"
+              class="flex w-full items-center py-2 border-b dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5 border-neutral-300 justify-between gap-4 bg-neutral-50 text-left dark:bg-neutral-900 dark:text-neutral-300"
+              @click="openAccordion = openAccordion === 'theme' ? '' : 'theme'"
+              aria-expanded="openAccordion === 'theme'"
+            >
+              <div class="flex items-center">
+                <span
+                  class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+                  x-text="darkMode ? 'dark_mode' : 'light_mode'"
+                >
+                </span>
+                Ganti Mode
+              </div>
 
-            <div class="text-black dark:text-white">
-              <div class="flex-shrink-0">
-                <iframe
-                  class="w-full md:hidden"
-                  src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <strong>Daur Ulang dan Upcycling Pakaian</strong>
-              <p
-                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                class="size-5 transition"
+                :class="openAccordion === 'theme' ? 'rotate-180' : ''"
               >
-                Daur ulang dan upcycling pakaian adalah dua cara berkelanjutan
-                untuk mengurangi limbah tekstil. Daur ulang pakaian melibatkan
-                proses mendekomposisi bahan lama menjadi serat baru yang dapat
-                digunakan kembali untuk membuat kain atau produk lain,
-                mengurangi kebutuhan akan bahan mentah. Sementara itu, upcycling
-                mengubah pakaian lama atau rusak menjadi barang baru dengan
-                nilai lebih tinggi tanpa melalui proses penghancuran, seperti
-                menjahit ulang jeans bekas menjadi tas atau mengubah kemeja lama
-                menjadi aksesori unik. Kedua metode ini membantu mengurangi
-                limbah mode dan mendukung konsumsi yang lebih bertanggung jawab.
-              </p>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <!-- Dropdown Pilihan Tema -->
+            <div x-show="openAccordion === 'theme'" x-collapse>
+              <ul>
+                <li
+                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                  @click="
+                  darkMode = true;
+                  document.documentElement.classList.add('dark'); 
+                  localStorage.setItem('theme', 'dark'); 
+                  $dispatch('theme-change', true);"
+                >
+                  Gelap
+                </li>
+
+                <li
+                  class="py-2 border-b border-neutral-300 pl-8 hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer dark:text-neutral-300"
+                  @click="
+                  darkMode = false;
+                  document.documentElement.classList.remove('dark'); 
+                  localStorage.setItem('theme', 'light'); 
+                  $dispatch('theme-change', false);"
+                >
+                  Terang
+                </li>
+              </ul>
             </div>
           </div>
-        </li>
-        <li
-          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
-          aria-label="checkout"
-        >
-          <!-- YouTube Video -->
-          <div class="flex-shrink-0 hidden md:block">
-            <iframe
-              class="w-full"
-              src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <!-- Step Description -->
-          <div class="flex items-center gap-3">
-            <div class="relative">
-              <div
-                class="absolute bottom-8 left-3 h-[385px] md:h-[310px] lg:h-[210px] xl:h-[150px] w-0.5 bg-black dark:bg-white"
-              ></div>
-              <span
-                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
-                >3</span
-              >
-            </div>
-            <div class="text-black dark:text-white">
-              <div class="flex-shrink-0">
-                <iframe
-                  class="w-full md:hidden"
-                  src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <strong>Dampak Limbah Tekstil terhadap Lingkungan</strong>
-              <p
-                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
-              >
-                Limbah tekstil memiliki dampak serius terhadap lingkungan, mulai
-                dari pencemaran tanah dan air hingga peningkatan emisi gas rumah
-                kaca. Pakaian yang dibuang ke tempat pembuangan akhir
-                membutuhkan waktu bertahun-tahun untuk terurai, terutama yang
-                terbuat dari serat sintetis seperti poliester yang melepaskan
-                mikroplastik ke lingkungan. Proses pewarnaan dan produksi
-                tekstil juga mencemari sumber air dengan bahan kimia berbahaya,
-                merusak ekosistem, dan membahayakan kesehatan manusia. Selain
-                itu, pembakaran limbah tekstil melepaskan karbon dioksida dan
-                zat beracun ke udara, berkontribusi terhadap perubahan iklim.
-                Oleh karena itu, pengurangan, daur ulang, dan upcycling pakaian
-                menjadi langkah penting untuk mengurangi dampak negatif limbah
-                tekstil terhadap lingkungan.
-              </p>
-            </div>
-          </div>
-        </li>
-        <li
-          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
-          aria-label="get started"
-        >
-          <!-- YouTube Video -->
-          <div class="flex-shrink-0 hidden md:block">
-            <iframe
-              class="w-full"
-              src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <!-- Step Description -->
-          <div class="flex items-center gap-3">
-            <div class="relative">
-              <div
-                class="absolute bottom-8 left-3 h-[400px] md:h-[330px] lg:h-[230px] xl:h-[155px] w-0.5 bg-black dark:bg-white"
-              ></div>
-              <span
-                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
-                >4</span
-              >
-            </div>
-            <div class="text-black dark:text-white">
-              <div class="flex-shrink-0">
-                <iframe
-                  class="w-full md:hidden"
-                  src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <strong>Pentingnya Circular Fashion</strong>
-              <p
-                class="text-xs xl:text-sm text-gray-600 text-justify break-words dark:text-gray-300"
-              >
-                Circular fashion sangat penting untuk mengurangi limbah tekstil
-                dan dampak lingkungan dari industri mode dengan menerapkan
-                prinsip ekonomi sirkular, seperti desain berkelanjutan,
-                penggunaan bahan ramah lingkungan, dan perpanjangan siklus hidup
-                pakaian melalui daur ulang, upcycling, serta sistem sewa atau
-                tukar pakai. Dengan mengurangi produksi pakaian baru dan
-                memaksimalkan pemanfaatan yang sudah ada, circular fashion
-                membantu menekan konsumsi sumber daya alam, mengurangi emisi
-                karbon, serta meminimalisir polusi air dan tanah akibat limbah
-                tekstil. Selain itu, konsep ini juga mendorong perubahan pola
-                konsumsi menuju mode yang lebih bertanggung jawab, di mana
-                konsumen lebih sadar akan asal-usul dan dampak dari pakaian yang
-                mereka gunakan.
-              </p>
-            </div>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </main>
-  <!-- Footer -->
-  <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 mt-auto lg:px-14">
-    <div class="md:flex flex-row gap-5">
-      <div class="basis-1/2 text-neutral-200 text-sm mb-4">
-        <div class="flex justify-center md:justify-start">
-          <img src="../src/logo2.png" alt="" class="w-48" />
         </div>
-        <div class="text-center md:text-start max-w-80">
-          Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng, Prov.
-          Bali 81116
+
+        <li
+          class="py-2 border-b border-neutral-300 dark:hover:bg-neutral-700 hover:bg-neutral-200 px-5"
+        >
+          <a
+            href="faq.html"
+            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+            ><span
+              class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+            >
+              live_help
+            </span>
+            Bantuan</a
+          >
+        </li>
+        <li class="py-2 hover:bg-neutral-200 px-5 dark:hover:bg-neutral-700">
+          <a
+            href="profil.html"
+            class="w-full text-neutral-900 dark:text-neutral-300 flex items-center"
+            ><span
+              class="material-symbols-outlined text-primary mr-1.5 dark:text-neutral-300"
+            >
+              settings
+            </span>
+            Pengaturan</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Navbar End -->
+    <main class="p-4 md:py-10 md:px-20 lg:px-36 w-full">
+      <div class="flex flex-col items-center text-center mb-4 lg:mb-8">
+        <div
+          class="text-primary text-md md:text-xl lg:text-3xl font-medium flex items-center justify-center gap-1 dark:text-neutral-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-5 md:size-6 lg:size-8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+            />
+          </svg>
+
+          Edukasi
+        </div>
+        <div
+          class="text-neutral-600 text-[11px] lg:text-xs md:max-w-lg text-center dark:text-neutral-400"
+        >
+          Tingkatkan pengetahuan dan keterampilanmu dengan belajar hal baru
+          setiap harinya.
         </div>
       </div>
-      <div
-        class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
-      >
-        <div class="font-semibold">PERUSAHAAN</div>
-        <div>Tentang Kami</div>
-        <div>Hubungi Kami</div>
-        <div>Blog</div>
-        <div>Program</div>
+      <div class="flex flex-col justify-center">
+        <ol class="flex flex-col gap-6" aria-label="registration progress">
+          <!-- Step 1 - Completed -->
+          <li
+            class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+          >
+            <!-- YouTube Video -->
+            <div class="flex-shrink-0 hidden md:block">
+              <iframe
+                class="w-full"
+                src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- Step Description -->
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <span
+                  class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                  >1</span
+                >
+              </div>
+              <div class="text-black dark:text-white">
+                <div class="flex-shrink-0">
+                  <iframe
+                    class="w-full md:hidden"
+                    src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <strong>Slow Fashion vs. Fast Fashion?</strong>
+                <p
+                  class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+                >
+                  Slow fashion berfokus pada produksi pakaian yang
+                  berkelanjutan, berkualitas tinggi, dan ramah lingkungan,
+                  dengan menekankan etika kerja, bahan ramah lingkungan, serta
+                  desain yang tahan lama. Sebaliknya, fast fashion menghasilkan
+                  pakaian dalam jumlah besar dengan harga murah dan siklus
+                  produksi cepat, sering kali mengorbankan kualitas, kondisi
+                  kerja, dan dampak lingkungan. Slow fashion mendorong konsumsi
+                  yang sadar dan bertanggung jawab, sementara fast fashion lebih
+                  menonjolkan tren sementara dan konsumsi berlebihan.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li
+            class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+          >
+            <!-- YouTube Video -->
+            <div class="flex-shrink-0 hidden md:block">
+              <iframe
+                class="w-full"
+                src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- Step Description -->
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div
+                  class="absolute bottom-8 left-3 h-[345px] md:h-[250px] lg:h-[180px] xl:h-[135px] w-0.5 bg-black dark:bg-white"
+                ></div>
+                <span
+                  class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                  >2</span
+                >
+              </div>
+
+              <div class="text-black dark:text-white">
+                <div class="flex-shrink-0">
+                  <iframe
+                    class="w-full md:hidden"
+                    src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <strong>Daur Ulang dan Upcycling Pakaian</strong>
+                <p
+                  class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+                >
+                  Daur ulang dan upcycling pakaian adalah dua cara berkelanjutan
+                  untuk mengurangi limbah tekstil. Daur ulang pakaian melibatkan
+                  proses mendekomposisi bahan lama menjadi serat baru yang dapat
+                  digunakan kembali untuk membuat kain atau produk lain,
+                  mengurangi kebutuhan akan bahan mentah. Sementara itu,
+                  upcycling mengubah pakaian lama atau rusak menjadi barang baru
+                  dengan nilai lebih tinggi tanpa melalui proses penghancuran,
+                  seperti menjahit ulang jeans bekas menjadi tas atau mengubah
+                  kemeja lama menjadi aksesori unik. Kedua metode ini membantu
+                  mengurangi limbah mode dan mendukung konsumsi yang lebih
+                  bertanggung jawab.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li
+            class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+            aria-label="checkout"
+          >
+            <!-- YouTube Video -->
+            <div class="flex-shrink-0 hidden md:block">
+              <iframe
+                class="w-full"
+                src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- Step Description -->
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div
+                  class="absolute bottom-8 left-3 h-[385px] md:h-[310px] lg:h-[210px] xl:h-[150px] w-0.5 bg-black dark:bg-white"
+                ></div>
+                <span
+                  class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                  >3</span
+                >
+              </div>
+              <div class="text-black dark:text-white">
+                <div class="flex-shrink-0">
+                  <iframe
+                    class="w-full md:hidden"
+                    src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <strong>Dampak Limbah Tekstil terhadap Lingkungan</strong>
+                <p
+                  class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+                >
+                  Limbah tekstil memiliki dampak serius terhadap lingkungan,
+                  mulai dari pencemaran tanah dan air hingga peningkatan emisi
+                  gas rumah kaca. Pakaian yang dibuang ke tempat pembuangan
+                  akhir membutuhkan waktu bertahun-tahun untuk terurai, terutama
+                  yang terbuat dari serat sintetis seperti poliester yang
+                  melepaskan mikroplastik ke lingkungan. Proses pewarnaan dan
+                  produksi tekstil juga mencemari sumber air dengan bahan kimia
+                  berbahaya, merusak ekosistem, dan membahayakan kesehatan
+                  manusia. Selain itu, pembakaran limbah tekstil melepaskan
+                  karbon dioksida dan zat beracun ke udara, berkontribusi
+                  terhadap perubahan iklim. Oleh karena itu, pengurangan, daur
+                  ulang, dan upcycling pakaian menjadi langkah penting untuk
+                  mengurangi dampak negatif limbah tekstil terhadap lingkungan.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li
+            class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+            aria-label="get started"
+          >
+            <!-- YouTube Video -->
+            <div class="flex-shrink-0 hidden md:block">
+              <iframe
+                class="w-full"
+                src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- Step Description -->
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div
+                  class="absolute bottom-8 left-3 h-[400px] md:h-[330px] lg:h-[230px] xl:h-[155px] w-0.5 bg-black dark:bg-white"
+                ></div>
+                <span
+                  class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                  >4</span
+                >
+              </div>
+              <div class="text-black dark:text-white">
+                <div class="flex-shrink-0">
+                  <iframe
+                    class="w-full md:hidden"
+                    src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <strong>Pentingnya Circular Fashion</strong>
+                <p
+                  class="text-xs xl:text-sm text-gray-600 text-justify break-words dark:text-gray-300"
+                >
+                  Circular fashion sangat penting untuk mengurangi limbah
+                  tekstil dan dampak lingkungan dari industri mode dengan
+                  menerapkan prinsip ekonomi sirkular, seperti desain
+                  berkelanjutan, penggunaan bahan ramah lingkungan, dan
+                  perpanjangan siklus hidup pakaian melalui daur ulang,
+                  upcycling, serta sistem sewa atau tukar pakai. Dengan
+                  mengurangi produksi pakaian baru dan memaksimalkan pemanfaatan
+                  yang sudah ada, circular fashion membantu menekan konsumsi
+                  sumber daya alam, mengurangi emisi karbon, serta meminimalisir
+                  polusi air dan tanah akibat limbah tekstil. Selain itu, konsep
+                  ini juga mendorong perubahan pola konsumsi menuju mode yang
+                  lebih bertanggung jawab, di mana konsumen lebih sadar akan
+                  asal-usul dan dampak dari pakaian yang mereka gunakan.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
-      <div
-        class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
-      >
-        <div class="font-semibold">BANTUAN</div>
-        <div>Dukungan</div>
-        <div>FAQ</div>
-      </div>
-      <div
-        class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
-      >
-        <div class="font-semibold mb-2">SOSIAL MEDIA</div>
-        <div class="flex justify-center md:justify-start items-center gap-3">
-          <i class="fa-brands fa-facebook text-lg"></i
-          ><i class="fa-brands fa-instagram text-xl"></i
-          ><i class="fa-brands fa-youtube text-xl"></i>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 pt-10 lg:px-14">
+      <div class="md:flex flex-row gap-5">
+        <div class="basis-1/2 text-neutral-200 text-sm mb-4">
+          <div class="flex justify-center md:justify-start">
+            <img src="../src/logo2.png" alt="" class="w-48" />
+          </div>
+          <div class="text-center md:text-start md:max-w-80">
+            Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng,
+            Prov. Bali 81116
+          </div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
+        >
+          <div class="font-semibold text-lg">PERUSAHAAN</div>
+          <div>Tentang Kami</div>
+          <div>Hubungi Kami</div>
+          <div>Blog</div>
+          <div>Program</div>
+        </div>
+        <div
+          class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold text-lg">BANTUAN</div>
+          <div>Dukungan</div>
+          <div>FAQ</div>
+        </div>
+        <div
+          class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+        >
+          <div class="font-semibold mb-2 text-lg">SOSIAL MEDIA</div>
+          <div class="flex justify-center md:justify-start items-center gap-3">
+            <i class="fa-brands fa-facebook text-lg"></i
+            ><i class="fa-brands fa-instagram text-xl"></i
+            ><i class="fa-brands fa-youtube text-xl"></i>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div
-        class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
-      >
-        <i class="fa-regular fa-copyright mr-1"></i>2024 PakaiKembali.com |
-        Hidupkan Kembali Fashionmu
+      <div>
+        <div
+          class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
+        >
+          <i class="fa-regular fa-copyright mr-1"></i>2025 PakaiKembali.com |
+          Hidupkan Kembali Fashionmu
+        </div>
       </div>
-    </div>
-  </footer>
-  <!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
+  </body>
 </html>
