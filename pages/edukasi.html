@@ -645,510 +645,240 @@ $dispatch('theme-change', darkMode);"
         harinya.
       </div>
     </div>
-    <div
-      class="w-full divide-y shadow-md divide-neutral-300 overflow-hidden rounded-lg border border-neutral-300 bg-neutral-50/40 text-neutral-600 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300"
-    >
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemOne"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemOne"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+    <div class="flex flex-col justify-center">
+      <ol class="flex flex-col gap-6" aria-label="registration progress">
+        <!-- Step 1 - Completed -->
+        <li
+          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
         >
-          Slow Fashion vs. Fast Fashion?
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemOne"
-          role="region"
-          aria-labelledby="controlsAccordionItemOne"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              Slow Fashion adalah konsep mode yang berfokus pada keberlanjutan,
-              etika, dan kualitas dibandingkan produksi massal dan tren yang
-              cepat berubah. Gerakan ini mendorong penggunaan bahan ramah
-              lingkungan, produksi yang adil bagi pekerja, serta desain pakaian
-              yang tahan lama dan tidak lekas usang. Dengan memilih Slow
-              Fashion, konsumen dapat mengurangi limbah tekstil, mendukung
-              industri yang lebih bertanggung jawab, dan membantu menjaga
-              keseimbangan lingkungan.
-            </p>
-            <p class="mb-5">
-              Fast fashion adalah model bisnis dalam industri pakaian yang
-              memproduksi pakaian secara cepat, murah, dan dalam jumlah besar
-              untuk mengikuti tren terbaru. Merek fast fashion merilis koleksi
-              baru dalam waktu singkat, sering kali menggunakan bahan
-              berkualitas rendah dan metode produksi yang tidak ramah
-              lingkungan. Dampaknya mencakup limbah tekstil yang tinggi,
-              eksploitasi tenaga kerja, serta pencemaran lingkungan akibat
-              penggunaan bahan sintetis dan pewarnaan kain
-            </p>
-            <p class="mb-5">
-              Slow Fashion dan Fast Fashion memiliki perbedaan mendasar dalam
-              dampak lingkungan, etika, dan pola konsumsi. Fast Fashion
-              menawarkan pakaian murah dengan produksi cepat, tetapi menyebabkan
-              limbah tekstil tinggi, eksploitasi tenaga kerja, dan polusi.
-              Sebaliknya, Slow Fashion berfokus pada keberlanjutan dengan bahan
-              berkualitas, proses produksi etis, dan desain yang tahan lama,
-              meskipun harganya lebih mahal. Dengan beralih ke Slow Fashion,
-              kita dapat membantu mengurangi dampak negatif industri fashion
-              terhadap lingkungan serta mendukung praktik yang lebih adil dan
-              berkelanjutan.
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+          <!-- YouTube Video -->
+          <div class="flex-shrink-0 hidden md:block">
+            <iframe
+              class="w-full"
+              src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Step Description -->
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <span
+                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                >1</span
+              >
+            </div>
+            <div class="text-black dark:text-white">
+              <div class="flex-shrink-0">
+                <iframe
+                  class="w-full md:hidden"
+                  src="https://www.youtube.com/embed/TzWGz1CD1p0?si=U9AH6l8u4kurWWFJ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <strong>Slow Fashion vs. Fast Fashion?</strong>
+              <p
+                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+              >
+                Slow fashion berfokus pada produksi pakaian yang berkelanjutan,
+                berkualitas tinggi, dan ramah lingkungan, dengan menekankan
+                etika kerja, bahan ramah lingkungan, serta desain yang tahan
+                lama. Sebaliknya, fast fashion menghasilkan pakaian dalam jumlah
+                besar dengan harga murah dan siklus produksi cepat, sering kali
+                mengorbankan kualitas, kondisi kerja, dan dampak lingkungan.
+                Slow fashion mendorong konsumsi yang sadar dan bertanggung
+                jawab, sementara fast fashion lebih menonjolkan tren sementara
+                dan konsumsi berlebihan.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemTwo"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemTwo"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        </li>
+
+        <li
+          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
         >
-          Daur Ulang dan Upcycling Pakaian
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemTwo"
-          role="region"
-          aria-labelledby="controlsAccordionItemTwo"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              Daur ulang dan upcycling pakaian adalah dua pendekatan dalam mode
-              berkelanjutan yang bertujuan untuk mengurangi limbah tekstil dan
-              dampak negatif industri fashion terhadap lingkungan. Daur ulang
-              pakaian adalah proses mengubah pakaian bekas menjadi bahan mentah
-              baru yang dapat digunakan kembali untuk membuat kain atau produk
-              lainnya. Proses ini biasanya melibatkan pemisahan serat tekstil,
-              pencucian, dan pemrosesan ulang untuk menghasilkan bahan yang siap
-              digunakan dalam produksi pakaian baru atau barang lain seperti
-              isolasi, karpet, atau kain pel. Daur ulang membantu mengurangi
-              sampah yang berakhir di tempat pembuangan akhir serta menekan
-              penggunaan sumber daya alam seperti kapas dan air.
-            </p>
-            <p class="mb-5">
-              Sementara itu, upcycling adalah proses mengubah pakaian lama atau
-              bahan bekas menjadi produk baru dengan nilai yang lebih tinggi,
-              tanpa melalui proses penghancuran serat. Dalam upcycling, pakaian
-              bekas tidak diubah menjadi bahan mentah baru, melainkan didesain
-              ulang menjadi sesuatu yang lebih menarik dan fungsional. Misalnya,
-              sebuah kemeja lama dapat diubah menjadi tote bag atau celana jeans
-              yang tidak terpakai dapat dijadikan jaket denim yang lebih trendi.
-              Teknik ini tidak hanya mengurangi limbah tekstil tetapi juga
-              memberikan sentuhan kreativitas dan keunikan pada setiap produk
-              yang dihasilkan.
-            </p>
-            <p class="mb-5">
-              Baik daur ulang maupun upcycling memiliki manfaat besar dalam
-              mendukung mode berkelanjutan. Dengan menerapkan kedua konsep ini,
-              kita dapat memperpanjang umur pakaian, mengurangi ketergantungan
-              pada produksi tekstil baru yang berkontribusi pada polusi
-              lingkungan, serta mendorong pola konsumsi yang lebih bertanggung
-              jawab. Upcycling juga membuka peluang bagi desainer dan pengrajin
-              untuk menciptakan karya-karya unik yang memiliki nilai seni dan
-              eksklusivitas tinggi. Oleh karena itu, mengadopsi daur ulang dan
-              upcycling dalam kehidupan sehari-hari adalah langkah nyata dalam
-              mendukung industri fashion yang lebih ramah lingkungan
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+          <!-- YouTube Video -->
+          <div class="flex-shrink-0 hidden md:block">
+            <iframe
+              class="w-full"
+              src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Step Description -->
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div
+                class="absolute bottom-8 left-3 h-[345px] md:h-[250px] lg:h-[180px] xl:h-[135px] w-0.5 bg-black dark:bg-white"
+              ></div>
+              <span
+                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                >2</span
+              >
+            </div>
+
+            <div class="text-black dark:text-white">
+              <div class="flex-shrink-0">
+                <iframe
+                  class="w-full md:hidden"
+                  src="https://www.youtube.com/embed/TInKeIoB-ks?si=jZWQ3D2II7y5hj74"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <strong>Daur Ulang dan Upcycling Pakaian</strong>
+              <p
+                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+              >
+                Daur ulang dan upcycling pakaian adalah dua cara berkelanjutan
+                untuk mengurangi limbah tekstil. Daur ulang pakaian melibatkan
+                proses mendekomposisi bahan lama menjadi serat baru yang dapat
+                digunakan kembali untuk membuat kain atau produk lain,
+                mengurangi kebutuhan akan bahan mentah. Sementara itu, upcycling
+                mengubah pakaian lama atau rusak menjadi barang baru dengan
+                nilai lebih tinggi tanpa melalui proses penghancuran, seperti
+                menjahit ulang jeans bekas menjadi tas atau mengubah kemeja lama
+                menjadi aksesori unik. Kedua metode ini membantu mengurangi
+                limbah mode dan mendukung konsumsi yang lebih bertanggung jawab.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemThree"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemThree"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        </li>
+        <li
+          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+          aria-label="checkout"
         >
-          Dampak Limbah Tekstil terhadap Lingkungan
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemThree"
-          role="region"
-          aria-labelledby="controlsAccordionItemThree"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              Limbah tekstil memiliki dampak serius terhadap lingkungan,
-              terutama karena volume sampah pakaian yang terus meningkat setiap
-              tahunnya. Banyak pakaian yang dibuang berakhir di tempat
-              pembuangan akhir (TPA), di mana bahan sintetis seperti poliester
-              membutuhkan ratusan tahun untuk terurai. Selain itu, proses
-              produksi tekstil sendiri sangat boros sumber daya, seperti air dan
-              energi. Misalnya, industri fashion adalah salah satu penyebab
-              utama pencemaran air akibat pewarnaan dan pencucian kain yang
-              menghasilkan limbah beracun. Bahan kimia berbahaya yang digunakan
-              dalam produksi tekstil dapat mencemari tanah dan sumber air,
-              mengancam ekosistem serta kesehatan manusia.
-            </p>
-            <p class="mb-5">
-              Selain polusi dan penumpukan sampah, limbah tekstil juga
-              berkontribusi pada emisi gas rumah kaca. Saat pakaian berbahan
-              sintetis terurai di TPA, mereka melepaskan metana, gas rumah kaca
-              yang lebih berbahaya daripada karbon dioksida. Pembakaran limbah
-              tekstil juga menghasilkan polutan udara yang berdampak buruk pada
-              kualitas udara dan kesehatan masyarakat. Oleh karena itu, penting
-              untuk menerapkan praktik berkelanjutan seperti mendaur ulang
-              pakaian, mengadopsi konsep upcycling, serta mendukung merek
-              fashion yang menggunakan bahan ramah lingkungan. Dengan mengurangi
-              limbah tekstil, kita dapat membantu melindungi lingkungan dan
-              menciptakan industri fashion yang lebih bertanggung jawab.
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+          <!-- YouTube Video -->
+          <div class="flex-shrink-0 hidden md:block">
+            <iframe
+              class="w-full"
+              src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Step Description -->
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div
+                class="absolute bottom-8 left-3 h-[385px] md:h-[310px] lg:h-[210px] xl:h-[150px] w-0.5 bg-black dark:bg-white"
+              ></div>
+              <span
+                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                >3</span
+              >
+            </div>
+            <div class="text-black dark:text-white">
+              <div class="flex-shrink-0">
+                <iframe
+                  class="w-full md:hidden"
+                  src="https://www.youtube.com/embed/26A1e1GuwMU?si=xHW3Isdr-crmC85K"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <strong>Dampak Limbah Tekstil terhadap Lingkungan</strong>
+              <p
+                class="text-xs xl:text-sm text-gray-600 text-justify dark:text-gray-300"
+              >
+                Limbah tekstil memiliki dampak serius terhadap lingkungan, mulai
+                dari pencemaran tanah dan air hingga peningkatan emisi gas rumah
+                kaca. Pakaian yang dibuang ke tempat pembuangan akhir
+                membutuhkan waktu bertahun-tahun untuk terurai, terutama yang
+                terbuat dari serat sintetis seperti poliester yang melepaskan
+                mikroplastik ke lingkungan. Proses pewarnaan dan produksi
+                tekstil juga mencemari sumber air dengan bahan kimia berbahaya,
+                merusak ekosistem, dan membahayakan kesehatan manusia. Selain
+                itu, pembakaran limbah tekstil melepaskan karbon dioksida dan
+                zat beracun ke udara, berkontribusi terhadap perubahan iklim.
+                Oleh karena itu, pengurangan, daur ulang, dan upcycling pakaian
+                menjadi langkah penting untuk mengurangi dampak negatif limbah
+                tekstil terhadap lingkungan.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemThree"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemThree"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+        </li>
+        <li
+          class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-300"
+          aria-label="get started"
         >
-          Pentingnya Circular Fashion
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemThree"
-          role="region"
-          aria-labelledby="controlsAccordionItemThree"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              Circular fashion adalah konsep dalam industri mode yang berfokus
-              pada keberlanjutan dengan memastikan bahwa pakaian dan bahan
-              tekstil dapat digunakan kembali, didaur ulang, atau diubah menjadi
-              produk baru tanpa menciptakan limbah berlebihan. Berbeda dengan
-              model fashion konvensional yang bersifat linear—di mana pakaian
-              diproduksi, digunakan, lalu dibuang—circular fashion berusaha
-              meminimalkan limbah dengan memperpanjang siklus hidup produk.
-              Pendekatan ini tidak hanya mengurangi dampak negatif terhadap
-              lingkungan, tetapi juga menciptakan peluang bagi industri untuk
-              lebih efisien dalam penggunaan sumber daya.
-            </p>
-            <p class="mb-5">
-              Selain manfaat lingkungan, circular fashion juga mendorong
-              perubahan dalam perilaku konsumsi. Dengan mendukung produk yang
-              lebih tahan lama, berbahan ramah lingkungan, dan dapat diperbaiki
-              atau didaur ulang, konsumen diajak untuk lebih bijak dalam membeli
-              pakaian. Konsep seperti thrifting (membeli pakaian bekas), rental
-              fashion, serta program take-back dari brand fashion memungkinkan
-              masyarakat untuk mengurangi limbah tekstil secara signifikan.
-              Selain itu, banyak desainer dan perusahaan kini mulai menerapkan
-              prinsip circular fashion dengan menggunakan bahan yang dapat
-              terurai alami atau didaur ulang tanpa mengorbankan kualitas dan
-              estetika.
-            </p>
-            <p class="mb-5">
-              Circular fashion juga memiliki potensi ekonomi yang besar. Dengan
-              meningkatnya kesadaran konsumen terhadap keberlanjutan, permintaan
-              akan produk ramah lingkungan semakin tinggi. Hal ini membuka
-              peluang bisnis baru, mulai dari daur ulang tekstil hingga inovasi
-              material berbasis limbah. Selain itu, dengan menerapkan model
-              bisnis berbasis sirkular, perusahaan dapat menghemat biaya
-              produksi dalam jangka panjang dan mengurangi ketergantungan pada
-              bahan baku baru yang semakin langka. Dengan begitu, circular
-              fashion bukan hanya solusi terhadap permasalahan limbah tekstil,
-              tetapi juga strategi untuk menciptakan industri mode yang lebih
-              berkelanjutan dan bertanggung jawab
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+          <!-- YouTube Video -->
+          <div class="flex-shrink-0 hidden md:block">
+            <iframe
+              class="w-full"
+              src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Step Description -->
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div
+                class="absolute bottom-8 left-3 h-[400px] md:h-[330px] lg:h-[230px] xl:h-[155px] w-0.5 bg-black dark:bg-white"
+              ></div>
+              <span
+                class="flex size-6 items-center justify-center rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
+                >4</span
+              >
+            </div>
+            <div class="text-black dark:text-white">
+              <div class="flex-shrink-0">
+                <iframe
+                  class="w-full md:hidden"
+                  src="https://www.youtube.com/embed/zXhZaEa4Q9M?si=7DUUkLAZsPtwO3Dp"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <strong>Pentingnya Circular Fashion</strong>
+              <p
+                class="text-xs xl:text-sm text-gray-600 text-justify break-words dark:text-gray-300"
+              >
+                Circular fashion sangat penting untuk mengurangi limbah tekstil
+                dan dampak lingkungan dari industri mode dengan menerapkan
+                prinsip ekonomi sirkular, seperti desain berkelanjutan,
+                penggunaan bahan ramah lingkungan, dan perpanjangan siklus hidup
+                pakaian melalui daur ulang, upcycling, serta sistem sewa atau
+                tukar pakai. Dengan mengurangi produksi pakaian baru dan
+                memaksimalkan pemanfaatan yang sudah ada, circular fashion
+                membantu menekan konsumsi sumber daya alam, mengurangi emisi
+                karbon, serta meminimalisir polusi air dan tanah akibat limbah
+                tekstil. Selain itu, konsep ini juga mendorong perubahan pola
+                konsumsi menuju mode yang lebih bertanggung jawab, di mana
+                konsumen lebih sadar akan asal-usul dan dampak dari pakaian yang
+                mereka gunakan.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemThree"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemThree"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
-        >
-          Cara Merawat Pakaian agar Lebih Awet
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemThree"
-          role="region"
-          aria-labelledby="controlsAccordionItemThree"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              Merawat pakaian dengan baik tidak hanya membuatnya lebih tahan
-              lama, tetapi juga membantu mengurangi limbah tekstil dan konsumsi
-              berlebihan. Salah satu cara utama adalah dengan mencuci pakaian
-              secara bijak. Gunakan air dingin saat mencuci untuk menghindari
-              penyusutan dan menjaga warna tetap cerah. Selain itu, pilih
-              deterjen yang lembut dan hindari penggunaan pemutih yang dapat
-              merusak serat kain. Jika memungkinkan, cuci pakaian dengan tangan
-              atau gunakan siklus pencucian lembut pada mesin cuci untuk
-              mengurangi gesekan yang dapat mempercepat keausan.
-            </p>
-            <p class="mb-5">
-              Menjemur pakaian dengan benar juga penting untuk memperpanjang
-              masa pakainya. Hindari menjemur pakaian langsung di bawah sinar
-              matahari yang terlalu terik karena dapat menyebabkan warna cepat
-              pudar. Sebaiknya jemur pakaian di tempat teduh dengan sirkulasi
-              udara yang baik. Untuk pakaian berbahan elastis atau rajut,
-              gantung dengan hati-hati atau letakkan secara mendatar agar
-              bentuknya tetap terjaga. Jika menggunakan pengering mesin, gunakan
-              suhu rendah agar tidak merusak serat kain.
-            </p>
-            <p class="mb-5">
-              Selain pencucian dan penjemuran, cara menyimpan pakaian juga
-              berpengaruh pada daya tahannya. Lipat pakaian berbahan lembut atau
-              berbobot berat seperti sweater untuk menghindari perubahan bentuk
-              akibat digantung. Gunakan gantungan berkualitas baik untuk pakaian
-              yang harus digantung agar tidak meninggalkan bekas pada bahu.
-              Jangan lupa untuk menyimpan pakaian di tempat yang kering dan
-              bebas dari kelembapan untuk mencegah tumbuhnya jamur atau
-              munculnya bau tak sedap. Dengan perawatan yang tepat, pakaian bisa
-              tetap awet, terlihat baru lebih lama, dan membantu mengurangi
-              konsumsi berlebihan dalam dunia fashion
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/OWiK6DadNuk?si=6d677hDIfQ2W9t8O"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div x-data="{ isExpanded: false }">
-        <button
-          id="controlsAccordionItemThree"
-          type="button"
-          class="flex w-full text-sm md:text-base items-center justify-between gap-4 bg-neutral-200 py-4 px-6 text-left underline-offset-2 focus-visible:bg-neutral-50/75 focus-visible:underline focus-visible:outline-hidden dark:bg-neutral-900 dark:hover:bg-neutral-900/75 dark:focus-visible:bg-neutral-900/75"
-          aria-controls="accordionItemThree"
-          x-on:click="isExpanded = ! isExpanded"
-          x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
-          x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
-        >
-          DIY (Do It Yourself) Fashion
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-            class="size-5 shrink-0 transition"
-            aria-hidden="true"
-            x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </button>
-        <div
-          x-cloak
-          x-show="isExpanded"
-          id="accordionItemThree"
-          role="region"
-          aria-labelledby="controlsAccordionItemThree"
-          x-collapse
-        >
-          <div class="p-4 md:py-5 md:px-10 text-sm text-pretty">
-            <p class="mb-5">
-              DIY fashion adalah cara kreatif untuk menyesuaikan, mendaur ulang,
-              atau membuat pakaian sendiri sesuai dengan gaya pribadi. Dengan
-              pendekatan ini, kamu bisa memberikan sentuhan unik pada pakaian
-              lama, mengurangi limbah tekstil, dan bahkan menghemat biaya
-              dibandingkan membeli barang baru. DIY fashion bisa mencakup
-              berbagai teknik, seperti mengecat kaos dengan tie-dye, menambahkan
-              bordir pada jaket denim, atau mengubah celana jeans lama menjadi
-              celana pendek yang stylish.
-            </p>
-            <p class="mb-5">
-              Selain memberikan kebebasan berkreasi, DIY fashion juga
-              berkontribusi pada keberlanjutan lingkungan. Dengan memanfaatkan
-              kembali pakaian yang sudah ada, kamu membantu mengurangi konsumsi
-              fast fashion yang sering kali berdampak buruk pada lingkungan.
-              Misalnya, dengan teknik upcycling, kamu bisa mengubah kemeja lama
-              menjadi tote bag atau mendekorasi sepatu dengan kain perca agar
-              terlihat lebih menarik.
-            </p>
-            <p class="mb-5">
-              DIY fashion tidak hanya tentang mendaur ulang pakaian, tetapi juga
-              tentang membangun kesadaran akan nilai pakaian itu sendiri. Setiap
-              potongan yang dibuat memiliki cerita dan usaha di baliknya, yang
-              menjadikannya lebih berarti dibandingkan pakaian massal yang
-              diproduksi secara cepat. Selain itu, ini bisa menjadi aktivitas
-              yang menyenangkan untuk dilakukan sendiri atau bersama teman,
-              serta membuka peluang bisnis kreatif jika hasil DIY-mu menarik
-              perhatian banyak orang
-            </p>
-            <div class="relative w-full overflow-hidden pb-[56.25%]">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/arEv2Cn06Qo?si=50wyo1tu6UEnrO5m"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </main>
   <!-- Footer -->

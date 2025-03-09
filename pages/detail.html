@@ -721,25 +721,204 @@
 
         <!-- Detail -->
         <div class="w-full lg:w-2/5 px-5">
-          <h1 class="text-2xl text-black font-semibold dark:text-white">
+          <h1
+            class="text-2xl text-black font-semibold dark:text-white mt-3 lg:mt-0"
+          >
             Kemeja Katun Modal Kerah Tegak | Lengan Pendek
           </h1>
-          <div class="flex items-end gap-2 my-3 dark:text-white">
+          <div class="flex items-end gap-2 my-5 dark:text-white">
             <h1 class="text-2xl font-bold">Rp250.000</h1>
             <h2
-              class="text-xl line-through decoration-gray-500 text-gray-500 dark:text-gray-400"
+              class="text-sm lg:text-xl line-through decoration-gray-500 text-gray-500 dark:text-gray-400"
             >
               500.000
             </h2>
             <h2
-              class="text-lg px-2 rounded bg-red-200 font-semibold text-red-500"
+              class="text-sm lg:text-lg px-2 rounded bg-red-200 font-semibold text-red-500"
             >
               50%
             </h2>
           </div>
-          <div class="border w-full border-slate-200 my-3"></div>
+          <div
+            class="border w-full border-slate-200 my-3 hidden lg:block"
+          ></div>
 
-          <div class="overflow-hidden w-full overflow-x-auto">
+          <div
+            x-data="{ selectedTab: 'groups' }"
+            class="w-full block lg:hidden"
+          >
+            <div
+              x-on:keydown.right.prevent="$focus.wrap().next()"
+              x-on:keydown.left.prevent="$focus.wrap().previous()"
+              class="flex gap-2 overflow-x-auto border-b border-neutral-300 dark:border-neutral-700"
+              role="tablist"
+              aria-label="tab options"
+            >
+              <button
+                x-on:click="selectedTab = 'groups'"
+                x-bind:aria-selected="selectedTab === 'groups'"
+                x-bind:tabindex="selectedTab === 'groups' ? '0' : '-1'"
+                x-bind:class="selectedTab === 'groups' ? 'font-bold text-black border-b-2 border-black dark:border-white dark:text-white' : 'text-neutral-600 font-medium dark:text-neutral-300 dark:hover:border-b-neutral-300 dark:hover:text-white hover:border-b-2 hover:border-b-neutral-800 hover:text-neutral-900'"
+                class="h-min px-4 py-2 text-sm"
+                type="button"
+                role="tab"
+                aria-controls="tabpanelGroups"
+              >
+                Detail
+              </button>
+              <button
+                x-on:click="selectedTab = 'likes'"
+                x-bind:aria-selected="selectedTab === 'likes'"
+                x-bind:tabindex="selectedTab === 'likes' ? '0' : '-1'"
+                x-bind:class="selectedTab === 'likes' ? 'font-bold text-black border-b-2 border-black dark:border-white dark:text-white' : 'text-neutral-600 font-medium dark:text-neutral-300 dark:hover:border-b-neutral-300 dark:hover:text-white hover:border-b-2 hover:border-b-neutral-800 hover:text-neutral-900'"
+                class="h-min px-4 py-2 text-sm"
+                type="button"
+                role="tab"
+                aria-controls="tabpanelLikes"
+              >
+                Deskripsi
+              </button>
+            </div>
+            <div class="px-2 py-4 text-neutral-600 dark:text-neutral-300">
+              <div
+                x-cloak
+                x-show="selectedTab === 'groups'"
+                id="tabpanelGroups"
+                role="tabpanel"
+                aria-label="groups"
+              >
+                <table
+                  class="w-full text-left text-sm text-on-surface dark:text-neutral-300"
+                >
+                  <tbody class="text-lg">
+                    <tr>
+                      <td class="py-2 font-bold">Merek</td>
+                      <td
+                        class="py-2 font-bold text-primary dark:text-green-500 flex items-center gap-x-1"
+                      >
+                        UNIQLO
+                        <span class="material-symbols-outlined">
+                          check_circle
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-bold">Kondisi</td>
+                      <td class="py-2">Sangat Baik</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-bold">Warna</td>
+                      <td class="py-2">Hitam, Cream</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-bold">Ukuran</td>
+                      <td class="py-2">L</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-bold">Jumlah</td>
+                      <td class="py-2">2</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-bold">Rusak/Cacat</td>
+                      <td class="py-2">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                x-cloak
+                x-show="selectedTab === 'likes'"
+                id="tabpanelLikes"
+                role="tabpanel"
+                aria-label="likes"
+              >
+                <p class="dark:text-slate-50 leading-relaxed">
+                  Saya jual kemeja bekas Uniqlo dengan model kerah tegak dan
+                  lengan pendek yang saya punya. Bahannya lembut dan nyaman
+                  dipakai, cocok untuk berbagai aktivitas. Warnanya ada hitam
+                  dan Cream. Kemeja ini dibeli 3 bulan lalu dan masih dalam
+                  kondisi sangat baik karena jarang dipakai.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border w-full border-slate-200 dark:bg-slate-600 my-3 lg:hidden"
+          ></div>
+
+          <!-- Profile Mobile -->
+          <div class="flex w-full items-center lg:hidden">
+            <div class="w-14 aspect-square">
+              <img
+                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover w-full h-full rounded-full border-2"
+              />
+            </div>
+            <div class="flex flex-col gap-1 ml-3">
+              <h1 class="text-lg font-semibold dark:text-white">
+                Kevin Sanjaya
+              </h1>
+              <div class="flex items-center">
+                <div x-data="{ currentVal: 5 }" class="flex items-center gap-0">
+                  <!-- Looping untuk 5 bintang -->
+                  <template x-for="num in 5" :key="num">
+                    <label
+                      :for="'star' + num"
+                      class="cursor-pointer transition hover:scale-125 focus-within:scale-125"
+                    >
+                      <span class="sr-only" x-text="num + ' stars'"></span>
+                      <input
+                        x-model="currentVal"
+                        :id="'star' + num"
+                        type="radio"
+                        class="sr-only"
+                        name="rating"
+                        :value="num"
+                      />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="size-5"
+                        :class="currentVal >= num ? 'text-amber-500' : 'text-neutral-600 dark:text-neutral-300'"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </label>
+                  </template>
+                </div>
+                <span
+                  class="ml-1 font-semibold text-neutral-600 dark:text-neutral-300"
+                  >(3)</span
+                >
+              </div>
+            </div>
+            <div class="ml-auto">
+              <button
+                type="button"
+                class="whitespace-nowrap rounded-lg bg-transparent rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-white"
+              >
+                Ikuti
+              </button>
+            </div>
+          </div>
+
+          <!-- Tukar-Tambah Mobile -->
+          <button
+            type="button"
+            class="whitespace-nowrap mt-3 w-full rounded-lg bg-transparent rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-primary-dark dark:focus-visible:outline-primary-dark"
+          >
+            Ajukan Tukar-Tambah
+          </button>
+
+          <div class="overflow-hidden w-full overflow-x-auto hidden lg:block">
             <table
               class="w-full text-left text-sm text-on-surface dark:text-neutral-300"
             >
@@ -796,7 +975,7 @@
               </div>
               <div class="flex flex-col gap-1 ml-3">
                 <h1 class="text-lg font-semibold dark:text-white">
-                  James Labrons
+                  Kevin Sanjaya
                 </h1>
                 <div class="flex items-center">
                   <div
@@ -1251,6 +1430,10 @@
           </div>
         </div>
       </div>
+
+      <!-- CO Mobile -->
+      <div class="flex flex-row lg:hidden bg-white rounded-lg"></div>
+
       <div class="mt-10" x-data="productList" x-init="initScroll">
         <h1 class="text-2xl font-semibold dark:text-white">Terbaru</h1>
 
