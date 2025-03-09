@@ -635,7 +635,7 @@
             Filter
           </h1>
           <div
-            class="w-full bg-white dark:bg-neutral-700 rounded-lg border p-4 mt-3"
+            class="w-full bg-white dark:bg-neutral-900 dark:border-neutral-700 rounded-lg border p-4 mt-3"
           >
             <div
               class="w-full divide-y divide-neutral-300 text-neutral-600 dark:divide-neutral-700 dark:text-neutral-300"
@@ -964,8 +964,156 @@
           </div>
         </div>
         <div class="col-span-10" x-data="productList" x-init="initScroll">
+          <div class="w-full flex justify-between items-end">
+            <h5 class="text-neutral-600 dark:text-neutral-300">
+              Menampilkan hasil pencarian
+              <span class="text-primary">"Kemeja"</span>
+            </h5>
+
+            <div class="flex items-center gap-x-2 w-1/4">
+              <h5 class="font-bold dark:text-white">Urutkan:</h5>
+              <div
+                x-data="{
+                options: [
+                    { value: 'Paling Sesuai', label: 'Paling Sesuai' },
+                    { value: 'Terbaru', label: 'Terbaru' },
+                    { value: 'Harga Tertinggi', label: 'Harga Tertinggi' },
+                    { value: 'Harga Terendah', label: 'Harga Terendah' }
+                ],
+                isOpen: false,
+                openedWithKeyboard: false,
+                selectedOption: { value: 'Paling Sesuai', label: 'Paling Sesuai' }, // Set default
+                setSelectedOption(option) {
+                    this.selectedOption = option;
+                    this.isOpen = false;
+                    this.openedWithKeyboard = false;
+                    this.$refs.hiddenTextField.value = option.value;
+                },
+                highlightFirstMatchingOption(pressedKey) {
+                    const option = this.options.find((item) =>
+                        item.label.toLowerCase().startsWith(pressedKey.toLowerCase()),
+                    );
+                    if (option) {
+                        const index = this.options.indexOf(option);
+                        const allOptions = document.querySelectorAll('.combobox-option');
+                        if (allOptions[index]) {
+                            allOptions[index].focus();
+                        }
+                    }
+                },
+            }"
+              >
+                <div class="relative">
+                  <!-- trigger button  -->
+                  <button
+                    type="button"
+                    role="combobox"
+                    class="inline-flex w-48 items-center justify-between gap-2 whitespace-nowrap border-neutral-300 bg-neutral-50 px-4 py-2 text-sm font-medium capitalize tracking-wide text-neutral-600 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-300 dark:focus-visible:outline-white rounded border"
+                    aria-haspopup="listbox"
+                    aria-controls="usersList"
+                    x-on:click="isOpen = ! isOpen"
+                    x-on:keydown.down.prevent="openedWithKeyboard = true"
+                    x-on:keydown.enter.prevent="openedWithKeyboard = true"
+                    x-on:keydown.space.prevent="openedWithKeyboard = true"
+                    x-bind:aria-label="selectedOption ? selectedOption.value : 'Please Select'"
+                    x-bind:aria-expanded="isOpen || openedWithKeyboard"
+                  >
+                    <span
+                      class="text-sm font-normal"
+                      x-text="selectedOption ? selectedOption.value : 'Please Select'"
+                    ></span>
+                    <!-- Chevron -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="size-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- hidden input to grab the selected value  -->
+                  <input
+                    id="user"
+                    name="user"
+                    type="text"
+                    x-ref="hiddenTextField"
+                    x-bind:value="selectedOption.value"
+                    hidden
+                  />
+                  <ul
+                    x-cloak
+                    x-show="isOpen || openedWithKeyboard"
+                    id="usersList"
+                    class="absolute z-10 left-0 top-11 flex max-h-44 w-full flex-col overflow-hidden overflow-y-auto border-neutral-300 bg-neutral-50 py-1.5 dark:border-neutral-700 dark:bg-neutral-900 rounded-sm border"
+                    role="listbox"
+                    aria-label="users list"
+                    x-on:click.outside="isOpen = false, openedWithKeyboard = false"
+                    x-on:keydown.down.prevent="$focus.wrap().next()"
+                    x-on:keydown.up.prevent="$focus.wrap().previous()"
+                    x-transition
+                    x-trap="openedWithKeyboard"
+                  >
+                    <template
+                      x-for="(item, index) in options"
+                      x-bind:key="item.value"
+                    >
+                      <li
+                        class="combobox-option inline-flex justify-between items-center gap-6 bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/5 focus-visible:text-neutral-900 focus-visible:outline-hidden dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white"
+                        role="option"
+                        x-on:click="setSelectedOption(item)"
+                        x-on:keydown.enter="setSelectedOption(item)"
+                        x-bind:id="'option-' + index"
+                        tabindex="0"
+                      >
+                        <div class="flex items-center gap-2">
+                          <!-- Label -->
+                          <div class="flex flex-col">
+                            <span
+                              x-bind:class="selectedOption == item ? 'font-bold text-primary' : null"
+                              x-text="item.label"
+                            ></span>
+                            <!-- Screen reader 'selected' indicator  -->
+                            <span
+                              class="sr-only"
+                              x-text="selectedOption == item ? 'selected' : null"
+                            ></span>
+                          </div>
+                        </div>
+                        <!-- Checkmark  -->
+                        <svg
+                          x-cloak
+                          x-show="selectedOption == item"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          stroke="#22c55e"
+                          fill="none"
+                          stroke-width="2"
+                          class="size-4"
+                          aria-hidden="true"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m4.5 12.75 6 6 9-13.5"
+                          />
+                        </svg>
+                      </li>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produk -->
           <div
-            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5"
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5"
           >
             <template x-for="product in products" :key="product.id">
               <div
@@ -1005,7 +1153,7 @@
                     class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
                   />
                   <a
-                    href="#"
+                    href="profil.html"
                     class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline"
                     x-text="product.seller"
                   ></a>
