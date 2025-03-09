@@ -628,7 +628,7 @@
     <!-- Navbar End -->
 
     <main class="p-0 md:p-10 xl:px-16 dark:bg-neutral-800 min-h-screen w-full">
-      <div class="w-full flex flex-wrap relative">
+      <div class="w-full flex flex-wrap">
         <!-- Swiper -->
         <div class="w-full lg:w-1/3">
           <div class="swiper mySwiper2">
@@ -913,10 +913,15 @@
           <!-- Tukar-Tambah Mobile -->
           <button
             type="button"
-            class="whitespace-nowrap mt-3 w-full rounded-lg bg-transparent rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-primary-dark dark:focus-visible:outline-primary-dark"
+            class="whitespace-nowrap block lg:hidden mt-3 w-full rounded-lg rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide bg-primary text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-white dark:focus-visible:outline-primary-dark dark:bg-primary"
           >
             Ajukan Tukar-Tambah
           </button>
+
+          <div
+            class="border w-full border-slate-200 my-3"
+            id="garis/devider"
+          ></div>
 
           <div class="overflow-hidden w-full overflow-x-auto hidden lg:block">
             <table
@@ -956,7 +961,10 @@
                 </tr>
               </tbody>
             </table>
-            <div class="border w-full border-slate-200 my-3"></div>
+            <div
+              class="border w-full border-slate-200 my-3"
+              id="garis/devider"
+            ></div>
             <p class="dark:text-slate-50 leading-relaxed">
               Saya jual kemeja bekas Uniqlo dengan model kerah tegak dan lengan
               pendek yang saya punya. Bahannya lembut dan nyaman dipakai, cocok
@@ -1099,29 +1107,28 @@
           <!-- primary Button -->
           <a
             href="pesan.html"
-            class="block text-center font-semibold text-white w-full py-2 bg-primary rounded-lg mt-4 hover:bg-primary/85 transition-colors duration-300 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+            class="block text-center font-semibold text-white w-full py-2 bg-primary rounded-lg mt-4 hover:bg-primary/85 transition-colors duration-300"
           >
             Beli Langsung
           </a>
-          <button
-            x-on:click="$dispatch('notify', { variant: 'message', sender:{name:'Jack Ellis', avatar:'https://penguinui.s3.amazonaws.com/component-assets/avatar-2.webp'}, message: 'Hey, can you review the PR I just submitted? Let me know if you spot any issues!' })"
-            type="button"
-            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-whborder-white"
+          <a
+            href="keranjang.html"
+            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-green-500"
           >
             <span class="material-symbols-outlined"> add </span>
             Keranjang
-          </button>
+          </a>
           <button
             x-on:click="modalIsOpen = true"
             x-on:click="console.log('clicked')"
             type="button"
-            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-whborder-white"
+            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-green-500"
           >
             Buat Penawaran
           </button>
           <a
             href=""
-            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-white dark:text-white dark:focus-visible:outline-whborder-white"
+            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-green-500"
           >
             Ajukan Tukar-Tambah
           </a>
@@ -1431,13 +1438,16 @@
         </div>
       </div>
 
-      <!-- CO Mobile -->
-      <div class="flex flex-row lg:hidden bg-white rounded-lg"></div>
+      <div
+        class="mt-10 lg:mt-20 px-4 lg:px-0"
+        x-data="productList"
+        x-init="initScroll"
+      >
+        <h1 class="text-2xl lg:text-3xl font-bold dark:text-white">
+          Produk Serupa
+        </h1>
 
-      <div class="mt-10" x-data="productList" x-init="initScroll">
-        <h1 class="text-2xl font-semibold dark:text-white">Terbaru</h1>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5">
           <template x-for="product in products" :key="product.id">
             <div
               class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
@@ -1486,7 +1496,7 @@
         </div>
 
         <!-- Elemen Observer untuk mendeteksi scroll ke bawah -->
-        <div x-ref="scrollTrigger" class="h-10 w-full"></div>
+        <div x-ref="scrollTrigger" class="h-5 w-full"></div>
       </div>
     </main>
 
@@ -1539,7 +1549,7 @@
           </button>
         </div>
         <!-- Dialog Body -->
-        <div class="px-8 py-4">
+        <div class="px-4 py-2 lg:px-8 lg:py-4">
           <div class="flex items-top gap-x-4">
             <img
               src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473062/sub/goods_473062_sub14_3x4.jpg"
@@ -1548,92 +1558,86 @@
             />
             <div class="">
               <h1 class="font-semibold text-lg dark:text-white">
-                Kemeja Katun Modal Kerah Tegak <br />
-                | Lengan Pendek
+                Kemeja Katun Modal Kerah Tegak | Lengan Pendek
               </h1>
               <p class="mt-2 text-neutral-600 text-sm">Rp250.000</p>
             </div>
           </div>
           <div
-            x-data="{ selectedTones: [] }"
-            class="flex flex-col gap-2 mt-3 text-neutral-600 dark:text-neutral-300"
+            x-data="{ selectedTone: '' }"
+            class="grid grid-cols-3 gap-2 lg:gap-4 mt-3 text-neutral-600 dark:text-neutral-300"
             role="group"
             aria-labelledby="voiceToneTitle"
           >
-            <div class="flex flex-wrap items-center justify-between">
-              <!-- Hitam -->
+            <template
+              x-for="tone in [
+      { id: '15', price: 'Rp212.500', discount: '15% off' },
+      { id: '10', price: 'Rp225.000', discount: '10% off' },
+      { id: '5', price: 'Rp237.500', discount: '5% off' }
+    ]"
+              :key="tone.id"
+            >
               <label
-                :class="selectedTones.includes('hitam') ? 'border-primary border-2 text-primary dark:text-green-500 dark:bg-green-500/5  bg-primary/5 dark:border-green-500 dark:text-greborder-green-500' : 'border-transparent'"
-                class="flex flex-col border-2 hover:text-primary dark:hover:text-green-500 dark:hover:border-green-500 hover:border-primary bg-neutral-100 py-3 px-3 text-sm font-medium dark:bg-neutral-700 rounded box-border cursor-pointer transition-all duration-300 justify-center"
-                for="checkToneFunny"
+                :class="selectedTone === tone.id ? 'border-primary border-2 text-primary dark:text-green-500 dark:bg-green-500/5 bg-primary/5 dark:border-green-500' : 'border-transparent'"
+                class="flex flex-col border-2 hover:text-primary dark:hover:text-green-500 dark:hover:border-green-500 hover:border-primary bg-neutral-100 p-4 text-sm font-medium dark:bg-neutral-700 rounded box-border cursor-pointer transition-all duration-300 justify-center items-center"
               >
                 <input
-                  type="checkbox"
+                  type="radio"
                   class="appearance-none"
-                  id="checkToneFunny"
-                  value="hitam"
+                  :value="tone.id"
                   name="tone"
-                  @change="selectedTones.includes('hitam') ? selectedTones = selectedTones.filter(t => t !== 'hitam') : selectedTones.push('hitam')"
+                  @change="selectedTone = tone.id"
                 />
-                <span
-                  class="flex items-center justify-center gap-2 text-lg font-semibold"
-                  >Rp212.500
-                </span>
-                <span class="flex items-center justify-center">15% off</span>
+                <span class="text-lg font-semibold" x-text="tone.price"></span>
+                <span x-text="tone.discount"></span>
               </label>
-              <label
-                :class="selectedTones.includes('hitam') ? 'border-primary border-2 text-primary dark:text-green-500 dark:bg-green-500/5  bg-primary/5 dark:border-green-500 dark:text-greborder-green-500' : 'border-transparent'"
-                class="flex flex-col border-2 hover:text-primary dark:hover:text-green-500 dark:hover:border-green-500 hover:border-primary bg-neutral-100 py-3 px-3 text-sm font-medium dark:bg-neutral-700 rounded box-border cursor-pointer transition-all duration-300 justify-center"
-                for="checkToneFunny"
-              >
-                <input
-                  type="checkbox"
-                  class="appearance-none"
-                  id="checkToneFunny"
-                  value="hitam"
-                  name="tone"
-                  @change="selectedTones.includes('hitam') ? selectedTones = selectedTones.filter(t => t !== 'hitam') : selectedTones.push('hitam')"
-                />
-                <span
-                  class="flex items-center justify-center gap-2 text-lg font-semibold"
-                  >Rp225.000
-                </span>
-                <span class="flex items-center justify-center">10% off</span>
-              </label>
-              <label
-                :class="selectedTones.includes('hitam') ? 'border-primary border-2 text-primary dark:text-green-500 dark:bg-green-500/5  bg-primary/5 dark:border-green-500 dark:text-greborder-green-500' : 'border-transparent'"
-                class="flex flex-col border-2 hover:text-primary dark:hover:text-green-500 dark:hover:border-green-500 hover:border-primary bg-neutral-100 py-3 px-3 text-sm font-medium dark:bg-neutral-700 rounded box-border cursor-pointer transition-all duration-300 justify-center"
-                for="checkToneFunny"
-              >
-                <input
-                  type="checkbox"
-                  class="appearance-none"
-                  id="checkToneFunny"
-                  value="hitam"
-                  name="tone"
-                  @change="selectedTones.includes('hitam') ? selectedTones = selectedTones.filter(t => t !== 'hitam') : selectedTones.push('hitam')"
-                />
-                <span
-                  class="flex items-center justify-center gap-2 text-lg font-semibold"
-                  >Rp237.500
-                </span>
-                <span class="flex items-center justify-center">5% off</span>
-              </label>
-            </div>
+            </template>
           </div>
         </div>
         <!-- Dialog Footer -->
         <div
           class="flex flex-col-reverse justify-between gap-2 border-t border-neutral-300 bg-neutral-50/60 p-4 dark:border-neutral-700 dark:bg-neutral-950/20 sm:flex-row sm:items-center md:justify-end"
         >
+          <!-- Tombol Buat Penawaran -->
           <button
-            x-on:click="modalIsOpen = false"
-            type="button"
-            class="whitespace-nowrap rounded-sm bg-primary border border-primary dark:border-white px-4 py-2 text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 dark:bg-white dark:text-black dark:focus-visible:outline-white"
+            x-bind:disabled="selectedTone === ''"
+            class="w-full font-semibold bg-primary text-white px-4 py-2 rounded-lg transition hover:bg-primary/85 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-green-300"
           >
             Buat Penawaran
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- CO Mobile -->
+    <div
+      class="fixed bottom-0 left-0 right-0 w-full bg-white dark:bg-neutral-800 rounded-t-lg lg:hidden px-4 py-3 shadow-md border-t border-neutral-300 dark:border-neutral-700"
+    >
+      <div class="grid grid-cols-12 gap-1 items-center">
+        <!-- Tombol Keranjang (Kecil) -->
+        <a
+          href="keranjang.html"
+          class="col-span-2 flex items-center justify-center bg-transparent rounded-lg border-2 border-neutral-300 p-2 text-black transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-300 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-white dark:focus-visible:outline-white dark:border-neutral-700"
+        >
+          <span class="material-symbols-outlined"> add_shopping_cart </span>
+        </a>
+
+        <!-- Tombol Buat Penawaran -->
+        <button
+          x-on:click="modalIsOpen = true"
+          type="button"
+          class="col-span-5 flex items-center justify-center font-semibold bg-transparent rounded-lg border-2 border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary dark:text-green-500 dark:focus-visible:outline-primary"
+        >
+          Penawaran
+        </button>
+
+        <!-- Tombol Beli Langsung -->
+        <a
+          href="pesan.html"
+          class="col-span-5 flex items-center justify-center font-semibold text-white py-2 border-2 border-primary dark:border-dark-primary bg-primary rounded-lg dark:bg-dark-primary hover:bg-primary/85 transition-colors duration-300 dark:text-white"
+        >
+          Beli Langsung
+        </a>
       </div>
     </div>
 
