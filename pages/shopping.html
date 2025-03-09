@@ -626,9 +626,11 @@
     </nav>
     <!-- Navbar End -->
 
-    <main class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full">
+    <main
+      class="p-5 md:p-10 xl:p-16 dark:bg-neutral-800 min-h-screen w-full relative"
+    >
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-2">
+        <div class="col-span-2 sticky top-32">
           <h1 class="text-xl font-bold text-neutral-800 dark:text-neutral-300">
             Filter
           </h1>
@@ -650,11 +652,6 @@
                 >
                   <div class="w-full flex justify-between items-center">
                     <h4>Lokasi</h4>
-                    <a
-                      href=""
-                      class="text-xs text-primary underline decoration-primary"
-                      >Lihat Semua</a
-                    >
                   </div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -681,11 +678,9 @@
                   aria-labelledby="controlsAccordionItemOne"
                   x-collapse
                 >
-                  <div
-                    class="pb-4 text-sm sm:text-base text-pretty max-h-40 overflow-y-scroll"
-                  >
+                  <div class="pb-4 text-sm sm:text-base text-pretty">
                     <div
-                      x-data="{ kabupaten: ['Kab. Badung', 'Kab. Bangli', 'Kab. Buleleng', 'Kab. Gianyar', 'Kab. Jembrana', 'Kab. Karangasem', 'Kab. Klungkung', 'Kab. Tabanan', 'Kab. Denpasar'] }"
+                      x-data="{ kabupaten: ['Kab. Badung', 'Kab. Bangli', 'Kab. Buleleng', 'Kab. Gianyar', 'Kota Denpasar'] }"
                     >
                       <template x-for="(nama, index) in kabupaten" :key="index">
                         <label
@@ -696,7 +691,7 @@
                             <input
                               :id="'checkbox-' + index"
                               type="checkbox"
-                              class="before:content[''] peer relative size-5 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-green-500 checked:focus:outline-green-700 active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+                              class="before:content[''] peer relative size-5 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-green-500 checked:focus:outline-green-700 active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary dark:checked:before:bg-primary dark:focus:outline-neutral-300 dark:checked:focus:outline-primary"
                             />
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -705,7 +700,7 @@
                               stroke="currentColor"
                               fill="none"
                               stroke-width="4"
-                              class="pointer-events-none invisible absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
+                              class="pointer-events-none invisible absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-white"
                             >
                               <path
                                 stroke-linecap="round"
@@ -714,24 +709,34 @@
                               />
                             </svg>
                           </div>
-                          <span class="text-neutral-500" x-text="nama"></span>
+                          <span
+                            class="text-neutral-500 dark:text-neutral-300 text-xs"
+                            x-text="nama"
+                          ></span>
                         </label>
                       </template>
+                      <a
+                        href=""
+                        class="text-xs text-primary underline decoration-primary"
+                        >Lihat Semua</a
+                      >
                     </div>
                   </div>
                 </div>
               </div>
-              <div x-data="{ isExpanded: false }">
+              <div x-data="{ isExpanded: true }">
                 <button
-                  id="controlsAccordionItemTwo"
+                  id="controlsAccordionItemOne"
                   type="button"
-                  class="flex w-full items-center justify-between gap-4 py-4 text-left underline-offset-2 focus-visible:underline focus-visible:outline-hidden"
-                  aria-controls="accordionItemTwo"
+                  class="flex w-full items-center justify-between gap-4 pt-4 pb-2 text-left underline-offset-2 focus-visible:underline focus-visible:outline-hidden"
+                  aria-controls="accordionItemOne"
                   x-on:click="isExpanded = ! isExpanded"
                   x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
                   x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
                 >
-                  How can I contact customer support?
+                  <div class="w-full flex justify-between items-center">
+                    <h4>Ukuran</h4>
+                  </div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -752,24 +757,53 @@
                 <div
                   x-cloak
                   x-show="isExpanded"
-                  id="accordionItemTwo"
+                  id="accordionItemOne"
                   role="region"
-                  aria-labelledby="controlsAccordionItemTwo"
+                  aria-labelledby="controlsAccordionItemOne"
                   x-collapse
                 >
                   <div class="pb-4 text-sm sm:text-base text-pretty">
-                    Reach out to our dedicated support team via email at
-                    <a
-                      href="#"
-                      class="underline underline-offset-2 text-black dark:text-white"
-                      >support@example.com</a
+                    <div
+                      x-data="{ kabupaten: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'] }"
                     >
-                    or call our toll-free number at 1-800-123-4567 during
-                    business hours.
+                      <template x-for="(nama, index) in kabupaten" :key="index">
+                        <label
+                          :for="'checkbox-' + index"
+                          class="flex items-center gap-2 text-base font-medium text-neutral-600 dark:text-neutral-300 has-checked:text-neutral-900 dark:has-checked:text-white has-disabled:cursor-not-allowed has-disabled:opacity-75 mb-2"
+                        >
+                          <div class="relative flex items-center">
+                            <input
+                              :id="'checkbox-' + index"
+                              type="checkbox"
+                              class="before:content[''] peer relative size-5 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-green-500 checked:focus:outline-green-700 active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary dark:checked:before:bg-primary dark:focus:outline-neutral-300 dark:checked:focus:outline-primary"
+                            />
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-width="4"
+                              class="pointer-events-none invisible absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-white"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4.5 12.75l6 6 9-13.5"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="text-neutral-500 dark:text-neutral-300 text-xs"
+                            x-text="nama"
+                          ></span>
+                        </label>
+                      </template>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div x-data="{ isExpanded: false }">
+              <div x-data="{ isExpanded: true }">
                 <button
                   id="controlsAccordionItemThree"
                   type="button"
@@ -779,7 +813,7 @@
                   x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
                   x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
                 >
-                  What is the refund policy?
+                  Harga
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -805,24 +839,329 @@
                   aria-labelledby="controlsAccordionItemThree"
                   x-collapse
                 >
-                  <div class="pb-4 text-sm sm:text-base text-pretty">
-                    Please refer to our
-                    <a
-                      href="#"
-                      class="underline underline-offset-2 text-black dark:text-white"
-                      >refund policy page</a
+                  <div class="pb-2 text-sm sm:text-base text-pretty">
+                    <div
+                      class="relative flex w-full max-w-xs flex-col gap-1 text-neutral-600 dark:text-neutral-300"
                     >
-                    on the website for detailed information regarding
-                    eligibility, timeframes, and the process for requesting a
-                    refund.
+                      <span
+                        class="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50 font-medium"
+                      >
+                        Rp
+                      </span>
+
+                      <input
+                        type="search"
+                        class="w-full rounded border border-neutral-300 bg-neutral-50 py-2 pl-10 pr-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+                        name="search"
+                        placeholder="Harga Minimum"
+                        aria-label="search"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div class="pb-4 text-sm sm:text-base text-pretty">
+                    <div
+                      class="relative flex w-full max-w-xs flex-col gap-1 text-neutral-600 dark:text-neutral-300"
+                    >
+                      <span
+                        class="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50 font-medium"
+                      >
+                        Rp
+                      </span>
+
+                      <input
+                        type="search"
+                        class="w-full rounded-lg border border-neutral-300 bg-neutral-50 py-2 pl-10 pr-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+                        name="search"
+                        placeholder="Harga Maksimum"
+                        aria-label="search"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div x-data="{ isExpanded: false }">
+                <button
+                  id="controlsAccordionItemOne"
+                  type="button"
+                  class="flex w-full items-center justify-between gap-4 pt-4 pb-2 text-left underline-offset-2 focus-visible:underline focus-visible:outline-hidden"
+                  aria-controls="accordionItemOne"
+                  x-on:click="isExpanded = ! isExpanded"
+                  x-bind:class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                  x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+                >
+                  <div class="w-full flex justify-between items-center">
+                    <h4>Kondisi</h4>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-5 shrink-0 transition"
+                    aria-hidden="true"
+                    x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <div
+                  x-cloak
+                  x-show="isExpanded"
+                  id="accordionItemOne"
+                  role="region"
+                  aria-labelledby="controlsAccordionItemOne"
+                  x-collapse
+                >
+                  <div class="pb-4 text-sm sm:text-base text-pretty">
+                    <div
+                      x-data="{ kabupaten: ['Baru dengan Tag/Box', 'Baru dengan tanpa Tag/Box', 'Sangat Bagus', 'Bagus', 'Memadai'] }"
+                    >
+                      <template x-for="(nama, index) in kabupaten" :key="index">
+                        <label
+                          :for="'checkbox-' + index"
+                          class="flex items-center gap-2 text-base font-medium text-neutral-600 dark:text-neutral-300 has-checked:text-neutral-900 dark:has-checked:text-white has-disabled:cursor-not-allowed has-disabled:opacity-75 mb-2"
+                        >
+                          <div class="relative flex items-center">
+                            <input
+                              :id="'checkbox-' + index"
+                              type="checkbox"
+                              class="before:content[''] peer relative size-5 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-black checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-green-500 checked:focus:outline-green-700 active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary dark:checked:before:bg-primary dark:focus:outline-neutral-300 dark:checked:focus:outline-primary"
+                            />
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-width="4"
+                              class="pointer-events-none invisible absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-white"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4.5 12.75l6 6 9-13.5"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="text-neutral-500 dark:text-neutral-300"
+                            x-text="nama"
+                          ></span>
+                        </label>
+                      </template>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-span-10 bg-red-500">kon</div>
+        <div class="col-span-10" x-data="productList" x-init="initScroll">
+          <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5"
+          >
+            <template x-for="product in products" :key="product.id">
+              <div
+                class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+              >
+                <a href="detail.html">
+                  <div class="h-48 md:h-max overflow-hidden relative">
+                    <img
+                      :src="product.productPhoto"
+                      class="w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105 rounded-2xl"
+                      alt=""
+                    />
+                    <span
+                      class="absolute bottom-7 px-2 p-1 bg-gray-200 dark:bg-gray-800 right-5 flex items-center rounded font-semibold text-base text-gray-900 dark:text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 ease-in-out"
+                    >
+                      <span class="material-symbols-outlined mr-1"
+                        >shopping_cart</span
+                      >
+                      <span x-text="product.cartCount"></span>
+                    </span>
+                  </div>
+                  <div class="flex flex-col gap-y-3 px-6">
+                    <h3
+                      class="text-gray-800 dark:text-gray-300 pt-3"
+                      x-text="product.name"
+                    ></h3>
+                    <p
+                      class="font-semibold text-lg pb-3 md:pb-0 text-gray-900 dark:text-gray-100"
+                      x-text="product.price"
+                    ></p>
+                  </div>
+                </a>
+                <div class="py-3 items-center hidden md:flex px-6">
+                  <img
+                    :src="product.sellerPhoto"
+                    alt=""
+                    class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
+                  />
+                  <a
+                    href="#"
+                    class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                    x-text="product.seller"
+                  ></a>
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <!-- Elemen Observer untuk mendeteksi scroll ke bawah -->
+          <div x-ref="scrollTrigger" class="h-5 w-full"></div>
+        </div>
       </div>
     </main>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("productList", () => ({
+          products: [],
+          baseProducts: [
+            {
+              id: 1,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 2,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 3,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 4,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 5,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 6,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 7,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 8,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 9,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+            {
+              id: 10,
+              name: "Kemeja Soft Twill | XL",
+              price: "Rp350.000",
+              seller: "nurlela",
+              sellerPhoto:
+                "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
+              productPhoto:
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+              cartCount: 1,
+            },
+          ],
+          page: 1,
+
+          initScroll() {
+            this.loadMoreProducts();
+
+            let observer = new IntersectionObserver(
+              (entries) => {
+                if (entries[0].isIntersecting) {
+                  this.loadMoreProducts();
+                }
+              },
+              { threshold: 1.0 }
+            );
+
+            observer.observe(this.$refs.scrollTrigger);
+          },
+
+          loadMoreProducts() {
+            let newProducts = this.baseProducts.map((p, index) => ({
+              ...p,
+              id: this.products.length + index + 1, // Membuat ID unik
+            }));
+            this.products = [...this.products, ...newProducts];
+          },
+        }));
+      });
+    </script>
   </body>
 </html>
