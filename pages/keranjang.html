@@ -616,26 +616,57 @@
     <div
       x-data="{
         items: [
-            { id: 1, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 2, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 3, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 4, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 5, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 6, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 7, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 8, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 9, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 10, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 11, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 12, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 13, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 14, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 15, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 16, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 17, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 18, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
-            { id: 19, name: 'Kemeja Warna Biru Ukuran L', price: 180000, quantity: 1, checked: false },
-            { id: 20, name: 'Celana Jeans Hitam', price: 120000, quantity: 1, checked: false },
+            { 
+              id: 1, 
+              name: 'Kemeja Warna Biru Ukuran L', 
+              price: 180000, 
+              quantity: 1, 
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp', 
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              checked: false 
+            },
+            { 
+              id: 2, 
+              name: 'Celana Jeans Hitam', 
+              price: 120000, 
+              quantity: 1, 
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp', 
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              checked: false 
+            },
+            { 
+              id: 3, 
+              name: 'Kemeja Warna Biru Ukuran L', 
+              price: 180000, 
+              quantity: 1,
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp', 
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              checked: false 
+            },
+            { 
+              id: 4, 
+              name: 'Celana Jeans Hitam',
+              price: 120000, 
+              quantity: 1,
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp', 
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              checked: false
+             },
+            { 
+              id: 5, 
+              name: 'Kemeja Warna Biru Ukuran L', 
+              price: 180000, 
+              quantity: 1, 
+              seller: 'nurlela',
+              sellerPhoto: 'https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp', 
+              productPhoto: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423',
+              checked: false 
+            },
+            
         ],
         selectAll: false,
         get totalPrice() {
@@ -650,7 +681,7 @@
         }
     }"
     >
-      <div class="p-4 md:py-10 md:px-20 lg:px-36 w-full">
+      <div class="p-4 md:py-10 md:px-20 lg:px-52 w-full">
         <div class="flex flex-col items-center text-center mb-4 lg:mb-8">
           <div
             class="text-primary dark:text-neutral-300 text-md md:text-xl lg:text-3xl font-medium flex items-center gap-1"
@@ -660,122 +691,195 @@
           </div>
         </div>
 
-        <div
-          class="flex items-center justify-between bg-white dark:bg-neutral-900 dark:text-neutral-300 shadow-md rounded-xl p-3 lg:p-5 mb-2 lg:mb-5"
-        >
-          <label class="flex items-center gap-2 text-base font-medium">
-            <div class="relative flex items-center">
-              <input
-                id="checkboxDefault"
-                x-model="selectAll"
-                @click="toggleAll"
-                type="checkbox"
-                class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-primary checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
-                checked
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="4"
-                class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <span>Semua</span>
-          </label>
-          <button @click="removeSelected" class="text-red-600">Hapus</button>
-        </div>
-
-        <div class="h-[600px] xl:h-[400px] overflow-x-auto">
-          <template x-for="item in items" :key="item.id">
+        <div class="grid grid-cols-12 gap-4 relative">
+          <div class="col-span-12 lg:col-span-9">
             <div
-              class="bg-white shadow-md rounded-xl p-3 lg:p-5 mb-2 lg:mb-5 dark:bg-neutral-900 dark:text-neutral-300"
+              class="flex items-center justify-between bg-white dark:bg-neutral-900 dark:text-neutral-300 border dark:border-neutral-600 rounded-xl p-3 lg:p-5 mb-2 lg:mb-5"
             >
-              <div class="flex items-center justify-between">
-                <label class="flex items-center gap-2 text-sm font-medium">
-                  <div class="relative flex items-center">
-                    <input
-                      id="checkboxDefault"
-                      x-model="item.checked"
-                      type="checkbox"
-                      class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-primary checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-white dark:checked:before:bg-white dark:focus:outline-neutral-300 dark:checked:focus:outline-white"
+              <label class="flex items-center gap-2 text-base font-medium">
+                <div class="relative flex items-center">
+                  <input
+                    id="checkboxDefault"
+                    x-model="selectAll"
+                    @click="toggleAll"
+                    type="checkbox"
+                    class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-primary checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary dark:checked:before:bg-primary dark:focus:outline-neutral-300 dark:checked:focus:outline-primary"
+                    checked
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-width="4"
+                    class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 12.75l6 6 9-13.5"
                     />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-width="4"
-                      class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
+                  </svg>
+                </div>
+                <span>Semua</span>
+              </label>
+              <button
+                x-show="items.some(item => item.checked)"
+                @click="removeSelected"
+                class="text-primary font-semibold"
+              >
+                Hapus
+              </button>
+            </div>
+            <template x-for="item in items" :key="item.id">
+              <div
+                class="bg-white border dark:border-neutral-600 rounded-xl p-3 lg:p-5 mb-2 lg:mb-5 dark:bg-neutral-900 dark:text-neutral-300"
+              >
+                <div class="flex items-center justify-between">
+                  <label
+                    class="flex items-center gap-2 mr-3 text-sm font-medium"
+                  >
+                    <div class="relative flex items-center">
+                      <input
+                        id="checkboxDefault"
+                        x-model="item.checked"
+                        type="checkbox"
+                        class="before:content[''] peer relative size-4 appearance-none overflow-hidden rounded border border-neutral-300 bg-neutral-50 before:absolute before:inset-0 checked:border-primary checked:before:bg-primary focus:outline-2 focus:outline-offset-2 focus:outline-neutral-800 checked:focus:outline-black active:outline-offset-0 disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary dark:checked:before:bg-primary dark:focus:outline-neutral-300 dark:checked:focus:outline-primary"
                       />
-                    </svg>
-                  </div>
-                  <div class="flex gap-2">
-                    <img
-                      src="https://contents.mediadecathlon.com/p2157319/k$45a8143f29ae498e05be9c1588d95135/kaos-running-dry-fit-baju-lari-pria-breathable-hitam-decathlon-8488034.jpg?f=1920x0&format=auto"
-                      class="w-10"
-                    />
-                    <p class="text-sm" x-text="item.name"></p>
-                  </div>
-                </label>
-                <div class="flex items-center gap-4">
-                  <span
-                    x-text="'Rp. ' + (item.price * item.quantity).toLocaleString()"
-                  ></span>
-                  <div class="flex">
-                    <button
-                      @click="item.quantity = Math.max(1, item.quantity - 1)"
-                      class="px-2 py-1 border rounded-l-lg"
-                    >
-                      -
-                    </button>
-                    <input
-                      type="text"
-                      x-model="item.quantity"
-                      readonly
-                      class="w-8 text-center border-y dark:bg-neutral-900"
-                    />
-                    <button
-                      @click="item.quantity++"
-                      class="px-2 py-1 border rounded-r-lg"
-                    >
-                      +
-                    </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="4"
+                        class="pointer-events-none invisible absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex gap-2 items-center cursor-pointer">
+                      <img
+                        :src="item.productPhoto"
+                        class="w-24 object-cover rounded-lg"
+                      />
+                      <div class="flex flex-col ml-1 lg:ml-3">
+                        <p class="text-sm lg:text-lg" x-text="item.name"></p>
+                        <span
+                          class="text-lg font-bold mt-1"
+                          x-text="'Rp' + (item.price * item.quantity).toLocaleString()"
+                        ></span>
+                        <div class="lg:flex items-center mt-1 hidden">
+                          <img
+                            :src="item.sellerPhoto"
+                            alt=""
+                            class="w-6 h-6 rounded-full border-gray-300 dark:border-gray-700 border-2 -ml-1"
+                          />
+
+                          <a
+                            href="profil.html"
+                            class="block ml-1 text-sm text-gray-600 dark:text-gray-400 hover:underline duration-300 transition-all ease-in-out"
+                            x-text="item.seller"
+                          ></a>
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                  <div class="items-center gap-4 hidden lg:flex">
+                    <span
+                      class="text-lg font-bold"
+                      x-text="'Rp' + (item.price * item.quantity).toLocaleString()"
+                    ></span>
+                    <!-- <div class="flex">
+                      <button
+                        @click="item.quantity = Math.max(1, item.quantity - 1)"
+                        class="px-2 py-1 border rounded-l-lg"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="text"
+                        x-model="item.quantity"
+                        readonly
+                        class="w-8 text-center border-y dark:bg-neutral-900"
+                      />
+                      <button
+                        @click="item.quantity++"
+                        class="px-2 py-1 border rounded-r-lg"
+                      >
+                        +
+                      </button>
+                    </div> -->
                   </div>
                 </div>
               </div>
-            </div>
-          </template>
-        </div>
-
-        <div
-          class="flex items-center justify-between bg-white shadow-md dark:bg-neutral-900 dark:text-neutral-300 rounded-xl p-3 lg:p-5 mt-4"
-        >
-          <p class="font-semibold">Total Harga</p>
-          <div class="flex items-center gap-3">
-            <p x-text="'Rp. ' + totalPrice.toLocaleString()"></p>
-            <button
-              type="button"
-              class="px-4 py-2 bg-primary dark:bg-white text-white dark:text-black rounded-lg"
+            </template>
+          </div>
+          <div class="col-span-3 hidden lg:block">
+            <div
+              class="flex items-center justify-between bg-white border dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 rounded-xl p-3 lg:p-5 sticky top-32"
             >
-              Pesan
-            </button>
+              <div class="flex flex-col gap-3 w-full">
+                <p class="font-semibold text-lg">Ringkasan Belanja</p>
+                <div class="flex justify-between">
+                  <p class="text-neutral-600 dark:text-neutral-300">Total</p>
+                  <p
+                    class="text-xl font-bold"
+                    x-text="'Rp' + totalPrice.toLocaleString()"
+                  ></p>
+                </div>
+                <div
+                  class="border w-full border-slate-200 dark:border-neutral-600 mb-3 block"
+                  id="garis/devider"
+                ></div>
+                <a
+                  :href="items.some(item => item.checked) ? 'pesan.html' : '#'"
+                  :class="items.some(item => item.checked) 
+    ? 'bg-primary text-white hover:bg-primary/90' 
+    : 'bg-gray-400 text-gray-200 cursor-not-allowed'"
+                  :aria-disabled="!items.some(item => item.checked)"
+                  :tabindex="!items.some(item => item.checked) ? '-1' : '0'"
+                  class="px-4 py-2 rounded-lg text-lg font-bold transition-all duration-300 text-center"
+                >
+                  Pesan (<span
+                    x-text="items.filter(item => item.checked).length"
+                  ></span
+                  >)
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <!-- CO Mobile -->
+      <div
+        class="fixed md:sticky bottom-0 left-0 right-0 w-full bg-white dark:bg-neutral-800 rounded-t-lg lg:hidden px-4 py-3 shadow-md border-t border-neutral-300 dark:border-neutral-700"
+      >
+        <div class="flex justify-between mb-3">
+          <p class="text-neutral-600 dark:text-neutral-300">Total:</p>
+          <p
+            class="text-xl font-bold dark:text-white"
+            x-text="'Rp' + totalPrice.toLocaleString()"
+          ></p>
+        </div>
+        <!-- Tombol Beli Langsung -->
+        <a
+          :href="items.some(item => item.checked) ? 'pesan.html' : '#'"
+          :class="items.some(item => item.checked) 
+    ? 'bg-primary text-white hover:bg-primary/90' 
+    : 'bg-neutral-600 text-neutral-200 cursor-not-allowed'"
+          :aria-disabled="!items.some(item => item.checked)"
+          :tabindex="!items.some(item => item.checked) ? '-1' : '0'"
+          class="px-4 py-2 rounded-lg text-lg font-bold transition-all duration-300 text-center w-full block"
+        >
+          Pesan (<span x-text="items.filter(item => item.checked).length"></span
+          >)
+        </a>
       </div>
     </div>
 
