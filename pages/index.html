@@ -623,17 +623,13 @@
           x-data="{            
       slides: [                
           {
-              imgSrc: 'https://penguinui.s3.amazonaws.com/component-assets/carousel/aspect-slide-1.webp',
+              imgSrc: '../src/BANNER-SATU.jpg',
               imgAlt: 'Vibrant abstract painting with swirling blue and light pink hues on a canvas.',                
           },                
           {                    
-              imgSrc: 'https://penguinui.s3.amazonaws.com/component-assets/carousel/default-slide-2.webp',                    
+              imgSrc: '../src/BANNER-DUA.jpg',                    
               imgAlt: 'Vibrant abstract painting with swirling red, yellow, and pink hues on a canvas.',                
-          },                
-          {                    
-              imgSrc: 'https://penguinui.s3.amazonaws.com/component-assets/carousel/default-slide-3.webp',                    
-              imgAlt: 'Vibrant abstract painting with swirling blue and purple hues on a canvas.',                
-          },            
+          },                           
       ],            
       currentSlideIndex: 1,
       previous() {                
@@ -658,7 +654,7 @@
           <!-- previous button -->
           <button
             type="button"
-            class="absolute left-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
+            class="absolute left-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white/50 dark:bg-neutral-600/50"
             aria-label="previous slide"
             x-on:click="previous()"
           >
@@ -668,7 +664,7 @@
               stroke="currentColor"
               fill="none"
               stroke-width="3"
-              class="size-5 md:size-6 pr-0.5"
+              class="size-5 md:size-6 pr-0.5 text-primary"
               aria-hidden="true"
             >
               <path
@@ -682,7 +678,7 @@
           <!-- next button -->
           <button
             type="button"
-            class="absolute right-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white"
+            class="absolute right-5 top-1/2 z-10 flex rounded-full -translate-y-1/2 items-center justify-center bg-surface/40 p-2 text-on-surface transition hover:bg-surface/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:outline-offset-0 dark:bg-surface-dark/40 dark:text-on-surface-dark dark:hover:bg-surface-dark/60 dark:focus-visible:outline-primary-dark bg-white/50 dark:bg-neutral-600/50"
             aria-label="next slide"
             x-on:click="next()"
           >
@@ -692,7 +688,7 @@
               stroke="currentColor"
               fill="none"
               stroke-width="3"
-              class="size-5 md:size-6 pl-0.5"
+              class="size-5 md:size-6 pl-0.5 text-primary"
               aria-hidden="true"
             >
               <path
@@ -706,7 +702,7 @@
           <!-- slides -->
           <!-- Change min-h-[50svh] to your preferred height size -->
           <div
-            class="relative lg:min-h-[35svh] min-h-[20svh] w-full rounded-xl overflow-hidden"
+            class="relative lg:min-h-[35svh] min-h-[13svh] w-full rounded-xl overflow-hidden"
           >
             <template x-for="(slide, index) in slides">
               <div
