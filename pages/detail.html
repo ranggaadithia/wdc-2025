@@ -87,13 +87,13 @@
     class="font-inte flex flex-col min-h-screen"
     style="opacity: 0"
     onload="document.body.style.opacity='1'"
-    x-data="{modalIsOpen: false}"
+    x-data="{modalIsOpen: false, chatIsOpen: false}"
   >
     <!-- Navbar -->
     <nav
       x-data="{ mobileMenuIsOpen: false }"
       x-on:click.away="mobileMenuIsOpen = false"
-      class="flex sticky top-0 z-50 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
+      class="flex sticky top-0 z-30 items-center justify-between bg-neutral-50 border-b border-neutral-300 gap-4 p-3 md:px-8 xl:px-16 md:pt-3 md:pb-2 dark:border-neutral-700 dark:bg-neutral-900"
       aria-label="penguin ui menu"
     >
       <div class="flex items-center">
@@ -900,13 +900,15 @@
           </div>
 
           <!-- Tukar-Tambah Mobile -->
-          <button
-            type="button"
-            class="whitespace-nowrap block lg:hidden mt-3 w-full rounded-lg rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide bg-primary text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-white dark:focus-visible:outline-primary-dark dark:bg-primary"
-          >
-            Ajukan Tukar-Tambah
-          </button>
-
+          <div>
+            <button
+              x-on:click="chatIsOpen = true"
+              type="button"
+              class="whitespace-nowrap block lg:hidden mt-3 w-full rounded-lg rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide bg-primary text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-white dark:focus-visible:outline-primary-dark dark:bg-primary"
+            >
+              Ajukan Tukar-Tambah
+            </button>
+          </div>
           <div
             class="border w-full border-slate-200 my-3 block lg:hidden"
             id="garis/devider"
@@ -1115,12 +1117,17 @@
           >
             Buat Penawaran
           </button>
-          <a
-            href=""
-            class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-green-500"
-          >
-            Ajukan Tukar-Tambah
-          </a>
+
+          <div>
+            <button
+              x-on:click="chatIsOpen = true"
+              type="button"
+              class="whitespace-nowrap flex items-center justify-center w-full font-semibold mt-4 bg-transparent rounded-radius rounded-lg border border-primary px-4 py-2 tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:text-green-500"
+            >
+              Ajukan Tukar-Tambah
+            </button>
+          </div>
+
           <div class="border my-3"></div>
           <div class="flex justify-around">
             <a
@@ -1182,7 +1189,7 @@
               >
                 <div
                   x-show="fallbackModalIsOpen"
-                  class="flex w-full max-w-lg flex-col gap-4 rounded-sm border border-neutral-300 overflow-hidden bg-white text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+                  class="flex w-full max-w-lg flex-col gap-4 rounded-lg border border-neutral-300 overflow-hidden bg-white text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
                   x-transition:enter="transition delay-100 duration-200 ease-out motion-reduce:transition-opacity"
                   x-transition:enter-end="scale-100 opacity-100"
                   x-transition:enter-start="scale-50 opacity-0"
@@ -1487,6 +1494,159 @@
         <!-- Elemen Observer untuk mendeteksi scroll ke bawah -->
         <div x-ref="scrollTrigger" class="h-5 w-full"></div>
       </div>
+
+      <div
+        x-cloak
+        x-show="chatIsOpen"
+        x-transition.opacity.duration.200ms
+        x-trap.inert.noscroll="chatIsOpen"
+        x-on:keydown.esc.window="chatIsOpen = false"
+        x-on:click.self="chatIsOpen = false"
+        class="fixed inset-0 z-30 flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="defaultModalTitle"
+      >
+        <!-- Modal Dialog -->
+        <div
+          x-show="chatIsOpen"
+          x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
+          x-transition:enter-start="opacity-0 scale-50"
+          x-transition:enter-end="opacity-100 scale-100"
+          class="flex max-w-lg flex-col gap-4 overflow-hidden rounded-lg border border-neutral-300 bg-white text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+        >
+          <!-- Header -->
+          <div class="bg-primary p-4 flex justify-between items-center">
+            <h3 class="text-white text-lg font-semibold">Chat</h3>
+            <button x-on:click="chatIsOpen = false" class="text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                stroke="currentColor"
+                fill="none"
+                stroke-width="1.4"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="flex flex-col p-3 gap-2 border-b border-neutral-300 dark:bg-neutral-900 dark:border-neutral-500"
+          >
+            <div class="flex gap-1 items-center">
+              <div>
+                <img
+                  src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473062/sub/goods_473062_sub14_3x4.jpg"
+                  alt=""
+                  class="w-28"
+                />
+              </div>
+              <div class="text-xs dark:text-white">
+                Kemeja Katun Modal Kerah Tegak | Lengan Pendek
+              </div>
+              <div class="text-base text-primary font-semibold">
+                Tukar Menukar
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-2 text-neutral-600 dark:text-neutral-300 dark:bg-neutral-900"
+            >
+              <input
+                id="textInputDefault"
+                type="text"
+                class="w-full rounded-lg border border-neutral-300 bg-neutral-50 px-2 py-2 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+                name="name"
+                placeholder="Halo apakah bisa melakukan tukar - menukar?"
+                autocomplete="name"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-7"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                />
+              </svg>
+            </div>
+          </div>
+          <!-- Chat List -->
+          <div
+            class="bg-white py-4 px-2 md:px-4 max-h-96 overflow-y-auto text-xs md:text-sm dark:bg-neutral-900"
+          >
+            <div class="flex w-full flex-col gap-4">
+              <!-- Recieved -->
+
+              <div
+                class="mr-auto flex max-w-[80%] flex-col gap-2 rounded-r-sm rounded-tl-sm bg-neutral-50 p-4 text-neutral-00 md:max-w-[60%] dark:bg-neutral-800 dark:text-white"
+              >
+                <span class="font-semibold">Kevin Sanjaya</span>
+                <div class="text-sm text-neutral-600 dark:text-neutral-300">
+                  Hai! Ada yang bisa saya bantu hari ini?
+                </div>
+                <span class="ml-auto text-xs">11:32 AM</span>
+              </div>
+
+              <!-- Sent -->
+              <div
+                class="ml-auto flex max-w-[80%] flex-col gap-2 rounded-l-sm rounded-tr-sm bg-primary p-4 text-sm text-neutral-100 md:max-w-[60%] dark:bg-primary dark:text-neutral-100"
+              >
+                Saya ingin bertanya mengenai stock baju masih ada?
+                <span class="ml-auto text-xs">11:34 AM</span>
+              </div>
+
+              <!-- Recieved -->
+              <div
+                class="mr-auto flex max-w-[80%] flex-col gap-2 rounded-r-sm rounded-tl-sm bg-neutral-50 p-4 text-neutral-900 md:max-w-[60%] dark:bg-neutral-800 dark:text-white"
+              >
+                <span class="font-semibold">Kevin Sanjaya</span>
+                <div class="text-sm text-neutral-600 dark:text-neutral-300">
+                  Stock masih tersisa 1 silahkan di pesan kak
+                </div>
+                <span class="ml-auto text-xs">11:35 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="p-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-300 dark:bg-neutral-900"
+          >
+            <input
+              id="textInputDefault"
+              type="text"
+              class="w-full rounded-lg border border-neutral-300 bg-neutral-50 px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:focus-visible:outline-white"
+              name="name"
+              placeholder=""
+              autocomplete="name"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-7"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div
@@ -1677,101 +1837,101 @@
             },
             {
               id: 2,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja JSON | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464939/item/goods_00_464939_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 3,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja Katun Modal Kerah Tegak | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464939/sub/goods_464939_sub14_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 4,
-              name: "Kemeja Soft Twill | XL",
+              name: "T-Shirt Soft Touch (Soft Brushed) Kerah Bulat | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub15_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 5,
-              name: "Kemeja Soft Twill | XL",
+              name: "T-Shirt Soft Touch (Soft Brushed) Kerah Bulat | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474511/sub/goods_474511_sub14_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 6,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja Katun Modal Kerah Tegak | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473064/sub/goods_473064_sub14_3x4.jpg?width=369",
               cartCount: 1,
             },
             {
               id: 7,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja Katun Modal Kotak | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477903/sub/goods_477903_sub14_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 8,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja Katun Modal Bunga | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477644/sub/goods_477644_sub15_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 9,
-              name: "Kemeja Soft Twill | XL",
+              name: "Kemeja Katun Modal Bunga | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474522/sub/goods_474522_sub15_3x4.jpg?width=423",
               cartCount: 1,
             },
             {
               id: 10,
-              name: "Kemeja Soft Twill | XL",
+              name: "Sweater Peanuts | XL",
               price: "Rp350.000",
               seller: "nurlela",
               sellerPhoto:
                 "https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp",
               productPhoto:
-                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/460687/sub/goods_460687_sub14_3x4.jpg?width=423",
+                "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477859/sub/goods_477859_sub14_3x4.jpg?width=423",
               cartCount: 1,
             },
           ],
