@@ -660,24 +660,36 @@
               </div>
             </div>
             <div class="flex justify-between items-center gap-2">
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 w-full">
                 <img
                   src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473062/sub/goods_473062_sub14_3x4.jpg"
-                  class="object-cover aspect-[2/3] transition duration-700 ease-out group-hover:scale-105 w-28 rounded"
+                  class="object-cover aspect-[2/3] transition duration-700 ease-out group-hover:scale-105 w-28 lg:w-32 rounded"
                   alt="Gambar"
                 />
-                <div class="flex flex-col">
-                  <div class="text-xs lg:text-sm dark:text-neutral-300">
+                <div
+                  class="flex flex-col lg:flex-row gap-2 w-full justify-between"
+                >
+                  <div class="flex flex-col"></div>
+                  <div class="text-xs lg:text-base dark:text-neutral-300">
                     Kemeja Katun Modal Kerah Tegak | Lengan Pendek
                   </div>
                   <div
-                    class="flex justify-between text-xs lg:text-sm dark:text-neutral-300"
+                    class="flex justify-between text-xs lg:text-base dark:text-neutral-300"
                   >
-                    <p class="font-bold mt-3">Rp130.000</p>
+                    <p class="font-bold mt-3 lg:mt-0">1 X Rp130.000</p>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              class="border w-full border-slate-200 my-3 hidden lg:block"
+              id="garis/devider"
+            ></div>
+            <h3
+              class="text-base lg:text-lg font-semibold dark:text-neutral-300 mb-2 hidden lg:block"
+            >
+              Pengiriman & Catatan
+            </h3>
             <div
               x-data="{
               options: [
@@ -720,7 +732,7 @@
                   }
               },
           }"
-              class="w-full max-w-xs flex flex-col gap-1 mt-3"
+              class="w-full flex flex-col gap-1 mt-3"
               x-on:keydown="highlightFirstMatchingOption($event.key)"
               x-on:keydown.esc.window="isOpen = false, openedWithKeyboard = false"
             >
@@ -820,7 +832,7 @@
               </div>
             </div>
             <div
-              class="flex items-start w-full flex-col md:flex-row gap-1 md:gap-2 lg:text-sm text-neutral-600 dark:text-neutral-300 mt-3"
+              class="flex items-start w-full flex-col gap-1 md:gap-2 lg:text-sm text-neutral-600 dark:text-neutral-300 mt-3"
             >
               <label
                 for="textInputDefault"
@@ -841,7 +853,7 @@
 
         <div
           x-data="{ selectedPayment: null, modalIsOpen: false }"
-          class="basis-1/3 bg-white rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6"
+          class="basis-1/3 bg-white rounded-lg border mb-4 p-4 dark:bg-neutral-900 dark:border-neutral-800 lg:p-6 h-fit sticky top-32"
         >
           <div class="flex items-center justify-between">
             <div
@@ -998,7 +1010,7 @@
             </div>
           </label>
           <div class="py-3">
-            <h2 class="font-semibold dark:text-neutral-300">
+            <h2 class="font-semibold lg:text-lg dark:text-neutral-300">
               Rincian Pembayaran
             </h2>
             <div class="py-3 flex flex-col gap-y-1">
@@ -1028,12 +1040,33 @@
               </div>
             </div>
           </div>
+
+          <div
+            class="border w-full border-slate-200 my-3 hidden lg:block"
+            id="garis/devider"
+          ></div>
+
+          <div class="w-full hidden lg:block">
+            <div class="flex justify-between mb-3">
+              <p class="text-neutral-600 text-sm dark:text-neutral-300">
+                Total Pembayaran:
+              </p>
+              <p class="text-xl font-bold dark:text-white">Rp130.000</p>
+            </div>
+            <!-- Tombol Beli Langsung -->
+            <a
+              href=""
+              class="px-4 py-2 rounded-lg text-lg font-bold transition-all duration-300 text-center w-full block bg-primary text-white hover:bg-primary/90"
+            >
+              Bayar Sekarang
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- CO Mobile -->
       <div
-        class="sticky bottom-0 left-0 right-0 w-full bg-white dark:bg-neutral-800 rounded-t-lg lg:hidden px-4 py-3 shadow-md border-t border-neutral-300 dark:border-neutral-700"
+        class="sticky bottom-0 left-0 right-0 w-full bg-white dark:bg-neutral-900 rounded-t-lg lg:hidden px-4 py-3 shadow-md border-t border-neutral-300 dark:border-neutral-700"
       >
         <div class="flex justify-between mb-3">
           <p class="text-neutral-600 dark:text-neutral-300">
@@ -1049,6 +1082,58 @@
           Bayar Sekarang
         </a>
       </div>
+
+      <!-- Footer -->
+      <footer class="bg-primary dark:bg-neutral-900 p-4 md:p-6 pt-10 lg:px-14">
+        <div class="md:flex flex-row gap-5">
+          <div class="basis-1/2 text-neutral-200 text-sm mb-4">
+            <div class="flex justify-center md:justify-start">
+              <img src="../src/logo2.png" alt="" class="w-48" />
+            </div>
+            <div class="text-center md:text-start md:max-w-80">
+              Jalan Udayana Nomor 11 Singaraja , Kec. Buleleng, Kab. Buleleng,
+              Prov. Bali 81116
+            </div>
+          </div>
+          <div
+            class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2 md:mb-8 lg:mb-14"
+          >
+            <div class="font-semibold text-lg">PERUSAHAAN</div>
+            <div>Tentang Kami</div>
+            <div>Hubungi Kami</div>
+            <div>Blog</div>
+            <div>Program</div>
+          </div>
+          <div
+            class="basis-1/3 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+          >
+            <div class="font-semibold text-lg">BANTUAN</div>
+            <div>Dukungan</div>
+            <div>FAQ</div>
+          </div>
+          <div
+            class="basis-1/4 text-neutral-200 text-center text-sm mb-4 leading-6 md:text-start pt-2"
+          >
+            <div class="font-semibold mb-2 text-lg">SOSIAL MEDIA</div>
+            <div
+              class="flex justify-center md:justify-start items-center gap-3"
+            >
+              <i class="fa-brands fa-facebook text-lg"></i
+              ><i class="fa-brands fa-instagram text-xl"></i
+              ><i class="fa-brands fa-youtube text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="text-xs flex items-center justify-center text-neutral-200 pt-2 md:pt-4 border-t"
+          >
+            <i class="fa-regular fa-copyright mr-1"></i>2025 PakaiKembali.com |
+            Hidupkan Kembali Fashionmu
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
     </main>
   </body>
 </html>
