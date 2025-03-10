@@ -41,3 +41,8 @@
 .swiper-pagination {
   @apply max-w-fit;
 }
+
+.leaflet-routing-container,
+.leaflet-bottom {
+  display: none !important;
+}
